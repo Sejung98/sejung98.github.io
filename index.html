@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CPM - Computational Precision Medicine </title>
+  
+  <!-- 파비콘 설정 -->
+  <link rel="icon" type="image/x-icon" href="images/logo_blue.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  
+  <link rel="stylesheet" href="style.css?v=2025012807">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <!-- AOS 라이브러리 추가 -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+      <!-- 로딩 오버레이 -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="logo-container">
+                <img src="images/logo_blue.png" alt="로고" class="loading-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div class="logo-text" style="display: none;">Bhin's Group</div>
+                <div class="logo-subtitle">Computational Precision Medicine</div>
+            </div>
+            
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+            
+
+        </div>
+    </div>
+
+    <!-- 헤더 -->
+    <header class="site-header">
+      <div class="header-container">
+        <div class="logo">
+          <a href="index.html">
+            <img src="images/logo_mini2.png" alt="로고" class="logo-image" onerror="this.style.display='none';">
+            <h1>Bhin's group</h1>
+          </a>
+        </div>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="members.html">Members</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+  <!-- 메인 배너 -->
+  <section class="main-banner" data-aos="fade-up" data-aos-duration="1000">
+    <div class="banner-content">
+      <h2 data-aos="fade-up" data-aos-delay="200">Computational Precision Medicine</h2>
+      <p data-aos="fade-up" data-aos-delay="400">샘플 입니다.</p>
+    </div>
+  </section>
+
+
+
+  <!-- 메인 콘텐츠 -->
+  <main class="content">
+    <!-- 소개 섹션 -->
+    <section id="about" class="about-section" data-aos="fade-up">
+      <div class="container">
+        <h2 data-aos="fade-up" data-aos-delay="100">About Us</h2>
+        <div class="about-content">
+          <div class="about-text" data-aos="fade-right" data-aos-delay="200">
+            <p>여기는 샘플입니다.</p>
+            <p>여기는 샘플입니다.</p>
+          </div>
+          <div class="about-image" data-aos="fade-left" data-aos-delay="400">
+            <img src="images/lab.jpg" alt="연구실" class="about-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="image-placeholder" style="display: none;">연구실 이미지</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 연구 성과 섹션 -->
+    <section id="research" class="research-section" data-aos="fade-up">
+      <div class="container">
+        <h2 data-aos="fade-up" data-aos-delay="100">Research Highlights</h2>
+        <div class="research-grid">
+          <div class="research-item" data-aos="fade-up" data-aos-delay="200">
+            <div class="research-image">
+              <img src="images/research1.jpg" alt="연구 이미지 1" class="research-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="image-placeholder" style="display: none;">연구 이미지 1</div>
+            </div>
+            <h3>여기는 샘플입니다</h3>
+            <p>여기는 샘플입니다</p>
+            <span class="date">June 28, 2023</span>
+          </div>
+          <div class="research-item" data-aos="fade-up" data-aos-delay="300">
+            <div class="research-image">
+              <img src="images/research2.jpg" alt="연구 이미지 2" class="research-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="image-placeholder" style="display: none;">연구 이미지 2</div>
+            </div>
+            <h3>여기는 샘플입니다</h3>
+            <p>여기는 샘플입니다</p>
+            <span class="date">June 28, 2023</span>
+          </div>
+          <div class="research-item" data-aos="fade-up" data-aos-delay="400">
+            <div class="research-image">
+              <img src="images/research3.jpg" alt="연구 이미지 3" class="research-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="image-placeholder" style="display: none;">연구 이미지 3</div>
+            </div>
+            <h3>여기는 샘플입니다</h3>
+            <p>여기는 샘플입니다</p>
+            <span class="date">January 20, 2020</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 뉴스 섹션 -->
+    <section id="news" class="news-section" data-aos="fade-up">
+      <div class="container">
+        <h2 data-aos="fade-up" data-aos-delay="100">Latest News</h2>
+        <div class="news-grid">
+          <article class="news-item" data-aos="fade-up" data-aos-delay="200">
+            <div class="news-image">
+              <img src="images/news1.jpg" alt="뉴스 이미지 1" class="news-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="image-placeholder" style="display: none;">뉴스 이미지 1</div>
+            </div>
+            <div class="news-content">
+              <h3>샘플 입니다.</h3>
+              <p>샘플 입니다.</p>
+              <span class="date">December 3, 2024</span>
+            </div>
+          </article>
+
+          <article class="news-item" data-aos="fade-up" data-aos-delay="300">
+            <div class="news-image">
+              <img src="images/news2.jpg" alt="뉴스 이미지 2" class="news-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="image-placeholder" style="display: none;">뉴스 이미지 2</div>
+            </div>
+            <div class="news-content">
+              <h3>여기는 샘플입니다</h3>
+              <p>여기는 샘플입니다</p>
+              <span class="date">December 2, 2024</span>
+            </div>
+          </article>
+
+          <article class="news-item" data-aos="fade-up" data-aos-delay="400">
+            <div class="news-image">
+              <img src="images/news3.jpg" alt="뉴스 이미지 3" class="news-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="image-placeholder" style="display: none;">뉴스 이미지 3</div>
+            </div>
+            <div class="news-content">
+              <h3>여기는 샘플입니다</h3>
+              <p>여기는 샘플입니다.</p>
+              <span class="date">November 15, 2024</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!--  Today 섹션 -->
+    <section id="CPM-today" class="CPM-today-section" data-aos="fade-up">
+      <div class="container">
+        <h2 data-aos="fade-up" data-aos-delay="100">CPM Today</h2>
+        <div class="today-grid">
+          <div class="today-item" data-aos="fade-up" data-aos-delay="200">
+            <div class="today-image">
+              <img src="images/event1.jpg" alt="이벤트 이미지 1" class="today-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="image-placeholder" style="display: none;">이벤트 이미지 1</div>
+            </div>
+            <h3>여기는 샘플입니다</h3>
+            <span class="date">February 21, 2025</span>
+          </div>
+          <div class="today-item" data-aos="fade-up" data-aos-delay="300">
+            <div class="today-image">
+              <img src="images/event2.jpg" alt="이벤트 이미지 2" class="today-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="image-placeholder" style="display: none;">이벤트 이미지 2</div>
+            </div>
+            <h3>여기는 샘플입니다</h3>
+            <span class="date">February 13, 2025</span>
+          </div>
+          <div class="today-item" data-aos="fade-up" data-aos-delay="400">
+            <div class="today-image">
+              <img src="images/event3.jpg" alt="이벤트 이미지 3" class="today-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="image-placeholder" style="display: none;">이벤트 이미지 3</div>
+            </div>
+            <h3>여기는 샘플입니다</h3>
+            <span class="date">December 30, 2024</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 연락처 섹션 -->
+    <section id="contact" class="contact-section" data-aos="fade-up">
+      <div class="container">
+        <h2 data-aos="fade-up" data-aos-delay="100">Contact Us</h2>
+        <div class="contact-content">
+          <div class="contact-info" data-aos="fade-up" data-aos-delay="200">
+            <h3>샘플 입니다.</h3>
+            <div class="contact-form" data-aos="fade-up" data-aos-delay="300">
+              <input type="email" placeholder="이메일 주소를 입력하세요" class="email-input">
+              <button type="submit" class="btn btn-primary">전송</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 푸터 -->
+  <footer class="site-footer" data-aos="fade-up">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo" data-aos="fade-up" data-aos-delay="100">
+          <h3>CPM</h3>
+          <p> 여기는 샘플입니다</p>
+        </div>
+        <div class="footer-links" data-aos="fade-up" data-aos-delay="200">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#publications">Publications</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact" data-aos="fade-up" data-aos-delay="300">
+          <h4>Contact</h4>
+          <p>Email: info@CPM.re.kr</p>
+          <p>Phone: +82-XXX-XXXX</p>
+        </div>
+      </div>
+      <div class="footer-bottom" data-aos="fade-up" data-aos-delay="400">
+        <p>&copy; 여기는 샘플입니다. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+    <!-- 로딩 스크립트 -->
+    <script>
+        // 페이지 로드 완료 후 로딩 오버레이 숨김
+        window.addEventListener('load', function() {
+            const loadingOverlay = document.getElementById('loadingOverlay');
+            const siteHeader = document.querySelector('.site-header');
+            
+            setTimeout(function() {
+                // 줌인 애니메이션 시작
+                loadingOverlay.classList.add('zoom-out');
+                
+                // 헤더 표시 (로딩 시작과 동시에)
+                siteHeader.classList.add('show');
+                
+                // 애니메이션 완료 후 오버레이 완전히 숨김
+                setTimeout(function() {
+                    loadingOverlay.style.display = 'none';
+                }, 1000); // 줌아웃 애니메이션 1초 후 숨김
+            }, 2000); // 초기 로딩 2초
+        });
+    </script>
+    
+    <!-- AOS 라이브러리 스크립트 -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // AOS 초기화
+        AOS.init({
+            duration: 800,        // 애니메이션 지속 시간 (밀리초)
+            easing: 'ease-out',   // 애니메이션 이징
+            once: true,           // 한 번만 실행
+            offset: 100,          // 트리거 지점 (픽셀)
+            delay: 0,             // 지연 시간
+            anchorPlacement: 'top-bottom' // 애니메이션 시작 지점
+        });
+        
+        // 현재 페이지 메뉴 활성화
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            const menuLinks = document.querySelectorAll('.main-nav a');
+            
+            menuLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === currentPage || (currentPage === 'index.html' && href === 'index.html')) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

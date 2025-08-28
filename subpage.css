@@ -1,0 +1,580 @@
+/* ========================================
+   서브페이지 전용 스타일
+   ======================================== */
+
+/* ========================================
+   서브페이지 헤더 표시 (로딩 없이 즉시 표시)
+   ======================================== */
+.site-header {
+  opacity: 1 !important;                    /* 헤더 즉시 표시 */
+  visibility: visible !important;           /* 헤더 보이기 */
+  transition: none !important;              /* 전환 효과 제거 */
+}
+
+/* ========================================
+   페이지 헤더
+   ======================================== */
+.page-header {
+  background: transparent !important;          /* 배경 투명 강제 */
+  color: white;
+  text-align: center;
+  padding: 8rem 0 4rem;                        /* 상단 여백 (헤더 높이 고려) */
+  margin-top: 80px;                            /* 헤더 높이만큼 여백 */
+  max-width: 80%;                              /* 메인 페이지와 동일한 너비 */
+  margin-left: auto;                           /* 중앙 정렬 */
+  margin-right: auto;                          /* 중앙 정렬 */
+  border-radius: 20px;                         /* 모서리 둥글게 */
+  box-shadow: none !important;                 /* 그림자 제거 강제 */
+  border: none !important;                     /* 테두리 제거 강제 */
+}
+
+.page-header h1 {
+  font-size: 3rem;                            /* 페이지 제목 크기 */
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);  /* 그림자 효과 */
+}
+
+.page-header p {
+  font-size: 1.3rem;                          /* 부제목 크기 */
+  opacity: 0.9;
+}
+
+/* ========================================
+   서브페이지 콘텐츠
+   ======================================== */
+.subpage-content {
+  max-width: 80%;                             /* 메인 페이지와 동일한 너비 */
+  margin: 2rem auto;                          /* 중앙 정렬 */
+}
+
+.subpage-content .container {
+  max-width: none;                            /* 컨테이너 제한 해제 */
+  padding: 0;                                 /* 패딩 제거 */
+}
+
+.subpage-content section {
+  background: transparent;                     /* 배경 투명 */
+  backdrop-filter: none;                       /* 블러 제거 */
+  border: none;                                /* 테두리 제거 */
+  border-radius: 20px;                         /* 모서리 둥글게 유지 */
+  padding: 3rem;                               /* 내부 여백 */
+  margin-bottom: 2rem;                         /* 섹션 간 여백 */
+}
+
+.subpage-content h2 {
+  font-size: 2.5rem;                          /* 섹션 제목 크기 */
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #ffffff;
+  position: relative;
+}
+
+.subpage-content h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;                                /* 선 길이 */
+  height: 4px;                                /* 선 두께 */
+  background: linear-gradient(90deg, rgba(120, 120, 120, 0.8), rgba(160, 160, 160, 0.8)); /* 회색 그라데이션 선 */
+  border-radius: 2px;
+}
+
+/* ========================================
+   비전 섹션
+   ======================================== */
+.vision-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;            /* 2열 그리드 */
+  gap: 4rem;                                 /* 열 간격 */
+  align-items: center;
+}
+
+.vision-text p {
+  font-size: 1.2rem;                          /* 텍스트 크기 */
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+  line-height: 1.8;
+}
+
+.vision-image {
+  text-align: center;
+}
+
+.vision-img {
+  width: 100%;
+  height: 300px;                              /* 이미지 높이 */
+  object-fit: cover;                          /* 이미지 비율 유지 */
+  border-radius: 15px;                        /* 모서리 둥글게 */
+  transition: transform 0.3s ease;            /* 부드러운 전환 */
+}
+
+.vision-img:hover {
+  transform: scale(1.05);                     /* 호버 시 5% 확대 */
+}
+
+/* ========================================
+   미션 섹션
+   ======================================== */
+.mission-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 반응형 그리드 */
+  gap: 2rem;
+}
+
+.mission-item {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.1);      /* 반투명 배경 */
+  border-radius: 15px;                        /* 모서리 둥글게 */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;            /* 부드러운 전환 */
+}
+
+.mission-item:hover {
+  transform: translateY(-10px);               /* 호버 시 위로 이동 */
+  background: rgba(255, 255, 255, 0.15);     /* 호버 시 배경색 변경 */
+}
+
+.mission-icon {
+  font-size: 3rem;                            /* 아이콘 크기 */
+  margin-bottom: 1rem;
+}
+
+.mission-item h3 {
+  font-size: 1.5rem;                          /* 제목 크기 */
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.mission-item p {
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+
+/* ========================================
+   팀 소개 섹션
+   ======================================== */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 반응형 그리드 */
+  gap: 2rem;
+}
+
+.team-member {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);      /* 반투명 배경 */
+  border-radius: 15px;                        /* 모서리 둥글게 */
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;            /* 부드러운 전환 */
+}
+
+.team-member:hover {
+  transform: translateY(-10px);               /* 호버 시 위로 이동 */
+}
+
+.member-image {
+  margin-bottom: 1.5rem;
+}
+
+.member-img {
+  width: 200px;                               /* 이미지 크기 */
+  height: 200px;                              /* 이미지 크기 */
+  object-fit: cover;                          /* 이미지 비율 유지 */
+  border-radius: 50%;                         /* 원형 이미지 */
+  border: 3px solid rgba(255, 255, 255, 0.2); /* 테두리 */
+  transition: transform 0.3s ease;            /* 부드러운 전환 */
+}
+
+.team-member:hover .member-img {
+  transform: scale(1.1);                      /* 호버 시 10% 확대 */
+}
+
+.team-member h3 {
+  font-size: 1.5rem;                          /* 이름 크기 */
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.member-title {
+  color: rgba(180, 180, 180, 0.9);           /* 직책 색상 */
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.member-description {
+  color: #e0e0e0;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* ========================================
+   활성 메뉴 스타일
+   ======================================== */
+.main-nav a.active,
+.mobile-menu a.active {
+  background-color: rgba(255, 255, 255, 0.2); /* 활성 메뉴 배경색 */
+  color: #ff6b6b;                             /* 활성 메뉴 글자색 */
+  border-radius: 5px;
+}
+
+/* ========================================
+   Contact 페이지 지도 스타일
+   ======================================== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.contact-details h3,
+.contact-map h3 {
+  font-size: 1.8rem;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-icon {
+  font-size: 2rem;
+  margin-right: 1rem;
+  margin-top: 0.5rem;
+}
+
+.contact-item h4 {
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.contact-item p {
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+
+.map-container {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.map-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.map-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+}
+
+.map-fallback {
+  text-align: center;
+  color: #ffffff;
+}
+
+.map-fallback h4 {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.map-fallback p {
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+}
+
+.map-link {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: #ff6b6b;
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.map-link:hover {
+  background: #ff5252;
+  transform: translateY(-2px);
+}
+
+/* ========================================
+   반응형 디자인
+   ======================================== */
+@media (max-width: 768px) {
+  .page-header,
+  .subpage-content {
+    max-width: 95%;                           /* 모바일에서는 거의 전체 너비 */
+  }
+  
+  .contact-grid {
+    grid-template-columns: 1fr;               /* 모바일에서는 1열로 변경 */
+    gap: 2rem;
+  }
+  
+  .page-header {
+    padding: 6rem 0 3rem;                     /* 모바일에서 여백 줄임 */
+  }
+  
+  .page-header h1 {
+    font-size: 2.5rem;                        /* 모바일에서 제목 크기 줄임 */
+  }
+  
+  .page-header p {
+    font-size: 1.1rem;                        /* 모바일에서 부제목 크기 줄임 */
+  }
+  
+  .subpage-content section {
+    padding: 2rem;                            /* 모바일에서 내부 여백 줄임 */
+  }
+  
+  .vision-content {
+    grid-template-columns: 1fr;               /* 1열로 변경 */
+    gap: 2rem;
+  }
+  
+  .mission-grid,
+  .team-grid {
+    grid-template-columns: 1fr;               /* 1열로 변경 */
+  }
+  
+  .vision-img {
+    height: 200px;                            /* 모바일에서 이미지 높이 줄임 */
+  }
+  
+  .member-img {
+    width: 150px;                             /* 모바일에서 이미지 크기 줄임 */
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-header h1 {
+    font-size: 2rem;                          /* 더 작은 제목 크기 */
+  }
+  
+  .subpage-content h2 {
+    font-size: 2rem;                          /* 섹션 제목 크기 줄임 */
+  }
+  
+  .subpage-content section {
+    padding: 1.5rem;                          /* 더 작은 내부 여백 */
+  }
+}
+
+/* ========================================
+   Research 페이지 전용 스타일
+   ======================================== */
+
+/* 연구 분야 그리드 */
+.research-areas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.research-area-item {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.research-area-item:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.area-icon {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.research-area-item h3 {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.research-area-item p {
+  color: #e0e0e0;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.area-details h4 {
+  color: #ff6b6b;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.area-details ul {
+  list-style: none;
+  padding: 0;
+}
+
+.area-details li {
+  color: #e0e0e0;
+  padding: 0.25rem 0;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.area-details li::before {
+  content: '▶';
+  color: #ff6b6b;
+  position: absolute;
+  left: 0;
+  font-size: 0.8rem;
+}
+
+/* 프로젝트 그리드 */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+.project-item {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.project-item:hover {
+  transform: translateY(-10px);
+}
+
+.project-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-item:hover .project-img {
+  transform: scale(1.1);
+}
+
+.project-content {
+  padding: 1.5rem;
+}
+
+.project-content h3 {
+  font-size: 1.3rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.project-description {
+  color: #e0e0e0;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.project-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-duration,
+.project-funding {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: #ffffff;
+}
+
+/* 성과 그리드 */
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.achievement-item {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.achievement-item:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.achievement-number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ff6b6b;
+  margin-bottom: 1rem;
+}
+
+.achievement-item h3 {
+  font-size: 1.3rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.achievement-item p {
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .research-areas-grid,
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .achievements-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .achievements-grid {
+    grid-template-columns: 1fr;
+  }
+}
