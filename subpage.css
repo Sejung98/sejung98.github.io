@@ -1,3 +1,73 @@
+/* Members 카드 레이아웃 */
+.members-list {
+  margin-top: 20px;
+}
+
+.members-list h2 {
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 24px;
+  margin-top: 32px;
+  text-align: left;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+
+.members-list h2:first-child {
+  margin-top: 0;
+}
+
+.member-card {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 20px;
+  border-radius: 12px;
+  background: rgba(0,0,0,0.05);
+  margin-bottom: 16px;
+}
+
+.member-photo {
+  flex: 0 0 140px;
+}
+
+.member-img {
+  width: 160px;
+  height: 160px;
+  object-fit: contain; /* 사진 전체가 보이도록 */
+  background: #ffffff; /* 여백 배경 흰색 */
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 8px; /* 사각형 형태 유지, 약간 라운드 */
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+
+.member-info h3 {
+  margin: 0 0 6px 0;
+  font-size: 1.1rem;
+}
+
+.member-info h4 {
+  margin: 10px 0 6px 0;
+  font-size: 1rem;
+}
+
+.member-info p {
+  margin: 2px 0;
+  line-height: 1.5;
+}
+
+.member-info .email {
+  font-weight: 400;
+  font-size: 0.95em;
+}
+/* 페이지 헤더 간격 축소 버전 */
+.compact-header {
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+  margin-top: 2px !important;
+}
 /* ========================================
    서브페이지 전용 스타일
    ======================================== */
@@ -183,11 +253,19 @@
 
 .member-img {
   width: 200px;                               /* 이미지 크기 */
-  height: 200px;                              /* 이미지 크기 */
-  object-fit: cover;                          /* 이미지 비율 유지 */
-  border-radius: 50%;                         /* 원형 이미지 */
-  border: 3px solid rgba(255, 255, 255, 0.2); /* 테두리 */
+  height: 240px;                              /* 이미지 크기 */
+  object-fit: cover;                          /* 이미지가 컨테이너를 채우도록 */
+  border-radius: 8px;                         /* 사각형 형태 */
+  border: 1px solid rgba(0, 0, 0, 0.08);    /* 테두리 */
+  background: transparent;                    /* 배경 투명 */
   transition: transform 0.3s ease;            /* 부드러운 전환 */
+}
+
+.member-img.pi-img {
+  width: 220px;                               /* PI 이미지 가로는 좁게 */
+  height: 320px;                              /* PI 이미지 세로는 더 크게 */
+  object-fit: cover;                          /* 이미지가 컨테이너를 채우도록 */
+  border-radius: 12px;                        /* 약간 더 둥글게 */
 }
 
 .team-member:hover .member-img {
