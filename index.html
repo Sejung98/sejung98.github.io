@@ -54,14 +54,58 @@
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </nav>
+        
+        <!-- 모바일 메뉴 버튼 -->
+        <div class="mobile-menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        
+        <!-- 모바일 드롭다운 메뉴 -->
+        <div class="mobile-dropdown">
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="members.html">Members</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
       </div>
     </header>
 
-  <!-- 메인 배너 -->
-  <section class="main-banner" data-aos="fade-up" data-aos-duration="1000">
-    <div class="banner-content">
-      <h2 data-aos="fade-up" data-aos-delay="200">Computational Precision Medicine</h2>
-      <p data-aos="fade-up" data-aos-delay="400">샘플 입니다.</p>
+  <!-- 메인 배너 슬라이더 -->
+  <section class="main-banner-slider" data-aos="fade-up" data-aos-duration="1000">
+    <h2 class="banner-title" data-aos="fade-up" data-aos-delay="100">Research Highlights</h2>
+    <div class="banner-slides" id="bannerSlider">
+      <div class="banner-slide active">
+        <img src="images/research1.png" alt="Research 1" class="banner-bg-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="image-placeholder" style="display: none;">Research Image 1</div>
+
+      </div>
+      
+      <div class="banner-slide">
+        <img src="images/research2.png" alt="Research 2" class="banner-bg-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="image-placeholder" style="display: none;">Research Image 2</div>
+
+      </div>
+      
+      <div class="banner-slide">
+        <img src="images/research3.png" alt="Research 3" class="banner-bg-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="image-placeholder" style="display: none;">Research Image 3</div>
+
+      </div>
+    </div>
+    
+    <!-- 배너 슬라이더 네비게이션 -->
+    <div class="banner-nav">
+      <div class="banner-dots">
+        <span class="banner-dot active" onclick="currentBannerSlide(1)"></span>
+        <span class="banner-dot" onclick="currentBannerSlide(2)"></span>
+        <span class="banner-dot" onclick="currentBannerSlide(3)"></span>
+      </div>
     </div>
   </section>
 
@@ -73,54 +117,35 @@
     <section id="about" class="about-section" data-aos="fade-up">
       <div class="container">
         <h2 data-aos="fade-up" data-aos-delay="100">About Us</h2>
-        <div class="about-content">
-          <div class="about-text" data-aos="fade-right" data-aos-delay="200">
-            <p>여기는 샘플입니다.</p>
-            <p>여기는 샘플입니다.</p>
+        <div class="team-grid">
+          <div class="team-item" data-aos="fade-up" data-aos-delay="200">
+            <div class="team-icon">👨‍🔬</div>
+            <h3>Principal Investigator</h3>
+            <p>연구실 총괄 및 전략 수립</p>
           </div>
-          <div class="about-image" data-aos="fade-left" data-aos-delay="400">
-            <img src="images/lab.jpg" alt="연구실" class="about-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="image-placeholder" style="display: none;">연구실 이미지</div>
+          
+          <div class="team-item" data-aos="fade-up" data-aos-delay="300">
+            <div class="team-icon">🧬</div>
+            <h3>Genomics</h3>
+            <p>유전체 분석 및 연구</p>
+          </div>
+          
+          <div class="team-item" data-aos="fade-up" data-aos-delay="400">
+            <div class="team-icon">🔬</div>
+            <h3>Single Cell</h3>
+            <p>단일 세포 분석 연구</p>
+          </div>
+          
+          <div class="team-item" data-aos="fade-up" data-aos-delay="500">
+            <div class="team-icon">🤖</div>
+            <h3>AI Model</h3>
+            <p>인공지능 모델 개발</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 연구 성과 섹션 -->
-    <section id="research" class="research-section" data-aos="fade-up">
-      <div class="container">
-        <h2 data-aos="fade-up" data-aos-delay="100">Research Highlights</h2>
-        <div class="research-grid">
-          <div class="research-item" data-aos="fade-up" data-aos-delay="200">
-            <div class="research-image">
-              <img src="images/research1.jpg" alt="연구 이미지 1" class="research-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-              <div class="image-placeholder" style="display: none;">연구 이미지 1</div>
-            </div>
-            <h3>여기는 샘플입니다</h3>
-            <p>여기는 샘플입니다</p>
-            <span class="date">June 28, 2023</span>
-          </div>
-          <div class="research-item" data-aos="fade-up" data-aos-delay="300">
-            <div class="research-image">
-              <img src="images/research2.jpg" alt="연구 이미지 2" class="research-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-              <div class="image-placeholder" style="display: none;">연구 이미지 2</div>
-            </div>
-            <h3>여기는 샘플입니다</h3>
-            <p>여기는 샘플입니다</p>
-            <span class="date">June 28, 2023</span>
-          </div>
-          <div class="research-item" data-aos="fade-up" data-aos-delay="400">
-            <div class="research-image">
-              <img src="images/research3.jpg" alt="연구 이미지 3" class="research-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-              <div class="image-placeholder" style="display: none;">연구 이미지 3</div>
-            </div>
-            <h3>여기는 샘플입니다</h3>
-            <p>여기는 샘플입니다</p>
-            <span class="date">January 20, 2020</span>
-          </div>
-        </div>
-      </div>
-    </section>
+
 
     <!-- 뉴스 섹션 -->
     <section id="news" class="news-section" data-aos="fade-up">
@@ -148,18 +173,6 @@
               <h3>여기는 샘플입니다</h3>
               <p>여기는 샘플입니다</p>
               <span class="date">December 2, 2024</span>
-            </div>
-          </article>
-
-          <article class="news-item" data-aos="fade-up" data-aos-delay="400">
-            <div class="news-image">
-              <img src="images/news3.jpg" alt="뉴스 이미지 3" class="news-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-              <div class="image-placeholder" style="display: none;">뉴스 이미지 3</div>
-            </div>
-            <div class="news-content">
-              <h3>여기는 샘플입니다</h3>
-              <p>여기는 샘플입니다.</p>
-              <span class="date">November 15, 2024</span>
             </div>
           </article>
 
@@ -200,21 +213,6 @@
       </div>
     </section>
 
-    <!-- 연락처 섹션 -->
-    <section id="contact" class="contact-section" data-aos="fade-up">
-      <div class="container">
-        <h2 data-aos="fade-up" data-aos-delay="100">Contact Us</h2>
-        <div class="contact-content">
-          <div class="contact-info" data-aos="fade-up" data-aos-delay="200">
-            <h3>샘플 입니다.</h3>
-            <div class="contact-form" data-aos="fade-up" data-aos-delay="300">
-              <input type="email" placeholder="이메일 주소를 입력하세요" class="email-input">
-              <button type="submit" class="btn btn-primary">전송</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
   <!-- 푸터 -->
@@ -223,7 +221,9 @@
       <div class="footer-content">
         <div class="footer-logo" data-aos="fade-up" data-aos-delay="100">
           <h3>CPM</h3>
-          <p> 여기는 샘플입니다</p>
+          <p>Computational Precision Medicine Laboratory</p>
+          <p>College of Medicine, Yonsei University</p>
+          <p>by Professor Jinhyuk Bhin</p>
         </div>
         <div class="footer-links" data-aos="fade-up" data-aos-delay="200">
           <h4>Quick Links</h4>
@@ -236,12 +236,11 @@
         </div>
         <div class="footer-contact" data-aos="fade-up" data-aos-delay="300">
           <h4>Contact</h4>
-          <p>Email: info@CPM.re.kr</p>
-          <p>Phone: +82-XXX-XXXX</p>
+          <p>Email: jbhin@yuhs.ac</p>
         </div>
       </div>
       <div class="footer-bottom" data-aos="fade-up" data-aos-delay="400">
-        <p>&copy; 여기는 샘플입니다. All rights reserved.</p>
+        <p>&copy; 2025 Website developed by Sejung. Logo designed by Eunyoung. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -292,6 +291,77 @@
                     link.classList.add('active');
                 }
             });
+        });
+
+        // 메인 배너 슬라이더 기능
+        let currentBannerIndex = 0;
+        const bannerSlides = document.querySelectorAll('.banner-slide');
+        const bannerDots = document.querySelectorAll('.banner-dot');
+        let bannerInterval;
+
+        function showBannerSlide(index) {
+            // 모든 배너 슬라이드와 도트 비활성화
+            bannerSlides.forEach(slide => slide.classList.remove('active'));
+            bannerDots.forEach(dot => dot.classList.remove('active'));
+            
+            // 현재 배너 슬라이드와 도트 즉시 활성화
+            bannerSlides[index].classList.add('active');
+            bannerDots[index].classList.add('active');
+        }
+
+        function currentBannerSlide(index) {
+            currentBannerIndex = index - 1;
+            showBannerSlide(currentBannerIndex);
+            resetBannerTimer();
+        }
+
+        function resetBannerTimer() {
+            clearInterval(bannerInterval);
+            startBannerTimer();
+        }
+
+        // 타이머 동기화를 위한 함수
+        function syncTimer() {
+            clearInterval(bannerInterval);
+            startBannerTimer();
+        }
+
+        function startBannerTimer() {
+            bannerInterval = setInterval(() => {
+                currentBannerIndex = (currentBannerIndex + 1) % bannerSlides.length;
+                showBannerSlide(currentBannerIndex);
+            }, 8000); // 5초마다 자동 슬라이드
+        }
+
+        // 페이지 로드 시 배너 슬라이더 타이머 시작
+        document.addEventListener('DOMContentLoaded', function() {
+            startBannerTimer();
+            // 배너 도트 클릭 바인딩 (신뢰성 향상)
+            const dots = document.querySelectorAll('.banner-dot');
+            dots.forEach((dot, idx) => {
+                dot.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    currentBannerSlide(idx + 1);
+                });
+            });
+            
+            // 모바일 메뉴 토글 기능
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+            const mobileDropdown = document.querySelector('.mobile-dropdown');
+            
+            if (mobileToggle && mobileDropdown) {
+                mobileToggle.addEventListener('click', function() {
+                    mobileDropdown.classList.toggle('active');
+                });
+                
+                // 메뉴 외부 클릭 시 닫기
+                document.addEventListener('click', function(e) {
+                    if (!mobileToggle.contains(e.target) && !mobileDropdown.contains(e.target)) {
+                        mobileDropdown.classList.remove('active');
+                    }
+                });
+            }
         });
     </script>
 </body>
