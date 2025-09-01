@@ -38,6 +38,26 @@
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
+      
+      <!-- 모바일 메뉴 버튼 -->
+      <div class="mobile-menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      
+      <!-- 모바일 드롭다운 메뉴 -->
+      <div class="mobile-dropdown">
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="members.html">Members</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="lablife.html">Lab Life</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
     </div>
   </header>
 
@@ -123,6 +143,24 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 800, easing: 'ease-out', once: true, offset: 100 });
+  </script>
+  <script>
+    // 모바일 메뉴 토글
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileToggle = document.querySelector('.mobile-menu-toggle');
+      const mobileDropdown = document.querySelector('.mobile-dropdown');
+      if (mobileToggle && mobileDropdown) {
+        mobileToggle.addEventListener('click', function(e) {
+          e.stopPropagation();
+          mobileDropdown.classList.toggle('active');
+        });
+        document.addEventListener('click', function(e) {
+          if (!mobileDropdown.contains(e.target) && !mobileToggle.contains(e.target)) {
+            mobileDropdown.classList.remove('active');
+          }
+        });
+      }
+    });
   </script>
 </body>
 </html>
