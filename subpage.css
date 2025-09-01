@@ -513,19 +513,29 @@
     grid-template-columns: 1fr;
   }
   
+  .members-list .member-card:first-of-type {
+    display: flex;
+    flex-direction: column;                  /* 사진 위, 정보 아래 */
+    align-items: center;
+  }
+
   .members-list .member-card:not(:first-of-type) {
     display: flex;
+    flex-direction: column;                  /* 사진 위, 정보 아래 */
+    align-items: center;
     width: 100%;
     margin-bottom: 20px;
   }
   
-  /* 모바일에서 사진과 정보를 가로로 배치 */
   .members-list .member-card:not(:first-of-type) .member-photo {
-    flex: 0 0 140px;
+    flex: none;                              /* 가로 배치 해제 */
+    margin-bottom: 12px;                     /* 사진과 정보 간격 */
   }
   
   .members-list .member-card:not(:first-of-type) .member-info {
-    flex: 1;
+    flex: none;                              /* 가로 배치 해제 */
+    width: 100%;                             /* 정보는 가로 전체 사용 */
+    text-align: left;                        /* 좌측 정렬 유지 */
   }
   
   .photo-gallery {
