@@ -51,6 +51,7 @@
             <li><a href="members.html">Members</a></li>
             <li><a href="publications.html">Publications</a></li>
             <li><a href="news.html">News</a></li>
+            <li><a href="lablife.html">Lab Life</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </nav>
@@ -70,6 +71,7 @@
             <li><a href="members.html">Members</a></li>
             <li><a href="publications.html">Publications</a></li>
             <li><a href="news.html">News</a></li>
+            <li><a href="lablife.html">Lab Life</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
@@ -118,28 +120,31 @@
       <div class="container">
         <h2 data-aos="fade-up" data-aos-delay="100">About Us</h2>
         <div class="team-grid">
-          <div class="team-item" data-aos="fade-up" data-aos-delay="200">
+          <div class="team-item" data-aos="fade-up" data-aos-delay="200" onclick="window.location.href='members.html'">
             <div class="team-icon">👨‍🔬</div>
             <h3>Principal Investigator</h3>
-            <p>연구실 총괄 및 전략 수립</p>
+            <p>Professor Jinhyuk Bhin</p>
           </div>
           
-          <div class="team-item" data-aos="fade-up" data-aos-delay="300">
+          <div class="team-item" data-aos="fade-up" data-aos-delay="300" onclick="window.location.href='members.html'">
             <div class="team-icon">🧬</div>
-            <h3>Genomics</h3>
-            <p>유전체 분석 및 연구</p>
+            <h3>Genomics & GWAS</h3>
+            <p>Genomics: Sejung Lee, Junghyeok Lim, Sooyeon Park</p>
+            <p>GWAS: Hyeonjin Moon, Jisoo Kim</p>
           </div>
           
-          <div class="team-item" data-aos="fade-up" data-aos-delay="400">
+
+          
+          <div class="team-item" data-aos="fade-up" data-aos-delay="500" onclick="window.location.href='members.html'">
             <div class="team-icon">🔬</div>
             <h3>Single Cell</h3>
-            <p>단일 세포 분석 연구</p>
+            <p>Yoseob Lee, Jebin Lee, Hyungsuk Kim</p>
           </div>
           
-          <div class="team-item" data-aos="fade-up" data-aos-delay="500">
+          <div class="team-item" data-aos="fade-up" data-aos-delay="600" onclick="window.location.href='members.html'">
             <div class="team-icon">🤖</div>
-            <h3>AI Model</h3>
-            <p>인공지능 모델 개발</p>
+            <h3>AI Modeling</h3>
+            <p>Eunyoung Seo</p>
           </div>
         </div>
       </div>
@@ -147,71 +152,59 @@
 
 
 
-    <!-- 뉴스 섹션 -->
-    <section id="news" class="news-section" data-aos="fade-up">
-      <div class="container">
-        <h2 data-aos="fade-up" data-aos-delay="100">Latest News</h2>
-        <div class="news-grid">
-          <article class="news-item" data-aos="fade-up" data-aos-delay="200">
-            <div class="news-image">
-              <img src="images/news1.jpg" alt="뉴스 이미지 1" class="news-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-              <div class="image-placeholder" style="display: none;">뉴스 이미지 1</div>
-            </div>
-            <div class="news-content">
-              <h3>샘플 입니다.</h3>
-              <p>샘플 입니다.</p>
-              <span class="date">December 3, 2024</span>
-            </div>
-          </article>
+         <!-- 뉴스 섹션 -->
+     <section id="news" class="news-section" data-aos="fade-up">
+       <div class="container">
+         <h2 data-aos="fade-up" data-aos-delay="100">Latest News</h2>
+         <div class="news-list">
+           <article class="news-item-text" data-aos="fade-up" data-aos-delay="200" onclick="window.location.href='news.html'">
+             <h3>[Congratulation] 대학원 대통령 과학 장학생 선정</h3>
+             <p>Sejung Lee, Sooyeon Park selected for the students of Presidential Science Fellow for Graduate Studies.</p>
+             <span class="date">2025.06.05</span>
+           </article>
 
-          <article class="news-item" data-aos="fade-up" data-aos-delay="300">
-            <div class="news-image">
-              <img src="images/news2.jpg" alt="뉴스 이미지 2" class="news-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-              <div class="image-placeholder" style="display: none;">뉴스 이미지 2</div>
-            </div>
-            <div class="news-content">
-              <h3>여기는 샘플입니다</h3>
-              <p>여기는 샘플입니다</p>
-              <span class="date">December 2, 2024</span>
-            </div>
-          </article>
+           <article class="news-item-text" data-aos="fade-up" data-aos-delay="300" onclick="window.location.href='news.html'">
+             <h3>[Congratulation] 한국연구재단-과학기술분야 기초연구사업-우수신진연구 과제 선정</h3>
+             <p>Prof. Jinhyuk Bhin selected for the National Research Foundation of Korea - Basic Research Projects in Science and Technology - Outstanding New Research Project.</p>
+             <span class="date">2024.04.24</span>
+           </article>
 
-        </div>
-      </div>
-    </section>
+         </div>
+       </div>
+     </section>
 
-    <!--  Today 섹션 -->
-    <section id="CPM-today" class="CPM-today-section" data-aos="fade-up">
-      <div class="container">
-        <h2 data-aos="fade-up" data-aos-delay="100">CPM Today</h2>
-        <div class="today-grid">
-          <div class="today-item" data-aos="fade-up" data-aos-delay="200">
-            <div class="today-image">
-              <img src="images/event1.jpg" alt="이벤트 이미지 1" class="today-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-              <div class="image-placeholder" style="display: none;">이벤트 이미지 1</div>
-            </div>
-            <h3>여기는 샘플입니다</h3>
-            <span class="date">February 21, 2025</span>
-          </div>
-          <div class="today-item" data-aos="fade-up" data-aos-delay="300">
-            <div class="today-image">
-              <img src="images/event2.jpg" alt="이벤트 이미지 2" class="today-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-              <div class="image-placeholder" style="display: none;">이벤트 이미지 2</div>
-            </div>
-            <h3>여기는 샘플입니다</h3>
-            <span class="date">February 13, 2025</span>
-          </div>
-          <div class="today-item" data-aos="fade-up" data-aos-delay="400">
-            <div class="today-image">
-              <img src="images/event3.jpg" alt="이벤트 이미지 3" class="today-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-              <div class="image-placeholder" style="display: none;">이벤트 이미지 3</div>
-            </div>
-            <h3>여기는 샘플입니다</h3>
-            <span class="date">December 30, 2024</span>
-          </div>
-        </div>
-      </div>
-    </section>
+         <!--  CPM Life 섹션 -->
+     <section id="CPM-today" class="CPM-today-section" data-aos="fade-up">
+       <div class="container">
+         <h2 data-aos="fade-up" data-aos-delay="100">CPM Life</h2>
+         <div class="today-grid">
+           <div class="today-item" data-aos="fade-up" data-aos-delay="200" onclick="window.location.href='lablife.html'">
+             <div class="today-image">
+               <img src="images/events/250509.png" alt="스승의 날" class="today-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+               <div class="image-placeholder" style="display: none;">스승의 날</div>
+             </div>
+             <h3>스승의 날</h3>
+             <span class="date">2025.05.09</span>
+           </div>
+           <div class="today-item" data-aos="fade-up" data-aos-delay="300" onclick="window.location.href='lablife.html'">
+             <div class="today-image">
+               <img src="images/events/241220.png" alt="송년회" class="today-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+               <div class="image-placeholder" style="display: none;">송년회</div>
+             </div>
+             <h3>송년회</h3>
+             <span class="date">2024.12.20</span>
+           </div>
+           <div class="today-item" data-aos="fade-up" data-aos-delay="400" onclick="window.location.href='lablife.html'">
+             <div class="today-image">
+               <img src="images/events/241023.jpg" alt="KSBI" class="today-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+               <div class="image-placeholder" style="display: none;">KSBI</div>
+             </div>
+             <h3>KSBI</h3>
+             <span class="date">2024.10.23~25</span>
+           </div>
+         </div>
+       </div>
+     </section>
 
   </main>
 
