@@ -37,6 +37,26 @@
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
+            
+            <!-- 모바일 메뉴 버튼 -->
+            <div class="mobile-menu-toggle">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            
+            <!-- 모바일 드롭다운 메뉴 -->
+            <div class="mobile-dropdown">
+              <ul>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="members.html">Members</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="lablife.html">Lab Life</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </div>
         </div>
     </header>
 
@@ -91,7 +111,7 @@
                         <img src="images/Eunyoungseo.jpg" alt="Eunyoung Seo" class="member-img" onerror="this.style.display='none';">
                     </div>
                     <div class="member-info">
-                        <h3>서은영 / Eunyoung Seo <span class="email">(eoflwja001@naver.com)</span></h3>
+                        <h3>서은영 / Eunyoung Seo <span class="email">(silverflo@yuhs.ac)</span></h3>
                         <h4>EDUCATION</h4>
                         <p>2024.3 - Ph.D. </p>
                         <p class="project">Project: Statistical and AI-Based Models for Identifying Driver Structural Variants in WGS Data</p>
@@ -170,7 +190,7 @@
                         <img src="images/jisookim.png" alt="Jisoo Kim" class="member-img" onerror="this.style.display='none';">
                     </div>
                     <div class="member-info">
-                        <h3>김지수 / Jisoo Kim <span class="email">(jisook108@gmail.com)</span></h3>
+                        <h3>김지수 / Jisoo Kim <span class="email">(jisookim@yuhs.ac)</span></h3>
                         <h4>EDUCATION</h4>
                         <p>2025.3 - M.S.-Ph.D.</p>
                         <p>2021.3 - 2025.2 B.S. in Biopharmaceutical Sciences, Big Data Science , Sungshin Women's University</p>
@@ -280,6 +300,24 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       AOS.init({ duration: 800, easing: 'ease-out', once: true, offset: 100 });
+    </script>
+    <script>
+      // 모바일 메뉴 토글
+      document.addEventListener('DOMContentLoaded', function() {
+        const mobileToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileDropdown = document.querySelector('.mobile-dropdown');
+        if (mobileToggle && mobileDropdown) {
+          mobileToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            mobileDropdown.classList.toggle('active');
+          });
+          document.addEventListener('click', function(e) {
+            if (!mobileDropdown.contains(e.target) && !mobileToggle.contains(e.target)) {
+              mobileDropdown.classList.remove('active');
+            }
+          });
+        }
+      });
     </script>
 </body>
 </html>
