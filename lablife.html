@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Life - CPM</title>
+    
+    <!-- 파비콘 설정 -->
+    <link rel="icon" type="image/x-icon" href="images/logo_blue.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    
+    <link rel="stylesheet" href="style.css?v=2025012807">
+    <link rel="stylesheet" href="subpage.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 헤더 -->
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo_mini2.png" alt="로고" class="logo-image" onerror="this.style.display='none';">
+                    <h1>Bhin's group</h1>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="members.html">Members</a></li>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="lablife.html" class="active">Lab Life</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 페이지 헤더 -->
+    <section class="page-header" data-aos="fade-up">
+        <div class="container">
+            <h1 data-aos="fade-up" data-aos-delay="100">Lab Life</h1>
+            <p data-aos="fade-up" data-aos-delay="200">우리 연구실의 일상과 특별한 순간들을 담은 사진첩입니다</p>
+        </div>
+    </section>
+
+    <!-- 메인 콘텐츠 -->
+    <main class="subpage-content" data-aos="fade-up">
+        <div class="container">
+        
+            <!-- 이벤트 섹션 -->
+            <section data-aos="fade-up">
+                <div class="events-grid">
+                    <!-- 25.05.09 스승의 날 -->
+                    <div class="event-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="event-slider">
+                            <div class="event-slide active">
+                                <img src="images/events/250509.png" alt="스승의 날" class="event-img" onerror="this.style.display='none';">
+                            </div>
+
+                            <div class="slider-controls">
+                                <button class="prev-btn" onclick="changeSlide(this, -1)">❮</button>
+                                <button class="next-btn" onclick="changeSlide(this, 1)">❯</button>
+                            </div>
+                        </div>
+                        <div class="event-caption">
+                            <h3>스승의 날</h3>
+                            <p class="event-date">2025.05.09</p>
+                        </div>
+                    </div>
+
+                    <!-- 24.12.20 송년회 -->
+                    <div class="event-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="event-slider">
+                            <div class="event-slide active">
+                                <img src="images/events/241220.png" alt="송년회" class="event-img" onerror="this.style.display='none';">
+                            </div>
+                            <div class="slider-controls">
+                                <button class="prev-btn" onclick="changeSlide(this, -1)">❮</button>
+                                <button class="next-btn" onclick="changeSlide(this, 1)">❯</button>
+                            </div>
+                        </div>
+                        <div class="event-caption">
+                            <h3>송년회</h3>
+                            <p class="event-date">2024.12.20</p>
+                        </div>
+                    </div>
+
+                    <!-- 24.10.23~25 KSBI -->
+                    <div class="event-item" data-aos="fade-up" data-aos-delay="300">
+                        <div class="event-slider">
+                            <div class="event-slide active">
+                                <img src="images/events/241023.jpg" alt="KSBI" class="event-img" onerror="this.style.display='none';">
+                            </div>
+
+                            <div class="slider-controls">
+                                <button class="prev-btn" onclick="changeSlide(this, -1)">❮</button>
+                                <button class="next-btn" onclick="changeSlide(this, 1)">❯</button>
+                            </div>
+                        </div>
+                        <div class="event-caption">
+                            <h3>2024 KSBI 경주</h3>
+                            <p class="event-date">2024.10.23~25</p>
+                        </div>
+                    </div>
+
+                    <!-- 24.06.20~21 대한 암학회 -->
+                    <div class="event-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="event-slider">
+                            <div class="event-slide active">
+                                <img src="images/events/240620.jpg" alt="대한 암학회" class="event-img" onerror="this.style.display='none';">
+                            </div>
+
+                            <div class="slider-controls">
+                                <button class="prev-btn" onclick="changeSlide(this, -1)">❮</button>
+                                <button class="next-btn" onclick="changeSlide(this, 1)">❯</button>
+                            </div>
+                        </div>
+                        <div class="event-caption">
+                            <h3>대한 암학회</h3>
+                            <p class="event-date">2024.06.20~21</p>
+                        </div>
+                    </div>
+
+                    <!-- 24.05.23 신촌 나들이 -->
+                    <div class="event-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="event-slider">
+                            <div class="event-slide active">
+                                <img src="images/events/240523.jpg" alt="신촌 나들이" class="event-img" onerror="this.style.display='none';">
+                            </div>
+                            <div class="event-slide active">
+                                <img src="images/events/240523_2.gif" alt="신촌 나들이" class="event-img" onerror="this.style.display='none';">
+                            </div>
+
+                            <div class="slider-controls">
+                                <button class="prev-btn" onclick="changeSlide(this, -1)">❮</button>
+                                <button class="next-btn" onclick="changeSlide(this, 1)">❯</button>
+                            </div>
+                        </div>
+                        <div class="event-caption">
+                            <h3>신촌 나들이</h3>
+                            <p class="event-date">2024.05.23</p>
+                        </div>
+                    </div>
+
+                    <!-- 24.05.14 스승의 날 -->
+                    <div class="event-item" data-aos="fade-up" data-aos-delay="300">
+                        <div class="event-slider">
+                            <div class="event-slide active">
+                                <img src="images/events/240514.jpg" alt="스승의 날" class="event-img" onerror="this.style.display='none';">
+                            </div>
+ 
+                            <div class="slider-controls">
+                                <button class="prev-btn" onclick="changeSlide(this, -1)">❮</button>
+                                <button class="next-btn" onclick="changeSlide(this, 1)">❯</button>
+                            </div>
+                        </div>
+                        <div class="event-caption">
+                            <h3>스승의 날</h3>
+                            <p class="event-date">2024.05.14</p>
+                        </div>
+                    </div>
+
+                    <!-- 24.04.26 Journal Club -->
+                    <div class="event-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="event-slider">
+                            <div class="event-slide active">
+                                <img src="images/events/240426.jpg" alt="Journal Club" class="event-img" onerror="this.style.display='none';">
+                            </div>
+                            <div class="slider-controls">
+                                <button class="prev-btn" onclick="changeSlide(this, -1)">❮</button>
+                                <button class="next-btn" onclick="changeSlide(this, 1)">❯</button>
+                            </div>
+                        </div>
+                        <div class="event-caption">
+                            <h3>Journal Club</h3>
+                            <p class="event-date">2024.04.26</p>
+                        </div>
+                    </div>
+
+                    <!-- 23.11.14 Journal Club -->
+                    <div class="event-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="event-slider">
+                            <div class="event-slide active">
+                                <img src="images/events/231114.png" alt="Journal Club" class="event-img" onerror="this.style.display='none';">
+                            </div>
+                            <div class="slider-controls">
+                                <button class="prev-btn" onclick="changeSlide(this, -1)">❮</button>
+                                <button class="next-btn" onclick="changeSlide(this, 1)">❯</button>
+                            </div>
+                        </div>
+                        <div class="event-caption">
+                            <h3>Journal Club</h3>
+                            <p class="event-date">2023.11.14</p>
+                        </div>
+                    </div>
+
+                    <!-- 23.11.09 학과 체육대회 -->
+                    <div class="event-item" data-aos="fade-up" data-aos-delay="300">
+                        <div class="event-slider">
+                            <div class="event-slide active">
+                                <img src="images/events/231109.png" alt="학과 체육대회" class="event-img" onerror="this.style.display='none';">
+                            </div>
+                        
+                            <div class="slider-controls">
+                                <button class="prev-btn" onclick="changeSlide(this, -1)">❮</button>
+                                <button class="next-btn" onclick="changeSlide(this, 1)">❯</button>
+                            </div>
+                        </div>
+                        <div class="event-caption">
+                            <h3>학과 체육대회</h3>
+                            <p class="event-date">2023.11.09</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 푸터 -->
+    <footer class="site-footer" data-aos="fade-up">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo" data-aos="fade-up" data-aos-delay="100">
+                    <h3>CPM</h3>
+                    <p>Computational Precision Medicine Laboratory</p>
+                    <p>College of Medicine, Yonsei University</p>
+                    <p>by Professor Jinhyuk Bhin</p>
+                </div>
+                <div class="footer-links" data-aos="fade-up" data-aos-delay="200">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#research">Research</a></li>
+                        <li><a href="#news">News</a></li>
+                        <li><a href="#publications">Publications</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact" data-aos="fade-up" data-aos-delay="300">
+                    <h4>Contact</h4>
+                    <p>Email: jbhin@yuhs.ac</p>
+                </div>
+            </div>
+            <div class="footer-bottom" data-aos="fade-up" data-aos-delay="400">
+                <p>&copy; 2025 Website developed by Sejung. Logo designed by Eunyoung. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS 애니메이션 스크립트 -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // 이벤트 슬라이더 기능
+        function changeSlide(button, direction) {
+            const slider = button.closest('.event-slider');
+            const slides = slider.querySelectorAll('.event-slide');
+            const activeSlide = slider.querySelector('.event-slide.active');
+            let currentIndex = Array.from(slides).indexOf(activeSlide);
+            
+            // 현재 활성 슬라이드 비활성화
+            activeSlide.classList.remove('active');
+            
+            // 새 인덱스 계산
+            currentIndex = (currentIndex + direction + slides.length) % slides.length;
+            
+            // 새 슬라이드 활성화
+            slides[currentIndex].classList.add('active');
+        }
+    </script>
+</body>
+</html>

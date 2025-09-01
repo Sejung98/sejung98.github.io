@@ -19,7 +19,8 @@
   margin-top: 0;
 }
 
-.member-card {
+/* Principal Investigator는 1열 레이아웃 유지 */
+.members-list .member-card:first-of-type {
   display: flex;
   gap: 20px;
   align-items: flex-start;
@@ -27,9 +28,45 @@
   border-radius: 12px;
   background: rgba(0,0,0,0.05);
   margin-bottom: 16px;
+  width: 100%;
 }
 
-.member-photo {
+/* Members 섹션의 카드들을 2열 그리드로 배치 */
+.members-list .member-card:not(:first-of-type) {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 20px;
+  border-radius: 12px;
+  background: rgba(0,0,0,0.05);
+  margin-bottom: 20px;
+}
+
+/* 2열 그리드 컨테이너 설정 */
+.members-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Principal Investigator는 전체 너비 사용 */
+.members-list .member-card:first-of-type {
+  grid-column: 1 / -1;
+}
+
+/* Members 제목을 중앙 정렬 */
+.members-list h2 {
+  text-align: center;
+  grid-column: 1 / -1;
+}
+
+/* PI 카드용 사진 컨테이너 (기존 스타일 유지) */
+.members-list .member-card:first-of-type .member-photo {
+  flex: 0 0 140px;
+}
+
+/* 2열 레이아웃용 사진 컨테이너 */
+.members-list .member-card:not(:first-of-type) .member-photo {
   flex: 0 0 140px;
 }
 
@@ -61,6 +98,16 @@
 .member-info .email {
   font-weight: 400;
   font-size: 0.95em;
+}
+
+/* 더 구체적인 선택자로 우선순위 높임 */
+.members-list .member-card .member-info .project,
+.member-info .project {
+  margin-left: 20px !important;
+  padding-left: 15px !important;
+  border-left: 3px solid rgba(255, 255, 255, 0.3) !important;
+  font-style: italic !important;
+  color: #e0e0e0 !important;
 }
 /* 페이지 헤더 간격 축소 버전 */
 .compact-header {
@@ -176,7 +223,7 @@
 
 .vision-img {
   width: 100%;
-  height: 300px;                              /* 이미지 높이 */
+  height: 400px;                              /* 이미지 높이 */
   object-fit: cover;                          /* 이미지 비율 유지 */
   border-radius: 15px;                        /* 모서리 둥글게 */
   transition: transform 0.3s ease;            /* 부드러운 전환 */
@@ -402,12 +449,92 @@
 }
 
 /* ========================================
+   Lab Life 사진첩 스타일
+   ======================================== */
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 한 줄에 3개 사진 */
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.photo-item {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.photo-item:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.gallery-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.photo-item:hover .gallery-img {
+  transform: scale(1.05);
+}
+
+.photo-caption {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.photo-caption h3 {
+  font-size: 1.3rem;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.photo-caption p {
+  color: #e0e0e0;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* ========================================
    반응형 디자인
    ======================================== */
 @media (max-width: 768px) {
   .page-header,
   .subpage-content {
     max-width: 95%;                           /* 모바일에서는 거의 전체 너비 */
+  }
+  
+  /* 모바일에서는 모든 멤버 카드를 1열로 변경 */
+  .members-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .members-list .member-card:not(:first-of-type) {
+    display: flex;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  /* 모바일에서 사진과 정보를 가로로 배치 */
+  .members-list .member-card:not(:first-of-type) .member-photo {
+    flex: 0 0 140px;
+  }
+  
+  .members-list .member-card:not(:first-of-type) .member-info {
+    flex: 1;
+  }
+  
+  .photo-gallery {
+    grid-template-columns: repeat(2, 1fr);    /* 모바일에서는 2열로 변경 */
+    gap: 1.5rem;
+  }
+  
+  .gallery-img {
+    height: 200px;                            /* 모바일에서 이미지 높이 줄임 */
   }
   
   .contact-grid {
@@ -454,6 +581,15 @@
 @media (max-width: 480px) {
   .page-header h1 {
     font-size: 2rem;                          /* 더 작은 제목 크기 */
+  }
+  
+  .photo-gallery {
+    grid-template-columns: 1fr;                /* 작은 화면에서는 1열로 변경 */
+    gap: 1rem;
+  }
+  
+  .gallery-img {
+    height: 180px;                             /* 더 작은 이미지 높이 */
   }
   
   .subpage-content h2 {
@@ -537,67 +673,47 @@
 /* 프로젝트 그리드 */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: 1fr; /* 한 행에 하나의 프로젝트 */
   gap: 2rem;
 }
 
 .project-item {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 15px;
-  overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: transform 0.3s ease;
 }
 
 .project-item:hover {
   transform: translateY(-10px);
-}
-
-.project-image {
-  height: 200px;
-  overflow: hidden;
-}
-
-.project-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.project-item:hover .project-img {
-  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .project-content {
-  padding: 1.5rem;
+  padding: 2rem;
 }
 
-.project-content h3 {
+.project-header h3 {
+  font-size: 1.1rem;
+  color: #ff6b6b;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.project-theme h4 {
   font-size: 1.3rem;
   color: #ffffff;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  line-height: 1.4;
 }
 
 .project-description {
   color: #e0e0e0;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-
-.project-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.project-duration,
-.project-funding {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  color: #ffffff;
+  line-height: 1.8;
+  margin-bottom: 0;
+  font-size: 1.1rem;
 }
 
 /* 성과 그리드 */
@@ -655,4 +771,339 @@
   .achievements-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* 논문 스타일 */
+.paper-item {
+    margin-bottom: 30px;
+    padding: 25px;
+    background: transparent;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: relative;
+    counter-increment: paper-counter;
+}
+
+.paper-item::before {
+    content: counter(paper-counter);
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 30px;
+    height: 30px;
+    background: #007bff;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.paper-item h3 {
+    margin-left: 50px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+.paper-item p {
+    margin-left: 50px;
+    margin-bottom: 0;
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+/* 한빛사 논문 표시 스타일 */
+.paper-item p strong {
+    font-weight: normal;
+}
+
+/* 한빛사 논문 표시를 위한 특별한 스타일 */
+.paper-item p {
+    color: #e0e0e0;
+}
+
+/* Bhin J만 bold로 강조하기 위한 스타일 */
+.paper-item p strong {
+    font-weight: normal;
+}
+
+.bhin-name {
+    font-weight: bold !important;
+    color: #ffffff !important;
+}
+
+/* 한빛사 논문 표시 스타일 */
+.hanbit-paper {
+    color: #ff6b6b !important;
+    font-weight: 600;
+    font-style: italic;
+}
+
+/* 논문 번호 카운터 초기화 */
+.journal-papers {
+    counter-reset: paper-counter;
+}
+
+/* ========================================
+   News 페이지 전용 스타일
+   ======================================== */
+
+/* 뉴스 아이템 스타일 */
+.news-item {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.news-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.news-item h3 {
+    font-size: 1.4rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.news-item p {
+    color: #e0e0e0;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.news-item .date {
+    display: block;
+    background: transparent;
+    color: #ffffff;
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: none;
+    text-align: right;
+    margin-top: 1rem;
+}
+
+/* 뉴스 그리드 레이아웃 */
+.latest-news {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* ========================================
+   Alumni 섹션 전용 스타일
+   ======================================== */
+
+/* ========================================
+   Events 섹션 전용 스타일
+   ======================================== */
+
+/* 이벤트 그리드 레이아웃 */
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 한 줄에 2개 이벤트로 변경하여 가로 크기 증가 */
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* 이벤트 아이템 스타일 */
+.event-item {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.event-item:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* 이벤트 슬라이더 컨테이너 */
+.event-slider {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+}
+
+/* 이벤트 슬라이드 */
+.event-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.event-slide.active {
+    opacity: 1;
+}
+
+/* 이벤트 이미지 */
+.event-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.event-item:hover .event-img {
+    transform: scale(1.05);
+}
+
+/* 슬라이더 컨트롤 버튼 */
+.slider-controls {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.prev-btn,
+.next-btn {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+    background: rgba(0, 0, 0, 0.9);
+    transform: scale(1.1);
+}
+
+/* 이벤트 캡션 */
+.event-caption {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.event-caption h3 {
+    font-size: 1.3rem;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.event-date {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .events-grid {
+        grid-template-columns: repeat(2, 1fr); /* 모바일에서는 2열로 변경 */
+        gap: 1.5rem;
+    }
+    
+    .event-slider {
+        height: 200px; /* 모바일에서 이미지 높이 줄임 */
+    }
+}
+
+@media (max-width: 480px) {
+    .events-grid {
+        grid-template-columns: 1fr; /* 작은 화면에서는 1열로 변경 */
+        gap: 1rem;
+    }
+    
+    .event-slider {
+        height: 180px; /* 더 작은 이미지 높이 */
+    }
+}
+
+/* Alumni 제목 스타일 */
+.alumni-section h2 {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 1.8rem; /* 2.5rem에서 1.8rem으로 축소 */
+    color: #ffffff;
+    position: relative;
+}
+
+.alumni-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px; /* 80px에서 60px로 축소 */
+    height: 3px; /* 4px에서 3px로 축소 */
+    background: linear-gradient(90deg, rgba(120, 120, 120, 0.6), rgba(160, 160, 160, 0.6)); /* 투명도도 낮춤 */
+    border-radius: 2px;
+}
+
+/* Alumni 멤버 카드 스타일 */
+.alumni-section .member-card {
+    margin-bottom: 1rem; /* 1.5rem에서 1rem으로 축소 */
+    padding: 1.5rem; /* 2rem에서 1.5rem으로 축소 */
+    background: transparent;
+    border-radius: 15px;
+    border: none;
+    transition: transform 0.3s ease;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.alumni-section .member-card:hover {
+    transform: translateY(-2px); /* 3px에서 2px로 축소 */
+    background: transparent;
+}
+
+/* Alumni 멤버 정보 스타일 */
+.alumni-section .member-info h3 {
+    font-size: 1rem; /* 1.3rem에서 1rem으로 축소 */
+    color: #ffffff;
+    margin-bottom: 1rem; /* 1.5rem에서 1rem으로 축소 */
+    border-bottom: none;
+    padding-bottom: 0.5rem;
+    text-align: left;
+}
+
+.alumni-section .member-info h4 {
+    font-size: 0.9rem; /* 1.1rem에서 0.9rem으로 축소 */
+    color: #ffffff;
+    margin: 1rem 0 0.6rem 0; /* 여백도 축소 */
+    font-weight: 600;
+    text-align: left;
+}
+
+.alumni-section .member-info p {
+    margin: 0.4rem 0; /* 0.5rem에서 0.4rem으로 축소 */
+    line-height: 1.5; /* 1.6에서 1.5로 축소 */
+    color: #ffffff;
+    padding-left: 0;
+    border-left: none;
+    text-align: left;
+    font-size: 0.85rem; /* 기본 글씨 크기도 축소 */
 }
