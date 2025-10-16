@@ -83,11 +83,13 @@
 .member-info h3 {
   margin: 0 0 6px 0;
   font-size: 1.1rem;
+  line-height: 1.3;
 }
 
 .member-info h4 {
   margin: 10px 0 6px 0;
   font-size: 1rem;
+  line-height: 1.3;
 }
 
 .member-info p {
@@ -1123,6 +1125,7 @@
     font-size: 1.8rem; /* 2.5rem에서 1.8rem으로 축소 */
     color: #ffffff;
     position: relative;
+    grid-column: 1 / -1; /* 그리드 전체 폭 차지 */
 }
 
 .alumni-section h2::after {
@@ -1137,12 +1140,21 @@
     border-radius: 2px;
 }
 
+/* Alumni 섹션 5열 그리드 배치 */
+.alumni-section {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.6rem;
+    align-items: start;
+}
+
 /* Alumni 멤버 카드 스타일 */
-.alumni-section .member-card {
-    margin-bottom: 1rem; /* 1.5rem에서 1rem으로 축소 */
-    padding: 1.5rem; /* 2rem에서 1.5rem으로 축소 */
+/* Alumni 전용 카드 */
+.alumni-card {
+    margin: 0; /* 그리드 gap 사용 */
+    padding: 0.8rem; /* 내부 여백 추가 축소 */
     background: transparent;
-    border-radius: 15px;
+    border-radius: 12px;
     border: none;
     transition: transform 0.3s ease;
     max-width: none;
@@ -1150,32 +1162,33 @@
     margin-right: 0;
 }
 
-.alumni-section .member-card:hover {
+.alumni-card:hover {
     transform: translateY(-2px); /* 3px에서 2px로 축소 */
     background: transparent;
 }
 
 /* Alumni 멤버 정보 스타일 */
-.alumni-section .member-info h3 {
-    font-size: 1rem; /* 1.3rem에서 1rem으로 축소 */
+.alumni-card .member-info h3 {
+  font-size: 1rem; /* 1.3rem에서 1rem으로 축소 */
     color: #ffffff;
-    margin-bottom: 1rem; /* 1.5rem에서 1rem으로 축소 */
+    margin-bottom: 0.4rem; /* 추가 축소 */
     border-bottom: none;
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.3rem; /* 추가 축소 */
     text-align: left;
+  letter-spacing: -0.2px;
 }
 
-.alumni-section .member-info h4 {
+.alumni-card .member-info h4 {
     font-size: 0.9rem; /* 1.1rem에서 0.9rem으로 축소 */
     color: #ffffff;
-    margin: 1rem 0 0.6rem 0; /* 여백도 축소 */
+    margin: 0.6rem 0 0.4rem 0; /* 여백 추가 축소 */
     font-weight: 600;
     text-align: left;
 }
 
-.alumni-section .member-info p {
-    margin: 0.4rem 0; /* 0.5rem에서 0.4rem으로 축소 */
-    line-height: 1.5; /* 1.6에서 1.5로 축소 */
+.alumni-card .member-info p {
+    margin: 0.25rem 0; /* 여백 추가 축소 */
+    line-height: 1.35; /* 줄간격 추가 축소 */
     color: #ffffff;
     padding-left: 0;
     border-left: none;
