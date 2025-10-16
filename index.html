@@ -31,7 +31,6 @@
                 <div class="loading-progress"></div>
             </div>
             
-
         </div>
     </div>
 
@@ -78,30 +77,31 @@
       </div>
     </header>
 
-  <!-- 메인 배너 슬라이더 -->
-  <section class="main-banner-slider" data-aos="fade-up" data-aos-duration="1000">
-    <h2 class="banner-title" data-aos="fade-up" data-aos-delay="100">Research Highlights</h2>
-    <div class="banner-slides" id="bannerSlider">
-      <div class="banner-slide active">
-        <img src="images/research_nature.png" alt="Research 1" class="banner-bg-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-        <div class="image-placeholder" style="display: none;">Research Image 1</div>
-
+  <!-- 메인 배너: 좌우 2열 그리드 (좌: 이미지 슬라이드, 우: 설명) -->
+  <section class="main-banner-container" data-aos="fade-up" data-aos-duration="1000">
+    <div class="main-banner-grid">
+      <div class="banner-left">
+        <div class="banner-slides" id="bannerSlider">
+          <div class="banner-slide active">
+            <img src="images/research1.png" alt="Research 1" class="banner-bg-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="image-placeholder" style="display: none;">Research Image 1</div>
+          </div>
+          <div class="banner-slide">
+            <img src="images/research2.png" alt="Research 2" class="banner-bg-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="image-placeholder" style="display: none;">Research Image 2</div>
+          </div>
+          <div class="banner-slide">
+            <img src="images/research3.jpg" alt="Research 3" class="banner-bg-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="image-placeholder" style="display: none;">Research Image 3</div>
+          </div>
+        </div>
       </div>
-      
-      <div class="banner-slide">
-        <img src="images/research_exp.png" alt="Research 2" class="banner-bg-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-        <div class="image-placeholder" style="display: none;">Research Image 2</div>
-
-      </div>
-      
-      <div class="banner-slide">
-        <img src="images/research_cancer_cell.png" alt="Research 3" class="banner-bg-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-        <div class="image-placeholder" style="display: none;">Research Image 3</div>
-
+      <div class="banner-right">
+        <h3 id="bannerDescTitle"><strong>Theme 1. Identifying novel clinically actionable oncogenes</strong></h3>
+        <p id="bannerDescText">The genomes of cancer cells are frequently altered and structurally rearranged, which can enhance the function of cancer-related genes. The functional consequences of genomic rearrangements in cancer are elusive except for canonical in-frame fusions. Our goal is to identify non-canonical types of rearrangements that enhance the oncogenic function of genes and have clinical significance.<br><br>D. Zingg* and J. Bhin* et al. Nature. 2022 Aug;608(7923):609-617</p>
       </div>
     </div>
-    
-    <!-- 배너 슬라이더 네비게이션 -->
+    <!-- 네비게이터를 그리드 아래로 이동 -->
     <div class="banner-nav">
       <div class="banner-dots">
         <span class="banner-dot active" onclick="currentBannerSlide(1)"></span>
@@ -110,8 +110,6 @@
       </div>
     </div>
   </section>
-
-
 
   <!-- 메인 콘텐츠 -->
   <main class="content">
@@ -133,8 +131,6 @@
             <p>GWAS: Hyeonjin Moon</p>
           </div>
           
-
-          
           <div class="team-item" data-aos="fade-up" data-aos-delay="500" onclick="window.location.href='members.html'">
             <div class="team-icon">🔬</div>
             <h3>Single Cell</h3>
@@ -150,74 +146,67 @@
       </div>
     </section>
 
+    <!-- 뉴스 섹션 (동일) -->
+    <section id="news" class="news-section" data-aos="fade-up">
+      <div class="container">
+        <h2 data-aos="fade-up" data-aos-delay="100">Latest News</h2>
+        <div class="news-list">
+          <article class="news-item-text" data-aos="fade-up" data-aos-delay="200" onclick="window.location.href='news.html'">
+            <h3>[Congratulation] 2025 한국 유전체 학회 우수포스터상 수상</h3>
+            <p><strong>Eunyoung Seo, Sejung Lee</strong> awarded the Best Poster Prize at the 2025 Korean Genome Conference.</p>
+            <span class="date">2025.09.06</span>
+          </article>
+          <article class="news-item-text" data-aos="fade-up" data-aos-delay="300" onclick="window.location.href='news.html'">
+            <h3>[Congratulation] 2025 보건장학회 연구 지원 장학생 선정</h3>
+            <p><strong>Eunyoung Seo</strong> selected for the Health Scholarship Foundation Scholarship.</p>
+            <span class="date">2025.07.25</span>
+          </article>
+          <article class="news-item-text" data-aos="fade-up" data-aos-delay="400" onclick="window.location.href='news.html'">
+            <h3>[Congratulation] 대학원 대통령 과학 장학생 선정</h3>
+            <p><strong>Sejung Lee, Sooyeon Park</strong> selected for the students of Presidential Science Fellow for Graduate Studies.</p>
+            <span class="date">2025.06.05</span>
+          </article>
+          <article class="news-item-text" data-aos="fade-up" data-aos-delay="500" onclick="window.location.href='news.html'">
+            <h3>[Congratulation] 한국연구재단-과학기술분야 기초연구사업-우수신진연구 과제 선정</h3>
+            <p><strong>Prof. Jinhyuk Bhin</strong> selected for the National Research Foundation of Korea - Basic Research Projects in Science and Technology - Outstanding New Research Project.</p>
+            <span class="date">2024.04.24</span>
+          </article>
+        </div>
+      </div>
+    </section>
 
-
-         <!-- 뉴스 섹션 -->
-     <section id="news" class="news-section" data-aos="fade-up">
-       <div class="container">
-         <h2 data-aos="fade-up" data-aos-delay="100">Latest News</h2>
-         <div class="news-list">
-           <article class="news-item-text" data-aos="fade-up" data-aos-delay="200" onclick="window.location.href='news.html'">
-             <h3>[Congratulation] 2025 한국 유전체 학회 우수포스터상 수상</h3>
-             <p><strong>Eunyoung Seo, Sejung Lee</strong> awarded the Best Poster Prize at the 2025 Korean Genome Conference.</p>
-             <span class="date">2025.09.06</span>
-           </article>
-
-           <article class="news-item-text" data-aos="fade-up" data-aos-delay="300" onclick="window.location.href='news.html'">
-             <h3>[Congratulation] 2025 보건장학회 연구 지원 장학생 선정</h3>
-             <p><strong>Eunyoung Seo</strong> selected for the Health Scholarship Foundation Scholarship.</p>
-             <span class="date">2025.07.25</span>
-           </article>
-
-           <article class="news-item-text" data-aos="fade-up" data-aos-delay="400" onclick="window.location.href='news.html'">
-             <h3>[Congratulation] 대학원 대통령 과학 장학생 선정</h3>
-             <p><strong>Sejung Lee, Sooyeon Park</strong> selected for the students of Presidential Science Fellow for Graduate Studies.</p>
-             <span class="date">2025.06.05</span>
-           </article>
-
-           <article class="news-item-text" data-aos="fade-up" data-aos-delay="500" onclick="window.location.href='news.html'">
-             <h3>[Congratulation] 한국연구재단-과학기술분야 기초연구사업-우수신진연구 과제 선정</h3>
-             <p><strong>Prof. Jinhyuk Bhin</strong> selected for the National Research Foundation of Korea - Basic Research Projects in Science and Technology - Outstanding New Research Project.</p>
-             <span class="date">2024.04.24</span>
-           </article>
-
-         </div>
-       </div>
-     </section>
-
-         <!--  CPM Life 섹션 -->
-     <section id="CPM-today" class="CPM-today-section" data-aos="fade-up">
-       <div class="container">
-         <h2 data-aos="fade-up" data-aos-delay="100">CPM Life</h2>
-         <div class="today-grid">
-           <div class="today-item" data-aos="fade-up" data-aos-delay="200" onclick="window.location.href='lablife.html'">
-             <div class="today-image">
-               <img src="images/events/250904.jpg" alt="2025 한국유전체학회 KOGO" class="today-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-               <div class="image-placeholder" style="display: none;">2025 한국유전체학회 KOGO</div>
-             </div>
-             <h3>2025 한국유전체학회 KOGO</h3>
-             <span class="date">2025.09.04</span>
-           </div>
-           <div class="today-item" data-aos="fade-up" data-aos-delay="300" onclick="window.location.href='lablife.html'">
-             <div class="today-image">
-               <img src="images/events/250509.png" alt="스승의 날" class="today-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-               <div class="image-placeholder" style="display: none;">스승의 날</div>
-             </div>
-             <h3>스승의 날</h3>
-             <span class="date">2025.05.09</span>
-           </div>
-           <div class="today-item" data-aos="fade-up" data-aos-delay="400" onclick="window.location.href='lablife.html'">
-             <div class="today-image">
-               <img src="images/events/241220.png" alt="송년회" class="today-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-               <div class="image-placeholder" style="display: none;">송년회</div>
-             </div>
-             <h3>송년회</h3>
-             <span class="date">2024.12.20</span>
-           </div>
-         </div>
-       </div>
-     </section>
-
+    <!--  CPM Life 섹션 (동일) -->
+    <section id="CPM-today" class="CPM-today-section" data-aos="fade-up">
+      <div class="container">
+        <h2 data-aos="fade-up" data-aos-delay="100">CPM Life</h2>
+        <div class="today-grid">
+          <div class="today-item" data-aos="fade-up" data-aos-delay="200" onclick="window.location.href='lablife.html'">
+            <div class="today-image">
+              <img src="images/events/250904.jpg" alt="2025 한국유전체학회 KOGO" class="today-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="image-placeholder" style="display: none;">2025 한국유전체학회 KOGO</div>
+            </div>
+            <h3>2025 한국유전체학회 KOGO</h3>
+            <span class="date">2025.09.04</span>
+          </div>
+          <div class="today-item" data-aos="fade-up" data-aos-delay="300" onclick="window.location.href='lablife.html'">
+            <div class="today-image">
+              <img src="images/events/250509.png" alt="스승의 날" class="today-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="image-placeholder" style="display: none;">스승의 날</div>
+            </div>
+            <h3>스승의 날</h3>
+            <span class="date">2025.05.09</span>
+          </div>
+          <div class="today-item" data-aos="fade-up" data-aos-delay="400" onclick="window.location.href='lablife.html'">
+            <div class="today-image">
+              <img src="images/events/241220.png" alt="송년회" class="today-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="image-placeholder" style="display: none;">송년회</div>
+            </div>
+            <h3>송년회</h3>
+            <span class="date">2024.12.20</span>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- 푸터 -->
@@ -277,12 +266,12 @@
     <script>
         // AOS 초기화
         AOS.init({
-            duration: 800,        // 애니메이션 지속 시간 (밀리초)
-            easing: 'ease-out',   // 애니메이션 이징
-            once: true,           // 한 번만 실행
-            offset: 100,          // 트리거 지점 (픽셀)
-            delay: 0,             // 지연 시간
-            anchorPlacement: 'top-bottom' // 애니메이션 시작 지점
+            duration: 800,
+            easing: 'ease-out',
+            once: true,
+            offset: 100,
+            delay: 0,
+            anchorPlacement: 'top-bottom'
         });
         
         // 현재 페이지 메뉴 활성화
@@ -298,20 +287,51 @@
             });
         });
 
-        // 메인 배너 슬라이더 기능
+        // 메인 배너 슬라이더 + 설명 동기화
         let currentBannerIndex = 0;
         const bannerSlides = document.querySelectorAll('.banner-slide');
         const bannerDots = document.querySelectorAll('.banner-dot');
+        const bannerDescTitle = document.getElementById('bannerDescTitle');
+        const bannerDescText = document.getElementById('bannerDescText');
         let bannerInterval;
 
+        const bannerDescriptions = [
+          { 
+            title: '<strong>Theme 1. Identifying novel clinically actionable oncogenes</strong>', 
+            text: 'The genomes of cancer cells are frequently altered and structurally rearranged, which can enhance the function of cancer-related genes. The functional consequences of genomic rearrangements in cancer are elusive except for canonical in-frame fusions. Our goal is to identify non-canonical types of rearrangements that enhance the oncogenic function of genes and have clinical significance.<br><br>D. Zingg* and J. Bhin* et al. Nature. 2022 Aug;608(7923):609-617' 
+          },
+          { 
+            title: '<strong>Theme 2. Uncovering resistance principles against anti-cancer therapeutics</strong>', 
+            text: 'One of the main challenges in cancer treatment is intrinsic or acquired resistance to anti-cancer drugs. Anti-cancer drug resistance is usually driven by genetic and/or epigenetic changes and is also known to be associated with the tumor microenvironment. We aim to reveal drug resistance mechanisms using multi-omics data generated from preclinical and clinical samples.<br><br>J.Bhin et al. J. Exp. Med. 2023 Nov;220(11):e20211743' 
+          },
+          { 
+            title: '<strong>Theme 3. Developing analytical tools for proteogenomic studies</strong>', 
+            text: 'Integrative analysis of genomic and proteomic data offers a unique opportunity to bridge the gap between genotype and phenotype. Recent advances in proteogenomic research have revealed new biological insights into cancer that cannot be obtained through genomic or proteomic approaches alone. We aim to develop novel analytical tools to integrate genomic, transcriptomic, and proteomic data to uncover the novel networks between genomic alterations and dysregulation of oncogenic signaling pathways.<br><br>D. Moon* and J. Bhin* et al. Cancer Cell. 2019 Jan 14;35(1):111-124' 
+          }
+        ];
+
+        function updateBannerDescription(index) {
+          const { title, text } = bannerDescriptions[index] || bannerDescriptions[0];
+          
+          // 텍스트 페이드 아웃
+          bannerDescTitle.style.opacity = '0';
+          bannerDescText.style.opacity = '0';
+          
+          // 500ms 후 텍스트 변경하고 페이드 인
+          setTimeout(() => {
+            bannerDescTitle.innerHTML = title;
+            bannerDescText.innerHTML = text;
+            bannerDescTitle.style.opacity = '1';
+            bannerDescText.style.opacity = '1';
+          }, 500);
+        }
+
         function showBannerSlide(index) {
-            // 모든 배너 슬라이드와 도트 비활성화
             bannerSlides.forEach(slide => slide.classList.remove('active'));
             bannerDots.forEach(dot => dot.classList.remove('active'));
-            
-            // 현재 배너 슬라이드와 도트 즉시 활성화
             bannerSlides[index].classList.add('active');
             bannerDots[index].classList.add('active');
+            updateBannerDescription(index);
         }
 
         function currentBannerSlide(index) {
@@ -325,23 +345,16 @@
             startBannerTimer();
         }
 
-        // 타이머 동기화를 위한 함수
-        function syncTimer() {
-            clearInterval(bannerInterval);
-            startBannerTimer();
-        }
-
         function startBannerTimer() {
             bannerInterval = setInterval(() => {
                 currentBannerIndex = (currentBannerIndex + 1) % bannerSlides.length;
                 showBannerSlide(currentBannerIndex);
-            }, 8000); // 5초마다 자동 슬라이드
+            }, 8000);
         }
 
-        // 페이지 로드 시 배너 슬라이더 타이머 시작
         document.addEventListener('DOMContentLoaded', function() {
             startBannerTimer();
-            // 배너 도트 클릭 바인딩 (신뢰성 향상)
+            updateBannerDescription(0);
             const dots = document.querySelectorAll('.banner-dot');
             dots.forEach((dot, idx) => {
                 dot.addEventListener('click', function(e) {
@@ -350,17 +363,14 @@
                     currentBannerSlide(idx + 1);
                 });
             });
-            
+
             // 모바일 메뉴 토글 기능
             const mobileToggle = document.querySelector('.mobile-menu-toggle');
             const mobileDropdown = document.querySelector('.mobile-dropdown');
-            
             if (mobileToggle && mobileDropdown) {
                 mobileToggle.addEventListener('click', function() {
                     mobileDropdown.classList.toggle('active');
                 });
-                
-                // 메뉴 외부 클릭 시 닫기
                 document.addEventListener('click', function(e) {
                     if (!mobileToggle.contains(e.target) && !mobileDropdown.contains(e.target)) {
                         mobileDropdown.classList.remove('active');
