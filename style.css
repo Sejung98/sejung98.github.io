@@ -1491,6 +1491,16 @@ html {
   margin: 110px auto 2rem; /* 헤더 고려 여백 */
 }
 
+/* 메인 배너 섹션 제목 */
+.banner-section-title {
+  text-align: center;
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
 /* 메인 배너 그리드 (좌: 이미지, 우: 설명) */
 .main-banner-grid {
   display: grid;
