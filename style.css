@@ -373,6 +373,14 @@ body::before {
   margin-left: 1rem !important;
 }
 
+/* 로고 내부 텍스트 컨테이너 */
+.site-header .logo a > div {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 0;
+}
+
 /* 로고 텍스트 (h1) 스타일 */
 .site-header .logo h1 {
   font-size: 2rem;                        /* 로고 텍스트 크기 */
@@ -383,10 +391,19 @@ body::before {
   cursor: pointer;
   outline: none;
   margin: 0;
-  line-height: 1;                         /* 줄 높이 조정 */
-  white-space: nowrap;                    /* 줄바꿈 방지 */
-  display: inline-block !important;       /* 블록 폭 차지 방지 */
+  line-height: 1.2;                       /* 줄 높이 조정 */
+  display: block !important;              /* 블록 요소로 변경 */
   flex: 0 0 auto !important;              /* 플렉스 아이템 크기 고정 */
+}
+
+/* 로고 서브타이틀 스타일 */
+.site-header .logo .lab-subtitle {
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgba(255, 242, 204, 0.8) !important;
+  margin: 0;
+  line-height: 1.2;
+  margin-top: 0.2rem;
 }
 
 /* 로고 이미지 스타일 (모든 선택자 통합) */
@@ -1307,6 +1324,56 @@ img.logo-image,
   .container {
     padding: 0 15px;
   }
+  
+  /* 메인 배너 작은 모바일 반응형 */
+  .main-banner-container {
+    margin: 90px auto 1rem;
+  }
+  
+  .main-banner-grid {
+    min-height: 400px; /* 작은 모바일에서 높이 조정 */
+    gap: 1rem;
+  }
+  
+  .main-banner-grid .banner-left {
+    min-height: 250px; /* 작은 모바일에서 이미지 영역 높이 조정 */
+  }
+  
+  .main-banner-grid .banner-right {
+    padding: 1rem; /* 작은 모바일에서 패딩 조정 */
+  }
+  
+  .banner-section-title {
+    font-size: 1.5rem; /* 작은 모바일에서 제목 크기 조정 */
+    margin-bottom: 1rem;
+  }
+  
+  .main-banner-grid .banner-right h3 {
+    font-size: 1.1rem; /* 작은 모바일에서 제목 크기 조정 */
+    margin-bottom: 0.6rem;
+  }
+  
+  .main-banner-grid .banner-right p {
+    font-size: 0.85rem; /* 작은 모바일에서 텍스트 크기 조정 */
+    line-height: 1.5;
+  }
+  
+  /* 로고 작은 모바일 반응형 */
+  .site-header .logo h1 {
+    font-size: 1.3rem; /* 작은 모바일에서 로고 크기 조정 */
+  }
+  
+  .site-header .logo .lab-subtitle {
+    font-size: 0.75rem; /* 작은 모바일에서 서브타이틀 크기 조정 */
+  }
+  
+  .logo-image {
+    max-height: 30px; /* 작은 모바일에서 로고 이미지 크기 조정 */
+  }
+  
+  .header-container {
+    padding: 0.8rem 1rem; /* 작은 모바일에서 헤더 패딩 조정 */
+  }
 }
 
 /* ========================================
@@ -1544,13 +1611,50 @@ html {
   transition: opacity 0.5s ease-in-out; /* 텍스트 전환 효과 추가 */
 }
 
+.main-banner-grid .banner-right p a {
+  color: #ffffff !important;
+  text-decoration: underline !important;
+  transition: opacity 0.3s ease;
+}
+
+.main-banner-grid .banner-right p a em {
+  font-style: italic;
+  text-decoration: underline !important;
+}
+
+.main-banner-grid .banner-right p a:hover {
+  opacity: 0.8;
+  text-decoration: underline !important;
+}
+
+.main-banner-grid .banner-right p a:hover em {
+  text-decoration: underline !important;
+}
+
 @media (max-width: 1024px) {
   .main-banner-grid {
     grid-template-columns: 1fr; /* 태블릿에서는 1열 */
+    min-height: 500px; /* 태블릿에서 높이 조정 */
+  }
+  
+  .main-banner-grid .banner-left {
+    min-height: 400px; /* 태블릿에서 이미지 영역 높이 조정 */
   }
   
   .main-banner-container {
     max-width: 95%; /* 태블릿에서 여백 조정 */
+  }
+  
+  .banner-section-title {
+    font-size: 2rem; /* 태블릿에서 제목 크기 조정 */
+  }
+  
+  .main-banner-grid .banner-right h3 {
+    font-size: 1.5rem; /* 태블릿에서 제목 크기 조정 */
+  }
+  
+  .main-banner-grid .banner-right p {
+    font-size: 1rem; /* 태블릿에서 텍스트 크기 조정 */
   }
 }
 
@@ -1652,5 +1756,53 @@ html {
   .contact-section {
     margin-top: 40px;
     padding: 40px 0;
+  }
+  
+  /* 메인 배너 모바일 반응형 */
+  .main-banner-container {
+    max-width: 95%;
+    margin: 100px auto 1.5rem;
+  }
+  
+  .main-banner-grid {
+    grid-template-columns: 1fr; /* 모바일에서 1열 */
+    min-height: 450px; /* 모바일에서 높이 조정 */
+    gap: 1.5rem;
+  }
+  
+  .main-banner-grid .banner-left {
+    min-height: 300px; /* 모바일에서 이미지 영역 높이 조정 */
+  }
+  
+  .main-banner-grid .banner-right {
+    padding: 1.5rem; /* 모바일에서 패딩 조정 */
+  }
+  
+  .banner-section-title {
+    font-size: 1.8rem; /* 모바일에서 제목 크기 조정 */
+    margin-bottom: 1.5rem;
+  }
+  
+  .main-banner-grid .banner-right h3 {
+    font-size: 1.3rem; /* 모바일에서 제목 크기 조정 */
+    margin-bottom: 0.8rem;
+  }
+  
+  .main-banner-grid .banner-right p {
+    font-size: 0.95rem; /* 모바일에서 텍스트 크기 조정 */
+    line-height: 1.6;
+  }
+  
+  /* 로고 모바일 반응형 */
+  .site-header .logo h1 {
+    font-size: 1.5rem; /* 모바일에서 로고 크기 조정 */
+  }
+  
+  .site-header .logo .lab-subtitle {
+    font-size: 0.85rem; /* 모바일에서 서브타이틀 크기 조정 */
+  }
+  
+  .logo-image {
+    max-height: 35px; /* 모바일에서 로고 이미지 크기 조정 */
   }
 }

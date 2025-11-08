@@ -341,14 +341,9 @@
 }
 
 /* ========================================
-   활성 메뉴 스타일
+   활성 메뉴 스타일 (style.css와 동일하게 유지)
    ======================================== */
-.main-nav a.active,
-.mobile-menu a.active {
-  background-color: rgba(255, 255, 255, 0.2); /* 활성 메뉴 배경색 */
-  color: #ff6b6b;                             /* 활성 메뉴 글자색 */
-  border-radius: 5px;
-}
+/* 활성 메뉴 스타일은 style.css에서 관리하므로 여기서는 제거 */
 
 /* ========================================
    Contact 페이지 지도 스타일
@@ -549,6 +544,11 @@
   .google-map {
     height: 380px; /* 태블릿에서 적당한 지도 높이 */
   }
+  
+  /* Alumni 섹션 태블릿 반응형 */
+  .alumni-section {
+    grid-template-columns: repeat(3, 1fr); /* 태블릿에서 3열 */
+  }
 }
 
 @media (max-width: 768px) {
@@ -650,6 +650,16 @@
     width: 150px;                             /* 모바일에서 이미지 크기 줄임 */
     height: 150px;
   }
+  
+  /* Alumni 섹션 모바일 반응형 */
+  .alumni-section {
+    grid-template-columns: repeat(2, 1fr); /* 모바일에서 2열 */
+    gap: 0.8rem;
+  }
+  
+  .alumni-section h2 {
+    font-size: 1.5rem; /* 모바일에서 제목 크기 축소 */
+  }
 }
 
 @media (max-width: 480px) {
@@ -672,6 +682,16 @@
   
   .subpage-content section {
     padding: 1.5rem;                          /* 더 작은 내부 여백 */
+  }
+  
+  /* Alumni 섹션 작은 모바일 반응형 */
+  .alumni-section {
+    grid-template-columns: 1fr; /* 작은 모바일에서 1열 */
+    gap: 1rem;
+  }
+  
+  .alumni-section h2 {
+    font-size: 1.3rem; /* 더 작은 제목 크기 */
   }
 }
 

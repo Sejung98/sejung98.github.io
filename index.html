@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bhin lab - Computational Precision Medicine </title>
+  <title>Bhin lab</title>
   
   <!-- 파비콘 설정 -->
   <link rel="icon" type="image/x-icon" href="images/logo_blue.png">
@@ -11,7 +11,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
   
-  <link rel="stylesheet" href="style.css?v=2025012807">
+  <link rel="stylesheet" href="style.css?v=2025012808">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
   <!-- AOS 라이브러리 추가 -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -40,18 +40,21 @@
         <div class="logo">
           <a href="index.html">
             <img src="images/logo_mini2.png" alt="로고" class="logo-image" onerror="this.style.display='none';">
-            <h1>Bhin lab</h1>
+            <div>
+              <h1>Bhin lab</h1>
+              <p class="lab-subtitle">Cancer Genomics & Informatics</p>
+            </div>
           </a>
         </div>
         <nav class="main-nav">
           <ul>
-            <li><a href="about.html">About Us</a></li>
             <li><a href="research.html">Research</a></li>
             <li><a href="members.html">Members</a></li>
             <li><a href="publications.html">Publications</a></li>
             <li><a href="news.html">News</a></li>
-            <li><a href="lablife.html">Lab Life</a></li>
+            <li><a href="positions.html">Positions</a></li>
             <li><a href="contact.html">Contact</a></li>
+            <li><a href="galleries.html">Galleries</a></li>
           </ul>
         </nav>
         
@@ -65,13 +68,13 @@
         <!-- 모바일 드롭다운 메뉴 -->
         <div class="mobile-dropdown">
           <ul>
-            <li><a href="about.html">About Us</a></li>
             <li><a href="research.html">Research</a></li>
             <li><a href="members.html">Members</a></li>
             <li><a href="publications.html">Publications</a></li>
             <li><a href="news.html">News</a></li>
-            <li><a href="lablife.html">Lab Life</a></li>
+            <li><a href="positions.html">Positions</a></li>
             <li><a href="contact.html">Contact</a></li>
+            <li><a href="galleries.html">Galleries</a></li>
           </ul>
         </div>
       </div>
@@ -92,14 +95,18 @@
             <div class="image-placeholder" style="display: none;">Research Image 2</div>
           </div>
           <div class="banner-slide">
-            <img src="images/research3.jpg" alt="Research 3" class="banner-bg-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="images/research3.png" alt="Research 3" class="banner-bg-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
             <div class="image-placeholder" style="display: none;">Research Image 3</div>
+          </div>
+          <div class="banner-slide">
+            <img src="images/research4.png" alt="Research 4" class="banner-bg-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="image-placeholder" style="display: none;">Research Image 4</div>
           </div>
         </div>
       </div>
       <div class="banner-right">
-        <h3 id="bannerDescTitle"><strong>Theme 1. Identifying novel clinically actionable oncogenes</strong></h3>
-        <p id="bannerDescText">The genomes of cancer cells are frequently altered and structurally rearranged, which can enhance the function of cancer-related genes. The functional consequences of genomic rearrangements in cancer are elusive except for canonical in-frame fusions. Our goal is to identify non-canonical types of rearrangements that enhance the oncogenic function of genes and have clinical significance.<br><br>D. Zingg* and J. Bhin* et al. Nature. 2022 Aug;608(7923):609-617</p>
+        <h3 id="bannerDescTitle"><strong>Truncated FGFR2 is a clinically actionable oncogene in multiple cancers</strong></h3>
+        <p id="bannerDescText"><a href="https://www.nature.com/articles/s41586-022-05066-5" target="_blank" style="color: #ffffff; text-decoration: underline;">D. Zingg* and J. Bhin* et al., <em>Nature</em> (2022)</a></p>
       </div>
     </div>
     <!-- 네비게이터를 그리드 아래로 이동 -->
@@ -108,6 +115,7 @@
         <span class="banner-dot active" onclick="currentBannerSlide(1)"></span>
         <span class="banner-dot" onclick="currentBannerSlide(2)"></span>
         <span class="banner-dot" onclick="currentBannerSlide(3)"></span>
+        <span class="banner-dot" onclick="currentBannerSlide(4)"></span>
       </div>
     </div>
   </section>
@@ -223,10 +231,10 @@
         <div class="footer-links" data-aos="fade-up" data-aos-delay="200">
           <h4>Quick Links</h4>
           <ul>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#research">Research</a></li>
-            <li><a href="#news">News</a></li>
-            <li><a href="#publications">Publications</a></li>
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="publications.html">Publications</a></li>
           </ul>
         </div>
         <div class="footer-contact" data-aos="fade-up" data-aos-delay="300">
@@ -298,16 +306,20 @@
 
         const bannerDescriptions = [
           { 
-            title: '<strong>Theme 1. Identifying novel clinically actionable oncogenes</strong>', 
-            text: 'The genomes of cancer cells are frequently altered and structurally rearranged, which can enhance the function of cancer-related genes. The functional consequences of genomic rearrangements in cancer are elusive except for canonical in-frame fusions. Our goal is to identify non-canonical types of rearrangements that enhance the oncogenic function of genes and have clinical significance.<br><br>D. Zingg* and J. Bhin* et al. Nature. 2022 Aug;608(7923):609-617' 
+            title: '<strong>Truncated FGFR2 is a clinically actionable oncogene in multiple cancers</strong>', 
+            text: '<a href="https://www.nature.com/articles/s41586-022-05066-5" target="_blank" style="color: #ffffff; text-decoration: underline;">D. Zingg* and J. Bhin* et al., <em>Nature</em> (2022)</a>' 
           },
           { 
-            title: '<strong>Theme 2. Uncovering resistance principles against anti-cancer therapeutics</strong>', 
-            text: 'One of the main challenges in cancer treatment is intrinsic or acquired resistance to anti-cancer drugs. Anti-cancer drug resistance is usually driven by genetic and/or epigenetic changes and is also known to be associated with the tumor microenvironment. We aim to reveal drug resistance mechanisms using multi-omics data generated from preclinical and clinical samples.<br><br>J.Bhin et al. J. Exp. Med. 2023 Nov;220(11):e20211743' 
+            title: '<strong>Proteogenomic Characterization of Human Early-Onset Gastric Cancer</strong>', 
+            text: '<a href="https://www.sciencedirect.com/science/article/pii/S1535610818305749?via%3Dihub" target="_blank" style="color: #ffffff; text-decoration: underline;">D. Moon* and J. Bhin* et al., <em>Cancer Cell</em> (2019)</a>' 
           },
           { 
-            title: '<strong>Theme 3. Developing analytical tools for proteogenomic studies</strong>', 
-            text: 'Integrative analysis of genomic and proteomic data offers a unique opportunity to bridge the gap between genotype and phenotype. Recent advances in proteogenomic research have revealed new biological insights into cancer that cannot be obtained through genomic or proteomic approaches alone. We aim to develop novel analytical tools to integrate genomic, transcriptomic, and proteomic data to uncover the novel networks between genomic alterations and dysregulation of oncogenic signaling pathways.<br><br>D. Moon* and J. Bhin* et al. Cancer Cell. 2019 Jan 14;35(1):111-124' 
+            title: '<strong>MYC is a clinically significant driver of mTOR inhibitor resistance in breast cancer</strong>', 
+            text: '<a href="https://rupress.org/jem/article/220/11/e20211743/276218" target="_blank" style="color: #ffffff; text-decoration: underline;">J. Bhin* and Yemelanenko* et al., <em>J. Exp. Med.</em> (2023)</a>' 
+          },
+          { 
+            title: '<strong>Multi-omics analysis reveals distinct non-reversion mechanisms of PARPi resistance in BRCA1- versus BRCA2-deficient mammary tumors</strong>', 
+            text: '<a href="https://www.sciencedirect.com/science/article/pii/S2211124723005491?via%3Dihub" target="_blank" style="color: #ffffff; text-decoration: underline;">J. Bhin* and Dias* et al., <em>Cell Reports</em> (2023)</a>' 
           }
         ];
 
