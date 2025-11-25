@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Positions - CPM</title>
   
-  <!-- ?�비�??�정 -->
+  <!-- 파비콘 설정 -->
   <link rel="icon" type="image/x-icon" href="images/logo_251125.png">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
@@ -18,7 +18,7 @@
 </head>
 <body>
 
-  <!-- ?�더 -->
+  <!-- 헤더 -->
   <header class="site-header">
     <div class="header-container">
       <div class="logo">
@@ -42,14 +42,14 @@
         </ul>
       </nav>
       
-      <!-- 모바??메뉴 버튼 -->
+      <!-- 모바일 메뉴 버튼 -->
       <div class="mobile-menu-toggle">
         <span></span>
         <span></span>
         <span></span>
       </div>
       
-      <!-- 모바???�롭?�운 메뉴 -->
+      <!-- 모바일 드롭다운 메뉴 -->
       <div class="mobile-dropdown">
         <ul>
           <li><a href="research.html">Research</a></li>
@@ -64,7 +64,7 @@
     </div>
   </header>
 
-  <!-- ?�이지 ?�더 -->
+  <!-- 페이지 헤더 -->
   <section class="page-header" data-aos="fade-up">
     <div class="container">
       <h1 data-aos="fade-up" data-aos-delay="100">Positions</h1>
@@ -72,14 +72,14 @@
     </div>
   </section>
 
-  <!-- 메인 콘텐�?-->
+  <!-- 메인 콘텐츠 -->
   <main class="subpage-content" data-aos="fade-up">
     <div class="container">
-      <!-- ?�용?� ?�중??추�? -->
+      <!-- 내용은 나중에 추가 -->
     </div>
   </main>
 
-  <!-- ?�터 -->
+  <!-- 푸터 -->
   <footer class="site-footer" data-aos="fade-up">
     <div class="container">
       <div class="footer-content">
@@ -114,7 +114,7 @@
     AOS.init({ duration: 800, easing: 'ease-out', once: true, offset: 100 });
   </script>
   <script>
-    // 모바??메뉴 ?��?
+    // 모바일 메뉴 토글
     document.addEventListener('DOMContentLoaded', function() {
       const mobileToggle = document.querySelector('.mobile-menu-toggle');
       const mobileDropdown = document.querySelector('.mobile-dropdown');
@@ -129,6 +129,20 @@
           }
         });
       }
+
+    // 스크롤 시 헤더 배경 처리
+    const siteHeader = document.querySelector('.site-header');
+    if (siteHeader) {
+      const handleScroll = () => {
+        if (window.scrollY > 50) {
+          siteHeader.classList.add('scrolled');
+        } else {
+          siteHeader.classList.remove('scrolled');
+        }
+      };
+      handleScroll();
+      window.addEventListener('scroll', handleScroll);
+    }
     });
   </script>
 </body>

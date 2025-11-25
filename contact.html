@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - CPM</title>
     
-    <!-- ?�비�??�정 -->
+    <!-- 파비콘 설정 -->
     <link rel="icon" type="image/x-icon" href="images/logo_251125.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
@@ -17,7 +17,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-      <!-- ?�더 -->
+      <!-- 헤더 -->
   <header class="site-header">
     <div class="header-container">
       <div class="logo">
@@ -41,14 +41,14 @@
           </ul>
         </nav>
         
-        <!-- 모바??메뉴 버튼 -->
+        <!-- 모바일 메뉴 버튼 -->
         <div class="mobile-menu-toggle">
           <span></span>
           <span></span>
           <span></span>
         </div>
         
-        <!-- 모바???�롭?�운 메뉴 -->
+        <!-- 모바일 드롭다운 메뉴 -->
         <div class="mobile-dropdown">
           <ul>
             <li><a href="research.html">Research</a></li>
@@ -64,31 +64,31 @@
     </header>
 
 
-    <!-- 메인 콘텐�?-->
+    <!-- 메인 콘텐츠 -->
     <main class="subpage-content" data-aos="fade-up">
         <div class="container">
-            <!-- ?�락�??�보 ?�션 -->
+            <!-- 연락처 정보 섹션 -->
             <section class="contact-info-section" data-aos="fade-up">
                 <h2>Contact Information</h2>
                 <div class="contact-grid">
                     <div class="contact-details">
                         <h3>Get in Touch</h3>
                         <div class="contact-item">
-                            <i class="contact-icon">?��</i>
+                            <i class="contact-icon">📍</i>
                             <div>
                                 <h4>Address</h4>
-                                <p>?�울?�별??강남�??�곡�?237 107??<br> (강남?�브?�?�병??미래?�학?�구?�터)<br>Room 107, 237, Dogok-ro, Gangnam-gu, Seoul, Republic of Korea</p>
+                                <p>서울특별시 강남구 도곡로 237 107호 <br> (강남세브란스병원 미래의학연구센터)<br>Room 107, 237, Dogok-ro, Gangnam-gu, Seoul, Republic of Korea</p>
                             </div>
                         </div>
                         <div class="contact-item">
-                            <i class="contact-icon">?��</i>
+                            <i class="contact-icon">📧</i>
                             <div>
                                 <h4>Email</h4>
                                 <p>jbhin@yuhs.ac</p>
                             </div>
                         </div>
                         <div class="contact-item">
-                            <i class="contact-icon">?��</i>
+                            <i class="contact-icon">💻</i>
                             <div>
                                 <h4>GitHub</h4>
                                 <p><a href="https://github.com/CPMlab" target="_blank">CPM Lab GitHub</a></p>
@@ -104,7 +104,7 @@
                                 allowfullscreen="" 
                                 loading="lazy" 
                                 referrerpolicy="no-referrer-when-downgrade"
-                                title="?�세?� 강남?�브?�?�병??미래?�학?�구?�터 ?�치"
+                                title="연세대 강남세브란스병원 미래의학연구센터 위치"
                                 style="pointer-events: auto;">
                             </iframe>
 
@@ -120,7 +120,7 @@
 
 
 
-    <!-- ?�터 -->
+    <!-- 푸터 -->
     <footer class="site-footer" data-aos="fade-up">
         <div class="container">
             <div class="footer-content">
@@ -154,7 +154,7 @@
       AOS.init({ duration: 800, easing: 'ease-out', once: true, offset: 100 });
     </script>
     <script>
-      // 모바??메뉴 ?��?
+      // 모바일 메뉴 토글
       document.addEventListener('DOMContentLoaded', function() {
         const mobileToggle = document.querySelector('.mobile-menu-toggle');
         const mobileDropdown = document.querySelector('.mobile-dropdown');
@@ -169,8 +169,21 @@
             }
           });
         }
+
+    // 스크롤 시 헤더 배경 처리
+    const siteHeader = document.querySelector('.site-header');
+    if (siteHeader) {
+      const handleScroll = () => {
+        if (window.scrollY > 50) {
+          siteHeader.classList.add('scrolled');
+        } else {
+          siteHeader.classList.remove('scrolled');
+        }
+      };
+      handleScroll();
+      window.addEventListener('scroll', handleScroll);
+    }
       });
     </script>
 </body>
 </html>
-

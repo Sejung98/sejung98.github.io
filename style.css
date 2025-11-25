@@ -327,7 +327,7 @@ body::before {
   /* 로딩 중에는 숨김, 로딩 완료 후 표시 */
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.5s ease, visibility 0.5s ease;
+  transition: opacity 0.5s ease, visibility 0.5s ease, background 0.3s ease, backdrop-filter 0.3s ease;
 }
 
 /* 헤더 내부 컨테이너 */
@@ -480,6 +480,8 @@ img.logo-image,
   font-weight: 500;                       /* 중간 굵기 */
   padding: 0.5rem 1rem;                   /* 클릭 영역 확장 */
   border-radius: 8px;                     /* 둥근 모서리 */
+  background: rgba(255, 255, 255, 0.08);  /* 기본 블록 배경 */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);   /* 은은한 그림자 */
   transition: all 0.3s ease;             /* 부드러운 전환 */
   position: relative;
   overflow: hidden;
@@ -518,10 +520,10 @@ img.logo-image,
 .main-nav > ul > li > a:hover,
 .main-nav ul li a:hover,
 .site-header .main-nav ul li a:hover {
-  color: #70d2d3 !important;              /* 호버 시 빨간색 */
-  background-color: rgba(255, 255, 255, 0.1) !important; /* 반투명 배경 */
+  color: #70d2d3 !important;              /* 브랜드 컬러 강조 */
+  background-color: rgba(255, 255, 255, 0.1) !important; /* 기존 반투명 배경 */
   transform: translateY(-2px) !important;  /* 위로 2px 이동 */
-  box-shadow: 0 4px 12px #70d2d3(255, 107, 107, 0.3) !important; /* 그림자 효과 */
+  box-shadow: 0 4px 12px rgba(112, 210, 211, 0.3) !important; /* 은은한 그림자 */
   text-decoration: none !important;
   outline: none !important;
   border-radius: 8px !important;
@@ -1024,6 +1026,12 @@ img.logo-image,
   gap: 2rem;
 }
 
+.latest-news {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
 .news-item {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 15px;
@@ -1031,6 +1039,37 @@ img.logo-image,
   box-shadow: 0 3px 15px rgba(0,0,0,0.3);
   transition: transform 0.3s ease;
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.latest-news .news-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: 1.5rem;
+  min-height: 210px;
+}
+
+.latest-news .news-item h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 0.35rem;
+  color: #ffffff;
+}
+
+.latest-news .news-item p {
+  flex-grow: 1;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+}
+
+.latest-news .news-item .date {
+  margin-top: auto;
+  display: block;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  text-align: right;
 }
 
 .news-item:hover {
@@ -1481,8 +1520,10 @@ html {
 }
 
 .site-header.scrolled {
-  background: transparent !important;
-  box-shadow: none !important;
+  background: rgba(0, 0, 0, 0.7) !important;  /* 은은한 검은색 배경 */
+  backdrop-filter: blur(10px);                 /* 블러 효과 */
+  -webkit-backdrop-filter: blur(10px);         /* Safari 지원 */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;  /* 약간의 그림자 */
 }
 
 /* 로고 가로 정렬 강제 수정 */

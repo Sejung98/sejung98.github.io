@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Research - CPM</title>
   
-  <!-- ?�비�??�정 -->
+  <!-- 파비콘 설정 -->
   <link rel="icon" type="image/x-icon" href="images/logo_251125.png">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
@@ -18,7 +18,7 @@
 </head>
 <body>
 
-  <!-- ?�더 -->
+  <!-- 헤더 -->
   <header class="site-header">
     <div class="header-container">
       <div class="logo">
@@ -42,14 +42,14 @@
           </ul>
         </nav>
         
-        <!-- 모바??메뉴 버튼 -->
+        <!-- 모바일 메뉴 버튼 -->
         <div class="mobile-menu-toggle">
           <span></span>
           <span></span>
           <span></span>
         </div>
         
-        <!-- 모바???�롭?�운 메뉴 -->
+        <!-- 모바일 드롭다운 메뉴 -->
         <div class="mobile-dropdown">
           <ul>
             <li><a href="research.html">Research</a></li>
@@ -64,7 +64,7 @@
     </div>
   </header>
 
-  <!-- ?�이지 ?�더 -->
+  <!-- 페이지 헤더 -->
   <section class="page-header" data-aos="fade-up">
     <div class="container">
       <h1 data-aos="fade-up" data-aos-delay="100">Research</h1>
@@ -72,51 +72,47 @@
     </div>
   </section>
 
-  <!-- 메인 콘텐�?-->
+  <!-- 메인 콘텐츠 -->
   <main class="subpage-content" data-aos="fade-up">
     <div class="container">
-      <!-- ?�구 분야 ?�션 -->
+      <!-- 연구 분야 섹션 -->
       <section class="research-areas-section" data-aos="fade-up">
         <h2 data-aos="fade-up" data-aos-delay="100">Research Areas</h2>
         <div class="research-areas-grid">
           <div class="research-area-item">
-            <div class="area-icon">🧬</div>
             <h3>Genomics</h3>
-            <p>Investigating disease mechanisms using cutting-edge genomic analysis and developing personalized therapies</p>
             <div class="area-details">
-              <h4>Key topics:</h4>
+              <h4>Key Topics</h4>
               <ul>
-                <li>Genetic variant analysis</li>
-                <li>Phenotypic analysis</li>
-                <li>Personalized therapeutics</li>
+                <li>Evolutionary trajectories of the cancer genome</li>
+                <li>Novel cancer drivers arising from structural rearrangements</li>
+                <li>AI-based models for driver gene identification</li>
+                <li>Genome- & phenome-wide association studies of GPCR genes</li>
               </ul>
             </div>
           </div>
 
           <div class="research-area-item">
-            <div class="area-icon">🔎</div>
             <h3>Transcriptomics</h3>
-            <p>Identifying novel therapeutic targets and guiding drug development through single-cell RNA-seq analyses</p>
             <div class="area-details">
-              <h4>Key topics:</h4>
+              <h4>Key Topics</h4>
               <ul>
-                <li>Target discovery</li>
-                <li>Expression dysregulation analysis</li>
-                <li>Spatial transcriptomics</li>
+                <li>Single-cell & spatial transcriptomic profiling of cancer ecosystems</li>
+                <li>TME state discovery using bulk tumor deconvolution</li>
+                <li>Isoform-level RNA complexity in cancer</li>
+                <li>Construction of a comprehensive expression atlas of GPCRs</li>
               </ul>
             </div>
           </div>
           
           <div class="research-area-item">
-            <div class="area-icon">🧪</div>
-            <h3>Proteomics</h3>
-            <p>Discovering therapeutic targets and enabling drug development by studying protein structure and function</p>
+            <h3>Multi-omics</h3>
             <div class="area-details">
-              <h4>Key topics:</h4>
+              <h4>Key Topics</h4>
               <ul>
-                <li>Protein structure analysis</li>
-                <li>Protein?�drug interactions</li>
-                <li>Novel drug candidate discovery</li>
+                <li>Proteogenomic characterization of cancer and therapeutic vulnerabilities</li>
+                <li>Mechanisms and determinants of drug resistance</li>
+                <li>Development of next-generation multi-omics integration frameworks</li>
               </ul>
             </div>
           </div>
@@ -124,7 +120,7 @@
         </div>
       </section>
 
-      <!-- ?�재 ?�구 ?�로?�트 ?�션 -->
+      <!-- 현재 연구 프로젝트 섹션 -->
       <section class="current-projects-section" data-aos="fade-up">
         <h2 data-aos="fade-up" data-aos-delay="100">Current Projects</h2>
         <div class="projects-grid">
@@ -161,7 +157,7 @@
       </section>
 
 
-  <!-- ?�터 -->
+  <!-- 푸터 -->
   <footer class="site-footer" data-aos="fade-up">
     <div class="container">
       <div class="footer-content">
@@ -196,7 +192,7 @@
     AOS.init({ duration: 800, easing: 'ease-out', once: true, offset: 100 });
   </script>
   <script>
-    // 모바??메뉴 ?��?
+    // 모바일 메뉴 토글
     document.addEventListener('DOMContentLoaded', function() {
       const mobileToggle = document.querySelector('.mobile-menu-toggle');
       const mobileDropdown = document.querySelector('.mobile-dropdown');
@@ -210,6 +206,20 @@
             mobileDropdown.classList.remove('active');
           }
         });
+      }
+
+      // 스크롤 시 헤더 배경 처리
+      const siteHeader = document.querySelector('.site-header');
+      if (siteHeader) {
+        const handleScroll = () => {
+          if (window.scrollY > 50) {
+            siteHeader.classList.add('scrolled');
+          } else {
+            siteHeader.classList.remove('scrolled');
+          }
+        };
+        handleScroll();
+        window.addEventListener('scroll', handleScroll);
       }
     });
   </script>
