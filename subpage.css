@@ -870,45 +870,87 @@
 /* 논문 스타일 */
 .paper-item {
     margin-bottom: 30px;
-    padding: 25px;
-    background: transparent;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 25px 30px 30px 30px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
     position: relative;
     counter-increment: paper-counter;
+    backdrop-filter: blur(12px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.paper-item:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
 }
 
 .paper-item::before {
     content: counter(paper-counter);
     position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 30px;
-    height: 30px;
-    background: #007bff;
+    top: 24px;
+    left: 24px;
+    width: 34px;
+    height: 34px;
+    background: linear-gradient(135deg, rgba(112,210,211,0.9), rgba(124,154,255,0.9));
     color: white;
-    border-radius: 50%;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
-    font-size: 14px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
 }
 
 .paper-item h3 {
-    margin-left: 50px;
+    margin-left: 60px;
     margin-top: 0;
-    margin-bottom: 15px;
+    margin-bottom: 14px;
     color: #ffffff;
-    font-size: 18px;
-    line-height: 1.4;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
 }
 
 .paper-item p {
-    margin-left: 50px;
+    margin-left: 60px;
     margin-bottom: 0;
-    line-height: 1.6;
-    color: #e0e0e0;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.impact-badges {
+    margin-left: 60px;
+    margin-top: 1.2rem;
+    padding: 0.75rem 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    align-items: center;
+    min-height: 48px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+}
+
+.impact-badges .altmetric-embed {
+    min-width: 120px;
+    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.25));
+}
+
+.impact-badges .__dimensions_badge_embed__ {
+    min-height: 30px;
+    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.25));
+}
+
+.impact-placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    font-style: italic;
+    letter-spacing: 0.02em;
 }
 
 /* 한빛사 논문 표시 스타일 */
