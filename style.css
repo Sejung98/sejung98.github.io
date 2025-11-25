@@ -1556,6 +1556,8 @@ html {
 .main-banner-container {
   max-width: 1400px;
   margin: 110px auto 2rem; /* 헤더 고려 여백 */
+  position: relative;
+  z-index: 100; /* 본문보다 위에 표시 */
 }
 
 /* 메인 배너 섹션 제목 */
@@ -1576,6 +1578,8 @@ html {
   align-items: stretch;
   min-height: 600px; /* 세로 크기 증가: 500px → 600px */
   margin-bottom: 1.5rem; /* 네비게이터와의 간격 */
+  position: relative;
+  z-index: 100; /* 본문보다 위에 표시 */
 }
 
 .main-banner-grid .banner-left {
@@ -1595,26 +1599,64 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
+  z-index: 101; /* 본문 위로 표시 */
+  overflow-y: visible; /* 스크롤바 제거 */
+  max-height: 600px; /* 이미지 높이와 맞춤 */
 }
 
 .main-banner-grid .banner-right h3 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  margin-bottom: 1.2rem;
   color: #ffffff;
   transition: opacity 0.5s ease-in-out; /* 텍스트 전환 효과 추가 */
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.main-banner-grid .banner-right h3:empty {
+  display: none; /* 제목이 비어있을 때만 숨김 */
 }
 
 .main-banner-grid .banner-right p {
-  font-size: 1.1rem;
-  line-height: 1.8;
+  font-size: 0.95rem;
+  line-height: 1.7;
   color: #e6e6e6;
   transition: opacity 0.5s ease-in-out; /* 텍스트 전환 효과 추가 */
+  margin-bottom: 1rem;
 }
 
-.main-banner-grid .banner-right p a {
+/* Abstract 스타일링 */
+.main-banner-grid .banner-right p strong {
+  display: block;
+  font-size: 1.1rem;
+  color: #ffffff;
+  margin-top: 1.5rem;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.main-banner-grid .banner-right p div {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.main-banner-grid .banner-right p div a {
+  color: #ffffff !important;
+  text-decoration: underline !important;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.main-banner-grid .banner-right p a,
+.main-banner-grid .banner-right p div a {
   color: #ffffff !important;
   text-decoration: underline !important;
   transition: opacity 0.3s ease;
+  display: inline-block;
+  margin-bottom: 1rem;
 }
 
 .main-banner-grid .banner-right p a em {
@@ -1650,7 +1692,7 @@ html {
   }
   
   .main-banner-grid .banner-right h3 {
-    font-size: 1.5rem; /* 태블릿에서 제목 크기 조정 */
+    font-size: 1.3rem; /* 태블릿에서 제목 크기 조정 */
   }
   
   .main-banner-grid .banner-right p {
@@ -1784,7 +1826,7 @@ html {
   }
   
   .main-banner-grid .banner-right h3 {
-    font-size: 1.3rem; /* 모바일에서 제목 크기 조정 */
+    font-size: 1.1rem; /* 모바일에서 제목 크기 조정 */
     margin-bottom: 0.8rem;
   }
   
