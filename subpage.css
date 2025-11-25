@@ -559,8 +559,14 @@
   
   /* 모바일에서 뉴스를 한 열로 표시 */
   .latest-news {
-    grid-template-columns: 1fr; /* 모바일에서는 한 열로 */
+    grid-template-columns: 1fr !important; /* 모바일에서는 한 열로 강제 */
     gap: 1.5rem;
+    max-width: 100%;
+  }
+  
+  .news-item {
+    width: 100%;
+    margin-bottom: 1.5rem;
   }
   
   /* 모바일에서는 모든 멤버 카드를 1열로 변경 */
@@ -810,6 +816,12 @@
   margin-bottom: 1rem;
   font-weight: 600;
   line-height: 1.4;
+}
+
+.project-theme {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
 }
 
 .project-theme h4 {
