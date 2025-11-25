@@ -415,12 +415,29 @@ img.logo-image,
   vertical-align: middle;
   border-radius: 6px;                     /* 모서리 둥글게 */
   object-fit: contain;                    /* 비율 유지하며 크기 조정 */
-  display: inline-block !important;
+  display: inline-flex !important;
   flex-shrink: 0;
   align-self: center;
   height: auto;
-  max-height: 40px;                       /* 최대 높이 제한 */
+  max-height: 64px;                       /* 텍스트 높이에 맞춰 확대 */
+  min-height: 54px;
+  width: auto;
   flex: 0 0 auto !important;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+@media (max-width: 768px) {
+  .logo-image,
+  img.logo-image,
+  .site-header .logo img,
+  .site-header .logo a img {
+    max-height: 48px;
+    min-height: 42px;
+    padding: 0;
+    box-shadow: none;
+  }
 }
 
 /* 로고 호버 효과 */
