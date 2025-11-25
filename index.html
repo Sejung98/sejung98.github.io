@@ -218,24 +218,40 @@
 
     <!-- 로딩 스크립트 -->
     <script>
-        // 페이지 로드 완료 후 로딩 오버레이 숨김
-        window.addEventListener('load', function() {
+        (function() {
             const loadingOverlay = document.getElementById('loadingOverlay');
             const siteHeader = document.querySelector('.site-header');
-            
-            setTimeout(function() {
-                // 줌인 애니메이션 시작
-                loadingOverlay.classList.add('zoom-out');
-                
-                // 헤더 표시 (로딩 시작과 동시에)
-                siteHeader.classList.add('show');
-                
-                // 애니메이션 완료 후 오버레이 완전히 숨김
-                setTimeout(function() {
+            const skipLoading = sessionStorage.getItem('skipIndexLoading') === 'true';
+
+            if (skipLoading) {
+                sessionStorage.removeItem('skipIndexLoading');
+                if (siteHeader) {
+                    siteHeader.classList.add('show');
+                }
+                if (loadingOverlay) {
                     loadingOverlay.style.display = 'none';
-                }, 1000); // 줌아웃 애니메이션 1초 후 숨김
-            }, 2000); // 초기 로딩 2초
-        });
+                }
+                return;
+            }
+
+            // 페이지 로드 완료 후 로딩 오버레이 숨김
+            window.addEventListener('load', function() {
+                if (!loadingOverlay || !siteHeader) return;
+
+                setTimeout(function() {
+                    // 줌인 애니메이션 시작
+                    loadingOverlay.classList.add('zoom-out');
+                    
+                    // 헤더 표시 (로딩 시작과 동시에)
+                    siteHeader.classList.add('show');
+                    
+                    // 애니메이션 완료 후 오버레이 완전히 숨김
+                    setTimeout(function() {
+                        loadingOverlay.style.display = 'none';
+                    }, 1000); // 줌아웃 애니메이션 1초 후 숨김
+                }, 2000); // 초기 로딩 2초
+            });
+        })();
     </script>
     
     <!-- AOS 라이브러리 스크립트 -->

@@ -919,6 +919,24 @@
       document.addEventListener('DOMContentLoaded', function() {
 
 
+        const logoLink = document.querySelector('.logo a[href="index.html"]');
+
+
+        if (logoLink) {
+
+
+          logoLink.addEventListener('click', function() {
+
+
+            sessionStorage.setItem('skipIndexLoading', 'true');
+
+
+          });
+
+
+        }
+
+
         const mobileToggle = document.querySelector('.mobile-menu-toggle');
 
 

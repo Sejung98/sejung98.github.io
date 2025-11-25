@@ -128,6 +128,12 @@
   <script>
     // 모바일 메뉴 토글
     document.addEventListener('DOMContentLoaded', function() {
+      const logoLink = document.querySelector('.logo a[href="index.html"]');
+      if (logoLink) {
+        logoLink.addEventListener('click', function() {
+          sessionStorage.setItem('skipIndexLoading', 'true');
+        });
+      }
       const mobileToggle = document.querySelector('.mobile-menu-toggle');
       const mobileDropdown = document.querySelector('.mobile-dropdown');
       if (mobileToggle && mobileDropdown) {
