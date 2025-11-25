@@ -85,9 +85,9 @@
               <h4>Key Topics</h4>
               <ul>
                 <li>Evolutionary trajectories of the cancer genome</li>
-                <li>Novel cancer drivers arising from structural rearrangements</li>
-                <li>AI-based models for driver gene identification</li>
-                <li>Genome- & phenome-wide association studies of GPCR genes</li>
+                <li>Novel cancer drivers from structural variations</li>
+                <li>AI-based cancer driver discovery</li>
+                <li>Trait-wide causal variant identification</li>
               </ul>
             </div>
           </div>
@@ -97,10 +97,9 @@
             <div class="area-details">
               <h4>Key Topics</h4>
               <ul>
-                <li>Single-cell & spatial transcriptomic profiling of cancer ecosystems</li>
-                <li>TME state discovery using bulk tumor deconvolution</li>
+                <li>Single-cell & spatial transcriptomic analysis</li>
+                <li>TME state discovery via bulk tumor deconvolution</li>
                 <li>Isoform-level RNA complexity in cancer</li>
-                <li>Construction of a comprehensive expression atlas of GPCRs</li>
               </ul>
             </div>
           </div>
@@ -110,9 +109,9 @@
             <div class="area-details">
               <h4>Key Topics</h4>
               <ul>
-                <li>Proteogenomic characterization of cancer and therapeutic vulnerabilities</li>
+                <li>Proteogenomic characterization of cancer</li>
                 <li>Mechanisms and determinants of drug resistance</li>
-                <li>Development of next-generation multi-omics integration frameworks</li>
+                <li>Multi-omics integration frameworks</li>
               </ul>
             </div>
           </div>
@@ -130,7 +129,12 @@
               <div class="project-theme">
                 <h4>[Theme 1. Identifying novel clinically actionable oncogenes]</h4>
               </div>
-              <p class="project-description">The genomes of cancer cells are frequently altered and structurally rearranged, which can enhance the function of cancer-related genes. The functional consequences of genomic rearrangements in cancer are elusive except for canonical in-frame fusions. Our goal is to identify non-canonical types of rearrangements that enhance the oncogenic function of genes and have clinical significance.</p>
+              <div class="project-description">
+                <p>We aim to decipher the fundamental principles governing cancer genome complexity and evolutionary dynamics through two complementary approaches.</p>
+                <p>First, leveraging large-scale whole-genome sequencing datasets, we investigate how diverse classes of mutations—including single-nucleotide variants, copy number alterations, and structural rearrangements—collectively shape the evolutionary trajectories of tumors. This allows us to map lineage-specific mutational processes, clonal architectures, and selective pressures that drive cancer progression across broad cohorts.</p>
+                <p>Second, we harness long-read sequencing technologies to identify previously unrecognized functional cancer drivers arising from cryptic or complex structural variants that escape detection by conventional short-read approaches. Long-read sequencing enables us to reconstruct rearranged haplotypes and resolve mechanisms such as enhancer hijacking, regulatory rewiring, or oncogenic fusions that contribute to tumorigenesis. These technologies provide unique advantages in characterizing structural variant breakpoints, phasing mutations onto individual haplotypes, and revealing the full spectrum of genomic complexity.</p>
+                <p>To prioritize functional driver candidates from this expanded mutational landscape, we develop AI-based predictive models that integrate sequence context, chromatin features, 3D genome topology, and recurrence patterns across cohorts. Ultimately, our goal is to establish a coherent framework that links cancer genome complexity, evolutionary history, and functional driver discovery.</p>
+              </div>
             </div>
           </div>
           
@@ -140,7 +144,10 @@
               <div class="project-theme">
                 <h4>[Theme 2. Uncovering resistance principles against anti-cancer therapeutics]</h4>
               </div>
-              <p class="project-description">One of the main challenges in cancer treatment is intrinsic or acquired resistance to anti-cancer drugs. Anti-cancer drug resistance is usually driven by genetic and/or epigenetic changes and is also known to be associated with the tumor microenvironment. We aim to reveal drug resistance mechanisms using multi-omics data generated from preclinical and clinical samples.</p>
+              <div class="project-description">
+                <p>We investigate how transcriptional programs, cellular states, and microenvironmental interactions shape the functional ecosystem of tumors. Using single-cell RNA sequencing, we resolve the heterogeneity of cancer and stromal cell populations and characterize how these populations shift across disease stages and in response to therapeutic perturbations. Spatial transcriptomics further contextualizes these findings within tissue architecture, enabling us to map cell-cell communication networks, niche-specific transcriptional programs, and regional ecosystem dynamics that cannot be captured by dissociated single-cell profiling alone.</p>
+                <p>To extend these insights across patient cohorts, we perform computational deconvolution of bulk tumor transcriptomes, quantifying tumor microenvironment (TME) states and enabling cross-patient comparisons that link ecosystem features to clinical outcomes. We also leverage long-read transcriptome sequencing to achieve isoform-level resolution, uncovering the full repertoire of RNA complexity—including alternative splicing, promoter usage, and fusion transcripts—that arise as functional consequences of the cancer genomic complexity.</p>
+              </div>
             </div>
           </div>
           
@@ -150,7 +157,10 @@
               <div class="project-theme">
                 <h4>[Theme 3. Developing analytical tools for proteogenomic studies]</h4>
               </div>
-              <p class="project-description">Integrative analysis of genomic and proteomic data offers a unique opportunity to bridge the gap between genotype and phenotype. Recent advances in proteogenomic research have revealed new biological insights into cancer that cannot be obtained through genomic or proteomic approaches alone. We aim to develop novel analytical tools to integrate genomic, transcriptomic, and proteomic data to uncover the novel networks between genomic alterations and dysregulation of oncogenic signaling pathways.</p>
+              <div class="project-description">
+                <p>We strive to build an integrated, multi-layered understanding of cancer by combining genomic, transcriptomic, and proteomic. Proteogenomic analyses reveal how genomic alterations and transcriptional programs manifest at the protein level, uncovering dysregulated pathways and signaling vulnerabilities. By integrating these molecular layers, we identify mechanisms that determine therapeutic response and resistance, linking genome evolution and transcriptomic ecosystem states to clinically meaningful phenotypes.</p>
+                <p>To systematically navigate this multi-dimensional landscape, we develop next-generation multi-omics integration frameworks, incorporating machine learning and AI-based models that can extract cross-modal representations and identify key drivers of disease aggressiveness. These tools allow us to discover biomarkers, stratify patients, and elucidate mechanisms of drug addiction or resistance that emerge from complex interactions between the genome, transcriptome, and proteome. Through this comprehensive approach, we aim to resolve the biological complexity that underlies cancer behavior and to translate these mechanistic insights into precision oncology strategies and novel therapeutic opportunities.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -194,6 +204,13 @@
   <script>
     // 모바일 메뉴 토글
     document.addEventListener('DOMContentLoaded', function() {
+      const logoLink = document.querySelector('.logo a[href="index.html"]');
+      if (logoLink) {
+        logoLink.addEventListener('click', function() {
+          sessionStorage.setItem('skipIndexLoading', 'true');
+        });
+      }
+
       const mobileToggle = document.querySelector('.mobile-menu-toggle');
       const mobileDropdown = document.querySelector('.mobile-dropdown');
       if (mobileToggle && mobileDropdown) {

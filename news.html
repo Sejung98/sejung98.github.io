@@ -156,6 +156,12 @@
     <script>
       // 현재 페이지 메뉴 활성화
       document.addEventListener('DOMContentLoaded', function() {
+        const logoLink = document.querySelector('.logo a[href="index.html"]');
+        if (logoLink) {
+          logoLink.addEventListener('click', function() {
+            sessionStorage.setItem('skipIndexLoading', 'true');
+          });
+        }
         const currentPage = window.location.pathname.split('/').pop() || 'news.html';
         const menuLinks = document.querySelectorAll('.main-nav a');
         

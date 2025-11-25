@@ -825,6 +825,13 @@
   line-height: 1.8;
   margin-bottom: 0;
   font-size: 1.1rem;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.project-description p + p {
+  margin-top: 1rem;
 }
 
 /* 성과 그리드 */
