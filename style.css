@@ -1,5 +1,5 @@
 /* ========================================
-   CPM 홈페이지 스타일시트
+   CGI 홈페이지 스타일시트
    작성일: 2025년
    설명: 연구실 홈페이지의 모든 스타일을 관리하는 메인 CSS 파일
    구조:
@@ -54,7 +54,7 @@
 
 /* 로고 컨테이너 */
 .logo-container {
-  margin-bottom: 2rem;                      /* 아래 마진 줄임 3rem → 2rem */
+  margin-bottom: 0.5rem;                    /* 로딩 바와의 간격을 좁힘 */
   animation: fadeInUp 1.5s ease-out;        /* 아래에서 위로 페이드인 */
 }
 
@@ -63,7 +63,7 @@
   width: auto;                              /* 가로 크기 자동 (비율 유지) */
   height: 320px;                            /* 세로 크기만 지정 */
   max-width: 320px;                         /* 최대 가로 크기 제한 */
-  margin: 0 auto 0.1rem !important;                      /* 아래 마진 줄임 2rem → 1rem */
+  margin: 0 auto 0.3rem !important;         /* 이미지와 글자 사이 간격 살짝만 */
   display: block;
   border-radius: 5px;
   object-fit: contain;                      /* 이미지 비율 유지 */
@@ -76,7 +76,7 @@
 .logo-text {
   font-size: 4rem;
   font-weight: 700;
-  margin: 0.2rem 0 0.2rem 0 !important;     /* 상하 마진 강제 적용 */
+  margin: 0.3rem 0 0.2rem 0 !important;     /* 상하 마진 강제 적용 */
   color: #ffffff;
   /* 글로우 효과 제거 */
   text-shadow: none;                        /* 텍스트 그림자 제거 */
@@ -89,7 +89,7 @@
   opacity: 0.8;
   font-weight: 300;
   letter-spacing: 2px;                      /* 글자 간격 조정 */
-  margin: 0.2rem 0 !important;              /* 상하 마진 강제 적용 */
+  margin: 0.1rem 0 !important;              /* 상하 마진 줄임 */
   animation: fadeInUp 1.5s ease-out 0.5s both; /* 0.5초 지연 후 페이드인 */
 }
 
@@ -99,7 +99,7 @@
   height: 4px;
   background: rgba(255, 255, 255, 0.2);
   border-radius: 2px;
-  margin: 0 auto 2rem;
+  margin: 0.5rem auto 2rem;                 /* 위쪽 마진 줄여서 글자와 간격 좁힘 */
   overflow: hidden;
   position: relative;
   animation: fadeInUp 1.5s ease-out 1s both; /* 1초 지연 후 페이드인 */
@@ -880,8 +880,8 @@ img.logo-image,
   padding: 60px 0;
 }
 
-/* CPM Today 섹션 여백 */
-.CPM-today-section {
+/* CGI Today 섹션 여백 */
+.CGI-today-section {
   margin-top: 60px;
   padding: 60px 0;
 }
@@ -1852,7 +1852,7 @@ html {
   
   /* 섹션 간격 모바일 조정 */
   .news-section,
-  .CPM-today-section,
+  .CGI-today-section,
   .contact-section {
     margin-top: 40px;
     padding: 40px 0;
