@@ -1,154 +1,146 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us - CGI</title>
-  
-    <!-- 파비콘 설정 -->
-  <link rel="icon" type="image/x-icon" href="images/logo_251125.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-  
-  <link rel="stylesheet" href="style.css?v=2025012808">
-  <link rel="stylesheet" href="subpage.css">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About | Sejung Lee</title>
+    <meta name="description" content="About Sejung Lee, PhD student in bioinformatics and cancer genomics." />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+  </head>
+  <body>
+    <canvas class="ambient-field" id="ambient-field" aria-hidden="true"></canvas>
 
-  <!-- ?�더 -->
-  <header class="site-header">
-    <div class="header-container">
-      <div class="logo">
-        <a href="index.html">
-          <img src="images/logo_251125.png" alt="로고" class="logo-image" onerror="this.style.display='none';">
-          <div>
-            <h1>Bhin lab</h1>
-            <p class="lab-subtitle">Cancer Genomics & Intelligence</p>
+    <header class="site-header">
+      <a class="brand" href="./index.html" aria-label="Go to homepage">
+        <span>Sejung Lee</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="./work.html">Research</a>
+        <a href="./about.html" aria-current="page">About</a>
+        <a href="./process.html">Methods</a>
+        <a href="./contact.html">Contact</a>
+      </nav>
+
+      <a class="header-action" href="https://www.linkedin.com/in/sejung-lee-a05b61250/" target="_blank" rel="noreferrer">
+        LinkedIn
+      </a>
+    </header>
+
+    <main>
+      <section class="section page-hero" aria-labelledby="about-title">
+        <p class="eyebrow">
+          <span class="status-dot"></span>
+          About
+        </p>
+        <h1 id="about-title">Sejung (이세중) Lee</h1>
+        <p>
+          PhD student in Bioinformatics & Cancer Genomics at Yonsei University, based in Seoul,
+          Republic of Korea. My research interests center on cancer evolution and the use of omics
+          data to understand tumor biology.
+        </p>
+      </section>
+
+      <section class="section about-detail" aria-label="Profile details">
+        <div class="profile-card reveal">
+          <div class="profile-photo" aria-hidden="true">
+            <span>SL</span>
           </div>
-        </a>
-      </div>
-        <nav class="main-nav">
-          <ul>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="members.html">Members</a></li>
-            <li><a href="publications.html">Publications</a></li>
-            <li><a href="news.html">News</a></li>
-            <li><a href="positions.html">Positions</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="galleries.html">Galleries</a></li>
-          </ul>
-        </nav>
-        
-        <!-- 모바일 메뉴 버튼 -->
-        <div class="mobile-menu-toggle">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        
-        <!-- 모바일 드롭다운 메뉴 -->
-        <div class="mobile-dropdown">
-          <ul>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="members.html">Members</a></li>
-            <li><a href="publications.html">Publications</a></li>
-            <li><a href="news.html">News</a></li>
-            <li><a href="positions.html">Positions</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="galleries.html">Galleries</a></li>
-          </ul>
-        </div>
-    </div>
-  </header>
-
-  <!-- ?�이지 ?�더 -->
-  <section class="page-header" data-aos="fade-up">
-    <div class="container">
-      <h1 data-aos="fade-up" data-aos-delay="100">About Us</h1>
-      <p data-aos="fade-up" data-aos-delay="200">Introducing CGI laboratory's vision and mission</p>
-    </div>
-  </section>
-
-  <!-- 메인 콘텐�?-->
-  <main class="subpage-content" data-aos="fade-up">
-    <div class="container">
-      <!-- 비전 ?�션 -->
-      <section class="vision-section" data-aos="fade-up">
-        <h2>Our Vision</h2>
-        <div class="vision-content">
-          <div class="vision-text">
-            <h3>Our mission is to leverage the power of computational and </h3>
-            <h3>statistical analysis, combined with multi-omics, single-cell, and </h3> 
-            <h3>spatial technologies, to design precision medicine strategies for cancer.</h3>
+          <div class="profile-summary">
+            <h2>Basic information</h2>
+            <p>
+              Current position: PhD Student. Field: Bioinformatics & Cancer Genomics.
+              Affiliation: Yonsei University. Location: Seoul, Republic of Korea.
+            </p>
           </div>
-          <div class="vision-image">
-            <img src="images/lab_main.gif" alt="비전 ?��?지" class="vision-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="image-placeholder" style="display: none;">비전 ?��?지</div>
+        </div>
+
+        <div class="about-copy reveal">
+          <h2>Professional summary</h2>
+          <p>
+            Researcher specializing in cancer genomics and evolutionary biology, with a focus on
+            leveraging large-scale omics data to understand tumor progression and therapeutic
+            response. Experienced in both computational and experimental approaches, including
+            genomic data analysis and immunological assays.
+          </p>
+          <div class="metric-row" aria-label="Profile metrics">
+            <div>
+              <strong>605</strong>
+              <span>LinkedIn followers</span>
+            </div>
+            <div>
+              <strong>500+</strong>
+              <span>connections</span>
+            </div>
+            <div>
+              <strong>210</strong>
+              <span>profile views</span>
+            </div>
           </div>
         </div>
       </section>
 
-  <!-- ?�터 -->
-  <footer class="site-footer" data-aos="fade-up">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-logo" data-aos="fade-up" data-aos-delay="100">
-          <h3>CGI</h3>
-          <p>Cancer Genomics & Intelligence Laboratory</p>
-          <p>College of Medicine, Yonsei University</p>
-          <p>by Professor Jinhyuk Bhin</p>
+      <section class="section stack-section" aria-labelledby="background-title">
+        <div class="section-heading split-heading">
+          <h2 id="background-title">Background</h2>
+          <p>
+            My training connects genetic biotechnology, immunology, and computational cancer
+            research.
+          </p>
         </div>
-        <div class="footer-links" data-aos="fade-up" data-aos-delay="200">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="index.html#about">About Us</a></li>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="news.html">News</a></li>
-            <li><a href="publications.html">Publications</a></li>
-          </ul>
-        </div>
-        <div class="footer-contact" data-aos="fade-up" data-aos-delay="300">
-          <h4>Contact</h4>
-          <p>Email: jbhin@yuhs.ac</p>
-        </div>
-      </div>
-      <div class="footer-bottom" data-aos="fade-up" data-aos-delay="400">
-        <p>&copy; 2025 Website developed by Sejung. Logo designed by Eunyoung. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 800, easing: 'ease-out', once: true, offset: 100 });
-  </script>
-  <script>
-    // 모바일 메뉴 토글
-    document.addEventListener('DOMContentLoaded', function() {
-      const logoLink = document.querySelector('.logo a[href="index.html"]');
-      if (logoLink) {
-        logoLink.addEventListener('click', function() {
-          sessionStorage.setItem('skipIndexLoading', 'true');
-        });
-      }
-      const mobileToggle = document.querySelector('.mobile-menu-toggle');
-      const mobileDropdown = document.querySelector('.mobile-dropdown');
-      if (mobileToggle && mobileDropdown) {
-        mobileToggle.addEventListener('click', function(e) {
-          e.stopPropagation();
-          mobileDropdown.classList.toggle('active');
-        });
-        document.addEventListener('click', function(e) {
-          if (!mobileDropdown.contains(e.target) && !mobileToggle.contains(e.target)) {
-            mobileDropdown.classList.remove('active');
-          }
-        });
-      }
-    });
-  </script>
-</body>
+        <div class="craft-grid">
+          <article class="craft-card reveal">
+            <span class="craft-index">01</span>
+            <h3>Education</h3>
+            <p>Undergraduate background in Genetic Biotechnology before transitioning into cancer genomics.</p>
+          </article>
+          <article class="craft-card reveal">
+            <span class="craft-index">02</span>
+            <h3>Early research</h3>
+            <p>Immunology research experience, including animal experiments and immunological analysis methods.</p>
+          </article>
+          <article class="craft-card reveal">
+            <span class="craft-index">03</span>
+            <h3>Honors</h3>
+            <p>Selected as a Presidential Science Scholarship recipient in the Republic of Korea.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section timeline-section" aria-labelledby="timeline-title">
+        <h2 id="timeline-title">Timeline</h2>
+        <div class="timeline-list">
+          <article class="timeline-item reveal">
+            <span>Now</span>
+            <div>
+              <h3>PhD research in cancer genomics</h3>
+              <p>Studying cancer evolution using genomic data from cancer patients.</p>
+            </div>
+          </article>
+          <article class="timeline-item reveal">
+            <span>2026</span>
+            <div>
+              <h3>AACR 2026 participation</h3>
+              <p>First international conference participation in San Diego with poster presentation #3531.</p>
+            </div>
+          </article>
+          <article class="timeline-item reveal">
+            <span>Earlier</span>
+            <div>
+              <h3>Bio-Youth Camp and mentorship</h3>
+              <p>Participated as a high school student and later returned as a mentor, reflecting long-term research goals.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>© 2026 Sejung Lee</span>
+      <span><a href="./contact.html">Contact</a></span>
+    </footer>
+
+    <script src="./assets/js/script.js"></script>
+  </body>
 </html>
-

@@ -1,466 +1,195 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bhin lab</title>
-  
-  <!-- 파비콘 설정 -->
-  <link rel="icon" type="image/x-icon" href="images/logo_251125.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-  
-  <link rel="stylesheet" href="style.css?v=2025012808">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <!-- AOS 라이브러리 추가 -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sejung Lee | Cancer Genomics</title>
+    <meta
+      name="description"
+      content="Sejung Lee is a PhD student in bioinformatics and cancer genomics at Yonsei University."
+    />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+  </head>
+  <body>
+    <canvas class="ambient-field" id="ambient-field" aria-hidden="true"></canvas>
 
-      <!-- 로딩 오버레이 -->
-    <div class="loading-overlay" id="loadingOverlay">
-        <div class="loading-content">
-            <div class="logo-container">
-                <img src="images/logo_251125.png" alt="로고" class="loading-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <div class="logo-text" style="display: none;">Bhin lab</div>
-                <div class="logo-subtitle">Cancer Genomics & Intelligence</div>
-            </div>
-            
-            <div class="loading-bar">
-                <div class="loading-progress"></div>
-            </div>
-            
-        </div>
-    </div>
-
-    <!-- 헤더 -->
     <header class="site-header">
-      <div class="header-container">
-        <div class="logo">
-          <a href="index.html">
-            <img src="images/logo_251125.png" alt="로고" class="logo-image" onerror="this.style.display='none';">
-            <div>
-              <h1>Bhin lab</h1>
-              <p class="lab-subtitle">Cancer Genomics & Intelligence</p>
-            </div>
-          </a>
-        </div>
-        <nav class="main-nav">
-          <ul>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="members.html">Members</a></li>
-            <li><a href="publications.html">Publications</a></li>
-            <li><a href="news.html">News</a></li>
-            <li><a href="positions.html">Positions</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="galleries.html">Galleries</a></li>
-          </ul>
-        </nav>
-        
-        <!-- 모바일 메뉴 버튼 -->
-        <div class="mobile-menu-toggle">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        
-        <!-- 모바일 드롭다운 메뉴 -->
-        <div class="mobile-dropdown">
-          <ul>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="members.html">Members</a></li>
-            <li><a href="publications.html">Publications</a></li>
-            <li><a href="news.html">News</a></li>
-            <li><a href="positions.html">Positions</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="galleries.html">Galleries</a></li>
-          </ul>
-        </div>
-      </div>
+      <a class="brand" href="./index.html" aria-label="Go to homepage">
+        <span>Sejung Lee</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="./work.html">Research</a>
+        <a href="./about.html">About</a>
+        <a href="./process.html">Methods</a>
+        <a href="./contact.html">Contact</a>
+      </nav>
+
+      <a class="header-action" href="https://www.linkedin.com/in/sejung-lee-a05b61250/" target="_blank" rel="noreferrer">
+        LinkedIn
+      </a>
     </header>
 
-  <!-- 메인 배너: 좌우 2열 그리드 (좌: 이미지 슬라이드, 우: 설명) -->
-  <section class="main-banner-container" data-aos="fade-up" data-aos-duration="1000">
-    <h2 class="banner-section-title" data-aos="fade-up" data-aos-delay="100">Research Highlights</h2>
-    <div class="main-banner-grid">
-      <div class="banner-left">
-        <div class="banner-slides" id="bannerSlider">
-          <div class="banner-slide active">
-            <img src="images/research1.png" alt="Research 1" class="banner-bg-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="image-placeholder" style="display: none;">Research Image 1</div>
-          </div>
-          <div class="banner-slide">
-            <img src="images/research2.png" alt="Research 2" class="banner-bg-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="image-placeholder" style="display: none;">Research Image 2</div>
-          </div>
-          <div class="banner-slide">
-            <img src="images/research3.png" alt="Research 3" class="banner-bg-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="image-placeholder" style="display: none;">Research Image 3</div>
-          </div>
-          <div class="banner-slide">
-            <img src="images/research4.png" alt="Research 4" class="banner-bg-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="image-placeholder" style="display: none;">Research Image 4</div>
+    <main>
+      <section class="hero-section" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">
+            <span class="status-dot"></span>
+            PhD Student · Bioinformatics & Cancer Genomics
+          </p>
+          <h1 id="hero-title">Studying cancer evolution through patient genomic data.</h1>
+          <p class="hero-lede">
+            Sejung (이세중) Lee is a researcher at Yonsei University interested in cancer
+            evolution, tumor genomics, omics data integration, and determinants of therapeutic
+            response.
+          </p>
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button button-dark" href="./work.html">
+              <span aria-hidden="true">View</span>
+              Research
+            </a>
+            <a class="button button-light" href="./about.html">
+              <span aria-hidden="true">Read</span>
+              Bio
+            </a>
           </div>
         </div>
-      </div>
-      <div class="banner-right">
-        <h3 id="bannerDescTitle" style="display: none;"></h3>
-        <p id="bannerDescText"></p>
-      </div>
-    </div>
-    <!-- 네비게이터를 그리드 아래로 이동 -->
-    <div class="banner-nav">
-      <div class="banner-dots">
-        <span class="banner-dot active" onclick="currentBannerSlide(1)"></span>
-        <span class="banner-dot" onclick="currentBannerSlide(2)"></span>
-        <span class="banner-dot" onclick="currentBannerSlide(3)"></span>
-        <span class="banner-dot" onclick="currentBannerSlide(4)"></span>
-      </div>
-    </div>
-  </section>
 
-  <!-- 메인 콘텐츠 -->
-  <main class="content">
+        <figure class="hero-photo" aria-label="Sejung Lee profile photo">
+            <img src="./assets/images/sejung_profile.jpg" alt="Sejung Lee" onerror="this.hidden = true" />
+          <span aria-hidden="true">SL</span>
+        </figure>
+      </section>
 
-    <!-- 뉴스 섹션 (동일) -->
-    <section id="news" class="news-section" data-aos="fade-up">
-      <div class="container">
-        <h2 data-aos="fade-up" data-aos-delay="100">Latest News</h2>
-        <div class="news-list">
-          <article class="news-item-text" data-aos="fade-up" data-aos-delay="200" onclick="window.location.href='news.html'">
-            <h3>[Congratulation] 2025 한국 유전체 학회 우수포스터상 수상</h3>
-            <p><strong>Eunyoung Seo, Sejung Lee</strong> awarded the Best Poster Prize at the 2025 Korean Genome Conference.</p>
-            <span class="date">2025.09.06</span>
-          </article>
-          <article class="news-item-text" data-aos="fade-up" data-aos-delay="300" onclick="window.location.href='news.html'">
-            <h3>[Congratulation] 2025 보건장학회 연구 지원 장학생 선정</h3>
-            <p><strong>Eunyoung Seo</strong> selected for the Health Scholarship Foundation Scholarship.</p>
-            <span class="date">2025.07.25</span>
-          </article>
-          <article class="news-item-text" data-aos="fade-up" data-aos-delay="400" onclick="window.location.href='news.html'">
-            <h3>[Congratulation] 대학원 대통령 과학 장학생 선정</h3>
-            <p><strong>Sejung Lee</strong> selected for the students of Presidential Science Fellow for Graduate Studies.</p>
-            <span class="date">2025.06.05</span>
-          </article>
-          <article class="news-item-text" data-aos="fade-up" data-aos-delay="500" onclick="window.location.href='news.html'">
-            <h3>[Congratulation] 한국연구재단-과학기술분야 기초연구사업-우수신진연구 과제 선정</h3>
-            <p><strong>Prof. Jinhyuk Bhin</strong> selected for the National Research Foundation of Korea - Basic Research Projects in Science and Technology - Outstanding New Research Project.</p>
-            <span class="date">2024.04.24</span>
-          </article>
+      <section class="section intro-band" aria-label="Research positioning">
+        <p>
+          I use large-scale omics data to understand tumor progression, structural alterations,
+          driver mutations, and drug response mechanisms.
+        </p>
+      </section>
+
+      <section class="section preview-section" aria-labelledby="snapshot-title">
+        <div class="section-heading split-heading">
+          <h2 id="snapshot-title">Profile snapshot</h2>
+          <p>
+            A concise overview of my current academic position, research direction, technical
+            toolkit, and professional activity.
+          </p>
         </div>
-      </div>
-    </section>
 
-    <!--  CGI Life 섹션 (동일) -->
-    <section id="CGI-today" class="CGI-today-section" data-aos="fade-up">
-      <div class="container">
-        <h2 data-aos="fade-up" data-aos-delay="100">CGI Life</h2>
-        <div class="today-grid">
-          <div class="today-item" data-aos="fade-up" data-aos-delay="200" onclick="window.location.href='lablife.html'">
-            <div class="today-image">
-              <img src="images/events/250904.jpg" alt="2025 한국유전체학회 KOGO" class="today-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-              <div class="image-placeholder" style="display: none;">2025 한국유전체학회 KOGO</div>
+        <div class="route-grid">
+          <a class="route-card reveal" href="./about.html">
+            <span class="route-index">01</span>
+            <h3>Yonsei University</h3>
+            <p>PhD student based in Seoul, Republic of Korea, working in bioinformatics and cancer genomics.</p>
+          </a>
+          <a class="route-card reveal" href="./work.html">
+            <span class="route-index">02</span>
+            <h3>Cancer evolution</h3>
+            <p>Research focus on driver mutations, structural variation, and patient-derived genomic data.</p>
+          </a>
+          <a class="route-card reveal" href="./process.html">
+            <span class="route-index">03</span>
+            <h3>Omics analysis</h3>
+            <p>Experience across WGS, transcriptomics, ELISA, Western blot, and immunological assays.</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="section work-section" aria-labelledby="featured-work-title">
+        <div class="section-heading split-heading">
+          <h2 id="featured-work-title">Key focus areas</h2>
+          <p>
+            Main interests connect computational cancer research with experimental background and
+            translational questions.
+          </p>
+        </div>
+
+        <div class="project-rail" aria-label="Featured research areas">
+          <article class="project-card project-card-large reveal">
+            <div class="project-visual visual-dashboard">
+              <div class="visual-nav"></div>
+              <div class="visual-chart">
+                <span style="height: 74%"></span>
+                <span style="height: 42%"></span>
+                <span style="height: 88%"></span>
+                <span style="height: 58%"></span>
+                <span style="height: 66%"></span>
+              </div>
+              <div class="visual-panel">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
             </div>
-            <h3>2025 한국유전체학회 KOGO</h3>
-            <span class="date">2025.09.04</span>
-          </div>
-          <div class="today-item" data-aos="fade-up" data-aos-delay="300" onclick="window.location.href='lablife.html'">
-            <div class="today-image">
-              <img src="images/events/250509.png" alt="스승의 날" class="today-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-              <div class="image-placeholder" style="display: none;">스승의 날</div>
+            <div class="project-meta">
+              <p class="project-kicker">Cancer genomics</p>
+              <h3>Evolution from patient data</h3>
+              <p>Interpreting genomic alterations to understand tumor progression and evolutionary trajectories.</p>
             </div>
-            <h3>스승의 날</h3>
-            <span class="date">2025.05.09</span>
-          </div>
-          <div class="today-item" data-aos="fade-up" data-aos-delay="400" onclick="window.location.href='lablife.html'">
-            <div class="today-image">
-              <img src="images/events/241220.png" alt="송년회" class="today-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-              <div class="image-placeholder" style="display: none;">송년회</div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-visual visual-editor">
+              <div class="editor-lines">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
             </div>
-            <h3>송년회</h3>
-            <span class="date">2024.12.20</span>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+            <div class="project-meta">
+              <p class="project-kicker">Mechanisms</p>
+              <h3>Drug response determinants</h3>
+              <p>Investigating how molecular features may shape therapeutic response in cancer patients.</p>
+            </div>
+          </article>
 
-  <!-- 푸터 -->
-  <footer class="site-footer" data-aos="fade-up">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-logo" data-aos="fade-up" data-aos-delay="100">
-          <h3>CGI</h3>
-          <p>Cancer Genomics & Intelligence Laboratory</p>
-          <p>College of Medicine, Yonsei University</p>
-          <p>by Professor Jinhyuk Bhin</p>
-        </div>
-        <div class="footer-links" data-aos="fade-up" data-aos-delay="200">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="index.html#about">About Us</a></li>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="news.html">News</a></li>
-            <li><a href="publications.html">Publications</a></li>
-          </ul>
-        </div>
-        <div class="footer-contact" data-aos="fade-up" data-aos-delay="300">
-          <h4>Contact</h4>
-          <p>Email: jbhin@yuhs.ac</p>
-        </div>
-      </div>
-      <div class="footer-bottom" data-aos="fade-up" data-aos-delay="400">
-        <p>&copy; 2025 Website developed by Sejung. Logo designed by Eunyoung. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-
-    <!-- 로딩 스크립트 -->
-    <script>
-        (function() {
-            const loadingOverlay = document.getElementById('loadingOverlay');
-            const siteHeader = document.querySelector('.site-header');
-            const skipLoading = sessionStorage.getItem('skipIndexLoading') === 'true';
-
-            if (skipLoading) {
-                sessionStorage.removeItem('skipIndexLoading');
-                if (siteHeader) {
-                    siteHeader.classList.add('show');
-                }
-                if (loadingOverlay) {
-                    loadingOverlay.style.display = 'none';
-                }
-                return;
-            }
-
-            // 페이지 로드 완료 후 로딩 오버레이 숨김
-            window.addEventListener('load', function() {
-                if (!loadingOverlay || !siteHeader) return;
-
-                setTimeout(function() {
-                    // 줌인 애니메이션 시작
-                    loadingOverlay.classList.add('zoom-out');
-                    
-                    // 헤더 표시 (로딩 시작과 동시에)
-                    siteHeader.classList.add('show');
-                    
-                    // 애니메이션 완료 후 오버레이 완전히 숨김
-                    setTimeout(function() {
-                        loadingOverlay.style.display = 'none';
-                    }, 1000); // 줌아웃 애니메이션 1초 후 숨김
-                }, 2000); // 초기 로딩 2초
-            });
-        })();
-    </script>
-    
-    <!-- AOS 라이브러리 스크립트 -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // AOS 초기화
-        AOS.init({
-            duration: 800,
-            easing: 'ease-out',
-            once: true,
-            offset: 100,
-            delay: 0,
-            anchorPlacement: 'top-bottom'
-        });
-        
-        // 현재 페이지 메뉴 활성화
-        document.addEventListener('DOMContentLoaded', function() {
-            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-            const menuLinks = document.querySelectorAll('.main-nav a');
-            
-            menuLinks.forEach(link => {
-                const href = link.getAttribute('href');
-                if (href === currentPage || (currentPage === 'index.html' && href === 'index.html')) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
-        // 메인 배너 슬라이더 + 설명 동기화
-        let currentBannerIndex = 0;
-        const bannerSlides = document.querySelectorAll('.banner-slide');
-        const bannerDots = document.querySelectorAll('.banner-dot');
-        const bannerDescTitle = document.getElementById('bannerDescTitle');
-        const bannerDescText = document.getElementById('bannerDescText');
-        let bannerInterval;
-
-        const bannerDescriptions = [
-          {
-            title: '<strong>Truncated FGFR2 is a clinically actionable oncogene in multiple cancers</strong>',
-            text: `
-              <div style="color: #ffffff; line-height: 1.7;">
-                <a href="https://www.nature.com/articles/s41586-022-05066-5" 
-                  target="_blank" 
-                  style="color: #ffffff; text-decoration: underline; font-size: 0.95rem; display: block; margin-bottom: 1.5rem;">
-                  D. Zingg* and J. Bhin* et al., <em>Nature</em> (2022)
-                </a>
-
-                <div style="font-size: 0.9rem; line-height: 1.7; color: rgba(255, 255, 255, 0.9); text-align: justify; margin-top: 3rem;">
-                  Somatic hotspot mutations and structural amplifications and fusions that affect fibroblast 
-                  growth factor receptor 2 (encoded by FGFR2) occur in multiple types of cancer. However, 
-                  clinical responses to FGFR inhibitors have remained variable, emphasizing the need to better 
-                  understand which FGFR2 alterations are oncogenic and therapeutically targetable. Here we apply 
-                  transposon-based screening and tumour modelling in mice, and find that the truncation of exon 18 
-                  (E18) of Fgfr2 is a potent driver mutation. Human oncogenomic datasets revealed a diverse set of 
-                  FGFR2 alterations, including rearrangements, E1–E17 partial amplifications, and E18 nonsense and 
-                  frameshift mutations, each causing the transcription of E18-truncated FGFR2 (FGFR2ΔE18). 
-                  Functional in vitro and in vivo examination of a compendium of FGFR2ΔE18 and full-length variants 
-                  pinpointed FGFR2-E18 truncation as single-driver alteration in cancer. By contrast, the oncogenic 
-                  competence of FGFR2 full-length amplifications depended on a distinct landscape of cooperating 
-                  driver genes. This suggests that genomic alterations that generate stable FGFR2ΔE18 variants are 
-                  actionable therapeutic targets, which we confirmed in preclinical mouse and human tumour models, 
-                  and in a clinical trial. We propose that cancers containing any FGFR2 variant with a truncated 
-                  E18 should be considered for FGFR-targeted therapies.
-                </div>
+          <article class="project-card reveal">
+            <div class="project-visual visual-commerce">
+              <div class="product-tile"></div>
+              <div class="product-copy">
+                <span></span>
+                <span></span>
+                <span></span>
               </div>
-            `
-          },
-          { 
-            title: '<strong>Proteogenomic Characterization of Human Early-Onset Gastric Cancer</strong>', 
-            text: `
-              <div style="color: #ffffff; line-height: 1.7;">
-                <a href="https://www.sciencedirect.com/science/article/pii/S1535610818305749?via%3Dihub" 
-                  target="_blank" 
-                  style="color: #ffffff; text-decoration: underline; font-size: 0.95rem; display: block; margin-bottom: 1.5rem;">
-                  D. Moon* and J. Bhin* et al., <em>Cancer Cell</em> (2019)
-                </a>
+            </div>
+            <div class="project-meta">
+              <p class="project-kicker">Academic activity</p>
+              <h3>AACR 2026 poster presentation</h3>
+              <p>First international conference participation in San Diego, including poster #3531.</p>
+            </div>
+          </article>
+        </div>
+      </section>
 
-                <div style="font-size: 0.9rem; line-height: 1.7; color: rgba(255, 255, 255, 0.9); text-align: justify; margin-top: 3rem;">
-                  We report proteogenomic analysis of diffuse gastric cancers (GCs) in young populations. Phosphoproteome data elucidated signaling pathways associated with somatic mutations based on mutation-phosphorylation correlations. Moreover, correlations between mRNA and protein abundances provided potential oncogenes and tumor suppressors associated with patient survival. Furthermore, integrated clustering of mRNA, protein, phosphorylation, and N-glycosylation data identified four subtypes of diffuse GCs. Distinguishing these subtypes was possible by proteomic data. Four subtypes were associated with proliferation, immune response, metabolism, and invasion, respectively; and associations of the subtypes with immune- and invasion-related pathways were identified mainly by phosphorylation and N-glycosylation data. Therefore, our proteogenomic analysis provides additional information beyond genomic analyses, which can improve understanding of cancer biology and patient stratification in diffuse GCs.
-                </div>
-              </div>
-            `
-          },
-          { 
-            title: '<strong>MYC is a clinically significant driver of mTOR inhibitor resistance in breast cancer</strong>', 
-            text: `
-              <div style="color: #ffffff; line-height: 1.7;">
-                <a href="https://rupress.org/jem/article/220/11/e20211743/276218" 
-                  target="_blank" 
-                  style="color: #ffffff; text-decoration: underline; font-size: 0.95rem; display: block; margin-bottom: 1.5rem;">
-                  J. Bhin* and Yemelanenko* et al., <em>J. Exp. Med.</em> (2023)
-                </a>
+      <section class="section contact-section" aria-labelledby="home-contact-title">
+        <div>
+          <p class="eyebrow">
+            <span class="status-dot"></span>
+            Public profile
+          </p>
+          <h2 id="home-contact-title">Open to research discussion and academic networking.</h2>
+        </div>
+        <div class="contact-actions">
+          <a class="button button-dark" href="https://www.linkedin.com/in/sejung-lee-a05b61250/" target="_blank" rel="noreferrer">
+            <span aria-hidden="true">Open</span>
+            LinkedIn
+          </a>
+          <a class="button button-light" href="./contact.html">
+            <span aria-hidden="true">More</span>
+            Contact
+          </a>
+        </div>
+      </section>
+    </main>
 
-                <div style="font-size: 0.9rem; line-height: 1.7; color: rgba(255, 255, 255, 0.9); text-align: justify; margin-top: 3rem;">
-                  Targeting the PI3K–AKT–mTOR pathway is a promising therapeutic strategy for breast cancer treatment. However, low response rates and development of resistance to PI3K–AKT–mTOR inhibitors remain major clinical challenges. Here, we show that MYC activation drives resistance to mTOR inhibitors (mTORi) in breast cancer. Multiomic profiling of mouse invasive lobular carcinoma (ILC) tumors revealed recurrent Myc amplifications in tumors that acquired resistance to the mTORi AZD8055. MYC activation was associated with biological processes linked to mTORi response and counteracted mTORi-induced translation inhibition by promoting translation of ribosomal proteins. In vitro and in vivo induction of MYC conferred mTORi resistance in mouse and human breast cancer models. Conversely, AZD8055-resistant ILC cells depended on MYC, as demonstrated by the synergistic effects of mTORi and MYCi combination treatment. Notably, MYC status was significantly associated with poor response to everolimus therapy in metastatic breast cancer patients. Thus, MYC is a clinically relevant driver of mTORi resistance that may stratify breast cancer patients for mTOR-targeted therapies.
-                </div>
-              </div>
-            `
-          },
-          { 
-            title: '<strong>Multi-omics analysis reveals distinct non-reversion mechanisms of PARPi resistance in BRCA1- versus BRCA2-deficient mammary tumors</strong>', 
-            text: `
-              <div style="color: #ffffff; line-height: 1.7;">
-                <a href="https://www.sciencedirect.com/science/article/pii/S2211124723005491?via%3Dihub" 
-                  target="_blank" 
-                  style="color: #ffffff; text-decoration: underline; font-size: 0.95rem; display: block; margin-bottom: 1.5rem;">
-                  J. Bhin* and Dias* et al., <em>Cell Reports</em> (2023)
-                </a>
+    <footer class="site-footer">
+      <span>© 2026 Sejung Lee</span>
+      <span>Bioinformatics · Cancer Genomics · Tumor Evolution</span>
+    </footer>
 
-                <div style="font-size: 0.9rem; line-height: 1.7; color: rgba(255, 255, 255, 0.9); text-align: justify; margin-top: 3rem;">
-                  BRCA1 and BRCA2 both function in DNA double-strand break repair by homologous recombination (HR). Due to their HR defect, BRCA1/2-deficient cancers are sensitive to poly(ADP-ribose) polymerase inhibitors (PARPis), but they eventually acquire resistance. Preclinical studies yielded several PARPi resistance mechanisms that do not involve BRCA1/2 reactivation, but their relevance in the clinic remains elusive. To investigate which BRCA1/2-independent mechanisms drive spontaneous resistance in vivo, we combine molecular profiling with functional analysis of HR of matched PARPi-naive and PARPi-resistant mouse mammary tumors harboring large intragenic deletions that prevent reactivation of BRCA1/2. We observe restoration of HR in 62% of PARPi-resistant BRCA1-deficient tumors but none in the PARPi-resistant BRCA2-deficient tumors. Moreover, we find that 53BP1 loss is the prevalent resistance mechanism in HR-proficient BRCA1-deficient tumors, whereas resistance in BRCA2-deficient tumors is mainly induced by PARG loss. Furthermore, combined multi-omics analysis identifies additional genes and pathways potentially involved in modulating PARPi response.
-                </div>
-              </div>
-            `
-          }
-        ];
-
-        function updateBannerDescription(index) {
-          const { title, text } = bannerDescriptions[index] || bannerDescriptions[0];
-          
-          // 텍스트 페이드 아웃
-          bannerDescTitle.style.opacity = '0';
-          bannerDescText.style.opacity = '0';
-          
-          // 500ms 후 텍스트 변경하고 페이드 인
-          setTimeout(() => {
-            bannerDescTitle.innerHTML = title;
-            bannerDescText.innerHTML = text;
-            // 제목이 비어있으면 숨김
-            if (!title || title.trim() === '') {
-              bannerDescTitle.style.display = 'none';
-            } else {
-              bannerDescTitle.style.display = 'block';
-            }
-            bannerDescTitle.style.opacity = '1';
-            bannerDescText.style.opacity = '1';
-          }, 500);
-        }
-
-        function showBannerSlide(index) {
-            bannerSlides.forEach(slide => slide.classList.remove('active'));
-            bannerDots.forEach(dot => dot.classList.remove('active'));
-            bannerSlides[index].classList.add('active');
-            bannerDots[index].classList.add('active');
-            updateBannerDescription(index);
-        }
-
-        function currentBannerSlide(index) {
-            currentBannerIndex = index - 1;
-            showBannerSlide(currentBannerIndex);
-            resetBannerTimer();
-        }
-
-        function resetBannerTimer() {
-            clearInterval(bannerInterval);
-            startBannerTimer();
-        }
-
-        function startBannerTimer() {
-            bannerInterval = setInterval(() => {
-                currentBannerIndex = (currentBannerIndex + 1) % bannerSlides.length;
-                showBannerSlide(currentBannerIndex);
-            }, 8000);
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            // 초기 텍스트 설정
-            updateBannerDescription(0);
-            startBannerTimer();
-            const dots = document.querySelectorAll('.banner-dot');
-            dots.forEach((dot, idx) => {
-                dot.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    currentBannerSlide(idx + 1);
-                });
-            });
-
-            // 모바일 메뉴 토글 기능
-            const mobileToggle = document.querySelector('.mobile-menu-toggle');
-            const mobileDropdown = document.querySelector('.mobile-dropdown');
-            if (mobileToggle && mobileDropdown) {
-                mobileToggle.addEventListener('click', function() {
-                    mobileDropdown.classList.toggle('active');
-                });
-                document.addEventListener('click', function(e) {
-                    if (!mobileToggle.contains(e.target) && !mobileDropdown.contains(e.target)) {
-                        mobileDropdown.classList.remove('active');
-                    }
-                });
-            }
-
-            // 스크롤 시 헤더 배경색 변경
-            const siteHeader = document.querySelector('.site-header');
-            let lastScrollTop = 0;
-            
-            window.addEventListener('scroll', function() {
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                
-                // 스크롤이 50px 이상 내려갔을 때 배경색 추가
-                if (scrollTop > 50) {
-                    siteHeader.classList.add('scrolled');
-                } else {
-                    siteHeader.classList.remove('scrolled');
-                }
-                
-                lastScrollTop = scrollTop;
-            });
-        });
-    </script>
-</body>
+    <script src="./assets/js/script.js"></script>
+  </body>
 </html>
