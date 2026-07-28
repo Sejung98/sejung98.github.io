@@ -1,50 +1,41 @@
 const canvas = document.querySelector("#ambient-field");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-const animateTilePulse = true;
+
+// Light adaptation of the flow field used on cgilabsub.github.io:
+// same motion, but painted as dark pastel strokes on a white wash.
+const FLOW_PALETTE = [
+  [93, 146, 134], // green
+  [95, 143, 183], // blue
+  [140, 122, 184], // violet
+  [201, 135, 114], // coral
+];
 
 let ctx;
 let width = 0;
 let height = 0;
 let pixelRatio = 1;
-let wheelRadius = 0;
-let wheelCenterX = 0;
-let wheelCenterY = 0;
-let tiles = [];
-let guideLines = [];
-let activeWheelCenterX = 0;
-let activeWheelCenterY = 0;
-let svImage;
-let svImageReady = false;
-let svAnchorElement;
-let svX = 0;
-let svY = 0;
-let svOpacity = 0;
-let targetScrollTop = 0;
-let smoothScrollTop = 0;
-let scrollMax = 1;
-let lastFrame = 0;
+let flowPoints = [];
+let flowAnimationId = null;
 
 if (canvas) {
   ctx = canvas.getContext("2d", { alpha: true });
-  setupTileBackground();
+  startFlowBackground();
 }
 
-function setupTileBackground() {
-  setupSvImage();
-  svAnchorElement = document.querySelector(".project-rail .project-card:nth-child(3) .project-meta");
-  resizeCanvas();
-  updateScrollTarget();
-  smoothScrollTop = targetScrollTop;
-  window.addEventListener("resize", () => {
-    resizeCanvas();
-    updateScrollTarget();
-  });
-  window.addEventListener("scroll", updateScrollTarget, { passive: true });
-  requestAnimationFrame(drawBackground);
+// Reduced-motion users still get the flow, just calmed right down.
+const FLOW_TEMPO = reduceMotion ? 0.28 : 1;
+
+function startFlowBackground() {
+  resizeFlowCanvas();
+  window.addEventListener("resize", resizeFlowCanvas);
+
+  if (!flowAnimationId) {
+    flowAnimationId = requestAnimationFrame(drawFlowBackground);
+  }
 }
 
-function resizeCanvas() {
-  pixelRatio = Math.min(window.devicePixelRatio || 1, 1.1);
+function resizeFlowCanvas() {
+  pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
   width = window.innerWidth;
   height = window.innerHeight;
 
@@ -54,291 +45,96 @@ function resizeCanvas() {
   canvas.style.height = `${height}px`;
   ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
 
-  wheelCenterX = width < 720 ? width * 0.06 : width * 0.14;
-  wheelCenterY = width < 720 ? height * 0.3 : height * 0.36;
-  wheelRadius = width < 720 ? Math.min(width * 0.72, 340) : Math.min(Math.max(width, height) * 0.35, 470);
+  const columns = Math.max(90, Math.round(width / 8));
+  const rows = Math.max(28, Math.round(height / 24));
+  flowPoints = [];
 
-  buildTiles();
-  buildGuideLines();
-  scrollMax = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
-}
-
-function buildTiles() {
-  const colors = ["43, 98, 255", "22, 163, 107", "251, 188, 4", "234, 67, 53", "32, 36, 42", "0, 163, 199"];
-  const random = seededRandom(77);
-  const nextTiles = [];
-  const innerRadius = getWheelInnerRadius();
-  const ringGap = width < 720 ? 42 : 48;
-  let ringIndex = 0;
-
-  for (let radius = innerRadius + ringGap * 0.56; radius < wheelRadius; radius += ringGap) {
-    const slotSize = width < 720 ? 78 : 94;
-    const density = Math.max(12, Math.floor((Math.PI * 2 * radius) / slotSize));
-    const slotSpan = (Math.PI * 2) / density;
-    const ringOffset = (ringIndex % 2) * slotSpan * 0.5 + (random() - 0.5) * 0.018;
-
-    for (let index = 0; index < density; index += 1) {
-      const angle = (index / density) * Math.PI * 2 + ringOffset;
-      const outer = radius / wheelRadius;
-      const rightSide = Math.cos(angle) > 0.03;
-      const skipChance = rightSide ? 0.46 + outer * 0.22 : 0.16 + outer * 0.12;
-
-      if (random() < skipChance) {
-        continue;
-      }
-
-      const tileRadius = radius + (random() - 0.5) * 2;
-      const tangentX = -Math.sin(angle);
-      const tangentY = Math.cos(angle);
-      const maxLength = radius * slotSpan * 0.62;
-      const length = Math.min(18 + random() * (rightSide ? 24 : 30), maxLength);
-      const thickness = Math.min(ringGap * 0.46, 8.5 + random() * 7.5);
-      const baseAlpha = Math.max(0.24, 0.82 - outer * 0.16 - (rightSide ? 0.04 : 0));
-      const colorIndex = (ringIndex + Math.floor(random() * colors.length)) % colors.length;
-      const pulsePeriod = 11000 + random() * 18000;
-
-      nextTiles.push({
-        relX: Math.cos(angle) * tileRadius,
-        relY: Math.sin(angle) * tileRadius,
-        tangentX,
-        tangentY,
-        length,
-        thickness,
-        color: colors[colorIndex],
-        baseAlpha,
-        phase: random() * Math.PI * 2,
-        pulseOffset: random() * pulsePeriod,
-        pulsePeriod,
+  for (let row = 0; row < rows; row += 1) {
+    for (let column = 0; column < columns; column += 1) {
+      flowPoints.push({
+        xRatio: column / Math.max(columns - 1, 1),
+        yRatio: row / Math.max(rows - 1, 1),
+        drift: Math.random() * Math.PI * 2,
+        speed: 0.055 + Math.random() * 0.085,
+        size: 0.6 + Math.random() * 1.7,
+        opacity: 0.32 + Math.random() * 0.58,
       });
     }
-
-    ringIndex += 1;
-  }
-
-  tiles = nextTiles;
-}
-
-function buildGuideLines() {
-  guideLines = [];
-  const innerRadius = getWheelInnerRadius();
-
-  for (let radius = innerRadius + 18; radius < wheelRadius; radius += width < 720 ? 78 : 96) {
-    guideLines.push({ type: "circle", radius });
-  }
-
-  for (let angle = 0; angle < Math.PI * 2; angle += Math.PI / 24) {
-    guideLines.push({ type: "ray", angle });
   }
 }
 
-function drawBackground(time) {
-  const delta = Math.min((time - lastFrame) / 16.67 || 1, 2.2);
-  lastFrame = time;
-  updateSmoothScroll(delta);
-
-  const scroll = getScrollState();
-  activeWheelCenterX = wheelCenterX;
-  activeWheelCenterY =
-    wheelCenterY + height * 0.18 - scroll.progress * (height + (width < 720 ? 260 : 520));
+function drawFlowBackground(time) {
+  const seconds = time * 0.001 * FLOW_TEMPO;
+  const mobile = width < 760;
+  const bandTop = mobile ? 0.16 : 0.34;
+  const bandSpread = mobile ? 0.68 : 0.48;
 
   ctx.clearRect(0, 0, width, height);
-  drawPaper();
-  ctx.save();
-  ctx.globalAlpha = getWheelVisibility(scroll.progress);
-  drawGuides();
-  drawTiles(time);
-  drawCenterCutout();
-  ctx.restore();
-  drawFade();
-  drawSvImage(time, delta);
 
-  requestAnimationFrame(drawBackground);
-}
-
-function drawPaper() {
-  ctx.save();
-  ctx.fillStyle = "#fdfdfb";
+  const wash = ctx.createLinearGradient(0, 0, 0, height);
+  wash.addColorStop(0, "#ffffff");
+  wash.addColorStop(0.58, "#fdfefe");
+  wash.addColorStop(1, "#f5faf9");
+  ctx.fillStyle = wash;
   ctx.fillRect(0, 0, width, height);
 
-  ctx.globalAlpha = 0.12;
-  ctx.fillStyle = "#2b62ff";
-  for (let i = 0; i < 52; i += 1) {
-    ctx.fillRect((i * 101) % width, (i * 61) % height, 1, 1);
-  }
+  flowPoints.forEach((point, index) => {
+    const layer = index % FLOW_PALETTE.length;
+    const [r, g, b] = FLOW_PALETTE[layer];
+    const stream = (point.xRatio + seconds * point.speed + layer * 0.035) % 1;
+    const drift = Math.sin(seconds * 1.05 + point.drift) * (mobile ? 10 : 18);
+    const x = stream * width + drift;
+    const baseY = height * (bandTop + point.yRatio * bandSpread);
+    const waveA = Math.sin(stream * 9.4 - seconds * 1.9 + point.yRatio * 3.4);
+    const waveB = Math.cos(stream * 3.6 + seconds * 1.15 + layer);
+    const y = baseY + waveA * height * (mobile ? 0.08 : 0.1) + waveB * height * 0.035;
+    const center = mobile ? 0.46 : 0.44;
+    const fade = Math.max(0, 1 - Math.abs(point.yRatio - center) * (mobile ? 1.3 : 1.55));
+    const shimmer = 0.7 + Math.sin(seconds * 2.1 + point.drift) * 0.3;
+    // Fade in from the left edge and out at the right so streams enter and leave cleanly.
+    const edge = Math.min(1, stream * 7) * Math.min(1, (1 - stream) * 7);
+    const alpha = Math.min(0.92, point.opacity * fade * shimmer * edge * 1.35);
 
-  ctx.restore();
-}
-
-function getWheelVisibility(progress) {
-  return Math.max(0.12, 1 - smoothstep(0.72, 1, progress) * 0.62);
-}
-
-function drawGuides() {
-  ctx.save();
-  ctx.strokeStyle = "rgba(43, 98, 255, 0.045)";
-  ctx.lineWidth = 0.8;
-  const innerRadius = getWheelInnerRadius();
-
-  guideLines.forEach((guide) => {
-    ctx.beginPath();
-
-    if (guide.type === "circle") {
-      ctx.arc(activeWheelCenterX, activeWheelCenterY, guide.radius, 0, Math.PI * 2);
-    } else {
-      ctx.moveTo(
-        activeWheelCenterX + Math.cos(guide.angle) * innerRadius,
-        activeWheelCenterY + Math.sin(guide.angle) * innerRadius
-      );
-      ctx.lineTo(
-        activeWheelCenterX + Math.cos(guide.angle) * wheelRadius,
-        activeWheelCenterY + Math.sin(guide.angle) * wheelRadius
-      );
-    }
-
-    ctx.stroke();
-  });
-
-  ctx.restore();
-}
-
-function drawTiles(time) {
-  ctx.save();
-  ctx.lineCap = "round";
-
-  tiles.forEach((tile) => {
-    const cycle = animateTilePulse ? ((time + tile.pulseOffset) % tile.pulsePeriod) / tile.pulsePeriod : 0.5;
-    const pulse = animateTilePulse ? Math.exp(-Math.pow((cycle - 0.5) / 0.095, 2)) : 0;
-    const idleWave = reduceMotion ? 0.58 : 0.42 + Math.sin(time * 0.00018 + tile.phase) * 0.06;
-    const alpha = Math.max(0.14, Math.min(1, tile.baseAlpha * idleWave + pulse * 0.9));
-    const x = activeWheelCenterX + tile.relX;
-    const y = activeWheelCenterY + tile.relY;
-    const half = (tile.length * (0.92 + pulse * 0.42)) / 2;
+    if (alpha <= 0.02) return;
 
     ctx.beginPath();
-    ctx.strokeStyle = `rgba(${tile.color}, ${alpha})`;
-    ctx.lineWidth = tile.thickness * (0.82 + pulse * 0.58);
-    ctx.moveTo(x - tile.tangentX * half, y - tile.tangentY * half);
-    ctx.lineTo(x + tile.tangentX * half, y + tile.tangentY * half);
-    ctx.stroke();
-
-    if (pulse > 0.42) {
-      ctx.beginPath();
-      ctx.strokeStyle = `rgba(255, 255, 255, ${(pulse - 0.42) * 0.16})`;
-      ctx.lineWidth = tile.thickness * 0.22;
-      ctx.moveTo(x - tile.tangentX * half, y - tile.tangentY * half);
-      ctx.lineTo(x + tile.tangentX * half, y + tile.tangentY * half);
-      ctx.stroke();
-    }
+    ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${alpha})`;
+    ctx.arc(x, y, point.size, 0, Math.PI * 2);
+    ctx.fill();
   });
 
-  ctx.restore();
-}
+  for (let layer = 0; layer < 3; layer += 1) {
+    const [r, g, b] = FLOW_PALETTE[layer + 1];
+    ctx.beginPath();
 
-function drawCenterCutout() {
-  ctx.save();
-  ctx.fillStyle = "#fdfdfb";
-  ctx.beginPath();
-  ctx.arc(activeWheelCenterX, activeWheelCenterY, getWheelInnerRadius() - 10, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.restore();
-}
+    for (let step = 0; step <= 160; step += 1) {
+      const progress = step / 160;
+      const x = progress * width;
+      const y =
+        height * ((mobile ? 0.33 : 0.48) + layer * (mobile ? 0.09 : 0.07)) +
+        Math.sin(progress * 8 - seconds * (1.45 + layer * 0.24) + layer) * height * (mobile ? 0.075 : 0.085);
 
-function getWheelInnerRadius() {
-  return width < 720 ? 76 : 94;
-}
+      if (step === 0) {
+        ctx.moveTo(x, y);
+      } else {
+        ctx.lineTo(x, y);
+      }
+    }
 
-function drawFade() {
-  const rightFade = ctx.createLinearGradient(0, 0, width, 0);
-  rightFade.addColorStop(0, "rgba(253, 253, 251, 0)");
-  rightFade.addColorStop(0.38, "rgba(253, 253, 251, 0)");
-  rightFade.addColorStop(0.76, "rgba(253, 253, 251, 0.72)");
-  rightFade.addColorStop(1, "rgba(253, 253, 251, 0.96)");
-
-  ctx.fillStyle = rightFade;
-  ctx.fillRect(0, 0, width, height);
-
-  const verticalFade = ctx.createLinearGradient(0, 0, 0, height);
-  verticalFade.addColorStop(0, "rgba(253, 253, 251, 0)");
-  verticalFade.addColorStop(0.72, "rgba(253, 253, 251, 0)");
-  verticalFade.addColorStop(1, "rgba(253, 253, 251, 0.9)");
-
-  ctx.fillStyle = verticalFade;
-  ctx.fillRect(0, 0, width, height);
-}
-
-function seededRandom(seed) {
-  let value = seed;
-
-  return () => {
-    value = (value * 1664525 + 1013904223) % 4294967296;
-    return value / 4294967296;
-  };
-}
-
-function setupSvImage() {
-  svImage = new Image();
-  svImage.onload = () => {
-    svImageReady = true;
-  };
-  svImage.src = "./assets/images/SV.jpeg";
-}
-
-function drawSvImage(time, delta) {
-  if (!svImageReady || !svAnchorElement) {
-    return;
+    ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${0.34 - layer * 0.07})`;
+    ctx.lineWidth = 1.6;
+    ctx.stroke();
   }
 
-  const imageSize = Math.min(width < 720 ? width * 1.08 : width * 0.68, 980);
-  const floatY = reduceMotion ? 0 : Math.sin(time * 0.00016) * 8;
-  const anchor = svAnchorElement.getBoundingClientRect();
-  const targetX = width < 720 ? width * 0.7 : Math.min(width - imageSize * 0.18, anchor.right + imageSize * 0.34);
-  const targetY = anchor.top + anchor.height * 0.48 + floatY;
-  const visibleTop = -imageSize * 0.36;
-  const visibleBottom = height + imageSize * 0.36;
-  const targetOpacity =
-    smoothstep(visibleTop, visibleTop + imageSize * 0.42, targetY) *
-    (1 - smoothstep(visibleBottom - imageSize * 0.42, visibleBottom, targetY)) *
-    0.44;
-  const follow = reduceMotion ? 1 : 1 - Math.pow(0.84, delta);
-  const fade = reduceMotion ? 1 : 1 - Math.pow(0.82, delta);
+  // Let the band settle toward the footer so body copy stays readable.
+  const settle = ctx.createLinearGradient(0, 0, 0, height);
+  settle.addColorStop(0, "rgba(255, 255, 255, 0)");
+  settle.addColorStop(0.72, "rgba(253, 254, 254, 0.12)");
+  settle.addColorStop(1, "rgba(245, 250, 249, 0.55)");
+  ctx.fillStyle = settle;
+  ctx.fillRect(0, 0, width, height);
 
-  if (svX === 0 && svY === 0) {
-    svX = targetX;
-    svY = targetY;
-  }
-
-  svX += (targetX - svX) * follow;
-  svY += (targetY - svY) * follow;
-  svOpacity += (targetOpacity - svOpacity) * fade;
-
-  ctx.save();
-  ctx.globalAlpha = svOpacity;
-  ctx.translate(svX, svY);
-  ctx.rotate(((svY - height * 0.5) / Math.max(height, 1)) * 0.025);
-  ctx.drawImage(svImage, -imageSize / 2, -imageSize / 2, imageSize, imageSize);
-  ctx.restore();
-}
-
-function getScrollState() {
-  return {
-    top: smoothScrollTop,
-    progress: Math.min(Math.max(smoothScrollTop / scrollMax, 0), 1),
-  };
-}
-
-function updateScrollTarget() {
-  targetScrollTop = window.scrollY || document.documentElement.scrollTop || 0;
-  scrollMax = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
-}
-
-function updateSmoothScroll(delta) {
-  const follow = reduceMotion ? 1 : 1 - Math.pow(0.86, delta);
-  smoothScrollTop += (targetScrollTop - smoothScrollTop) * follow;
-}
-
-function smoothstep(edge0, edge1, value) {
-  const x = Math.min(Math.max((value - edge0) / (edge1 - edge0), 0), 1);
-  return x * x * (3 - 2 * x);
+  flowAnimationId = requestAnimationFrame(drawFlowBackground);
 }
 
 const revealObserver = new IntersectionObserver(

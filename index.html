@@ -1,195 +1,218 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sejung Lee | Cancer Genomics</title>
-    <meta
-      name="description"
-      content="Sejung Lee is a PhD student in bioinformatics and cancer genomics at Yonsei University."
-    />
-    <link rel="stylesheet" href="./assets/css/styles.css" />
-  </head>
-  <body>
-    <canvas class="ambient-field" id="ambient-field" aria-hidden="true"></canvas>
 
-    <header class="site-header">
-      <a class="brand" href="./index.html" aria-label="Go to homepage">
-        <span>Sejung Lee</span>
-      </a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sejung Lee | Cancer Genomics</title>
+  <meta name="description"
+    content="Sejung Lee is a PhD student in bioinformatics and cancer genomics at Yonsei University." />
+  <link rel="stylesheet" href="./assets/css/styles.css" />
+</head>
 
-      <nav class="site-nav" aria-label="Primary navigation">
-        <a href="./work.html">Research</a>
-        <a href="./about.html">About</a>
-        <a href="./process.html">Methods</a>
-        <a href="./contact.html">Contact</a>
-      </nav>
+<body>
+  <canvas class="ambient-field" id="ambient-field" aria-hidden="true"></canvas>
 
-      <a class="header-action" href="https://www.linkedin.com/in/sejung-lee-a05b61250/" target="_blank" rel="noreferrer">
-        LinkedIn
-      </a>
-    </header>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="Go to homepage">
+      <span>Sejung Lee</span>
+    </a>
 
-    <main>
-      <section class="hero-section" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <p class="eyebrow">
-            <span class="status-dot"></span>
-            PhD Student · Bioinformatics & Cancer Genomics
-          </p>
-          <h1 id="hero-title">Studying cancer evolution through patient genomic data.</h1>
-          <p class="hero-lede">
-            Sejung (이세중) Lee is a researcher at Yonsei University interested in cancer
-            evolution, tumor genomics, omics data integration, and determinants of therapeutic
-            response.
-          </p>
-          <div class="hero-actions" aria-label="Primary actions">
-            <a class="button button-dark" href="./work.html">
-              <span aria-hidden="true">View</span>
-              Research
-            </a>
-            <a class="button button-light" href="./about.html">
-              <span aria-hidden="true">Read</span>
-              Bio
-            </a>
-          </div>
-        </div>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="./work/">Research</a>
+      <a href="./honors/">Honors</a>
+      <a href="./process/">Methods</a>
+      <a href="./contact/">Contact</a>
+    </nav>
 
-        <figure class="hero-photo" aria-label="Sejung Lee profile photo">
-            <img src="./assets/images/sejung_profile.jpg" alt="Sejung Lee" onerror="this.hidden = true" />
-          <span aria-hidden="true">SL</span>
-        </figure>
-      </section>
+    <a class="header-action" href="https://www.linkedin.com/in/sejung-lee-a05b61250/" target="_blank" rel="noreferrer">
+      LinkedIn
+    </a>
+  </header>
 
-      <section class="section intro-band" aria-label="Research positioning">
-        <p>
-          I use large-scale omics data to understand tumor progression, structural alterations,
-          driver mutations, and drug response mechanisms.
+  <main>
+    <section class="hero-section" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">
+          <span class="status-dot"></span>
+          PhD Student · Bioinformatics & Cancer Genomics
         </p>
-      </section>
-
-      <section class="section preview-section" aria-labelledby="snapshot-title">
-        <div class="section-heading split-heading">
-          <h2 id="snapshot-title">Profile snapshot</h2>
-          <p>
-            A concise overview of my current academic position, research direction, technical
-            toolkit, and professional activity.
-          </p>
-        </div>
-
-        <div class="route-grid">
-          <a class="route-card reveal" href="./about.html">
-            <span class="route-index">01</span>
-            <h3>Yonsei University</h3>
-            <p>PhD student based in Seoul, Republic of Korea, working in bioinformatics and cancer genomics.</p>
+        <h1 id="hero-title">Studying cancer evolution through patient genomic data.</h1>
+        <p class="hero-lede">
+          Sejung (이세중) Lee, researcher at Yonsei University.<br />
+          Cancer evolution · tumor genomics · structural variation.
+        </p>
+        <div class="hero-actions" aria-label="Primary actions">
+          <a class="button button-dark" href="./work/">
+            <span aria-hidden="true">View</span>
+            Research
           </a>
-          <a class="route-card reveal" href="./work.html">
-            <span class="route-index">02</span>
-            <h3>Cancer evolution</h3>
-            <p>Research focus on driver mutations, structural variation, and patient-derived genomic data.</p>
-          </a>
-          <a class="route-card reveal" href="./process.html">
-            <span class="route-index">03</span>
-            <h3>Omics analysis</h3>
-            <p>Experience across WGS, transcriptomics, ELISA, Western blot, and immunological assays.</p>
+          <a class="button button-light" href="./honors/">
+            <span aria-hidden="true">See</span>
+            Honors
           </a>
         </div>
-      </section>
+      </div>
 
-      <section class="section work-section" aria-labelledby="featured-work-title">
-        <div class="section-heading split-heading">
-          <h2 id="featured-work-title">Key focus areas</h2>
-          <p>
-            Main interests connect computational cancer research with experimental background and
-            translational questions.
-          </p>
-        </div>
+      <figure class="hero-photo" aria-label="Sejung Lee profile photo">
+        <img src="./assets/images/sejung_profile.jpg" alt="Sejung Lee" onerror="this.hidden = true" />
+        <span aria-hidden="true">SL</span>
+      </figure>
+    </section>
 
-        <div class="project-rail" aria-label="Featured research areas">
-          <article class="project-card project-card-large reveal">
-            <div class="project-visual visual-dashboard">
-              <div class="visual-nav"></div>
-              <div class="visual-chart">
-                <span style="height: 74%"></span>
-                <span style="height: 42%"></span>
-                <span style="height: 88%"></span>
-                <span style="height: 58%"></span>
-                <span style="height: 66%"></span>
-              </div>
-              <div class="visual-panel">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-            </div>
-            <div class="project-meta">
-              <p class="project-kicker">Cancer genomics</p>
-              <h3>Evolution from patient data</h3>
-              <p>Interpreting genomic alterations to understand tumor progression and evolutionary trajectories.</p>
-            </div>
-          </article>
+    <section class="section preview-section" aria-labelledby="snapshot-title">
+      <div class="section-heading split-heading">
+        <h2 id="snapshot-title">Profile</h2>
+        <p>Position, research focus, and methods at a glance.</p>
+      </div>
 
-          <article class="project-card reveal">
-            <div class="project-visual visual-editor">
-              <div class="editor-lines">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-            </div>
-            <div class="project-meta">
-              <p class="project-kicker">Mechanisms</p>
-              <h3>Drug response determinants</h3>
-              <p>Investigating how molecular features may shape therapeutic response in cancer patients.</p>
-            </div>
-          </article>
+      <div class="route-grid">
+        <a class="route-card reveal" href="./work/">
+          <span class="route-index">01</span>
+          <h3>Cancer evolution</h3>
+          <p>Driver mutations, structural variation, and clonal architecture from patient-derived genomes.</p>
+        </a>
+        <a class="route-card reveal" href="./honors/">
+          <span class="route-index">02</span>
+          <h3>Honors &amp; funding</h3>
+          <p>Presidential Science Fellowship, NRF research fellowship, and a KOGO poster award.</p>
+        </a>
+        <a class="route-card reveal" href="./process/">
+          <span class="route-index">03</span>
+          <h3>Omics analysis</h3>
+          <p>WGS, long-read sequencing, transcriptomics, and immunological assay experience.</p>
+        </a>
+      </div>
+    </section>
 
-          <article class="project-card reveal">
-            <div class="project-visual visual-commerce">
-              <div class="product-tile"></div>
-              <div class="product-copy">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-            </div>
-            <div class="project-meta">
-              <p class="project-kicker">Academic activity</p>
-              <h3>AACR 2026 poster presentation</h3>
-              <p>First international conference participation in San Diego, including poster #3531.</p>
-            </div>
-          </article>
-        </div>
-      </section>
+    <section class="section publications-section" aria-labelledby="publications-title">
+      <div class="section-heading split-heading">
+        <h2 id="publications-title">Publications</h2>
+        <p>Peer-reviewed articles.</p>
+      </div>
 
-      <section class="section contact-section" aria-labelledby="home-contact-title">
-        <div>
-          <p class="eyebrow">
-            <span class="status-dot"></span>
-            Public profile
-          </p>
-          <h2 id="home-contact-title">Open to research discussion and academic networking.</h2>
-        </div>
-        <div class="contact-actions">
-          <a class="button button-dark" href="https://www.linkedin.com/in/sejung-lee-a05b61250/" target="_blank" rel="noreferrer">
-            <span aria-hidden="true">Open</span>
-            LinkedIn
-          </a>
-          <a class="button button-light" href="./contact.html">
-            <span aria-hidden="true">More</span>
-            Contact
-          </a>
-        </div>
-      </section>
-    </main>
+      <ol class="publication-list">
+        <li class="publication-item reveal">
+          <span class="publication-year">2026</span>
+          <div>
+            <h3>Translating whole-genome doubling into precision medicine in cancer</h3>
+            <p class="publication-authors">
+              <strong>Lee, S.</strong>*, <strong>Lim, J.</strong>*, &amp; Bhin, J.
+              <span class="publication-note">*Co-first authors</span>
+            </p>
+            <p class="publication-venue">
+              <em>Molecular Oncology</em> ·
+              <a href="https://doi.org/10.1002/1878-0261.70302" target="_blank" rel="noreferrer">
+                10.1002/1878-0261.70302
+              </a>
+            </p>
+          </div>
+        </li>
+        <li class="publication-item reveal">
+          <span class="publication-year">2023</span>
+          <div>
+            <h3>
+              Anti-inflammatory effects and macrophage activation induced by bioavailable cinnamon
+              polyphenols in mice
+            </h3>
+            <p class="publication-authors">
+              Song, Y., Jung, Y. S., Park, S., Park, H. S., <strong>Lee, S. J.</strong>, Maeng, S.,
+              … &amp; Kang, H.
+            </p>
+            <p class="publication-venue">
+              <em>Molecular Nutrition &amp; Food Research</em>, 67(20), 2200768 ·
+              <a href="https://doi.org/10.1002/mnfr.202200768" target="_blank" rel="noreferrer">
+                10.1002/mnfr.202200768
+              </a>
+            </p>
+          </div>
+        </li>
+      </ol>
+    </section>
 
-    <footer class="site-footer">
-      <span>© 2026 Sejung Lee</span>
-      <span>Bioinformatics · Cancer Genomics · Tumor Evolution</span>
-    </footer>
+    <section class="section publications-section" aria-labelledby="conferences-title">
+      <div class="section-heading split-heading">
+        <h2 id="conferences-title">Conference presentations</h2>
+        <p>Poster presentations at domestic and international meetings.</p>
+      </div>
 
-    <script src="./assets/js/script.js"></script>
-  </body>
+      <ol class="publication-list">
+        <li class="publication-item reveal">
+          <span class="publication-year">2026</span>
+          <div>
+            <h3>
+              Temporal ordering of genomic events reveals distinct evolutionary trajectories in
+              early-onset breast cancer
+            </h3>
+            <p class="publication-authors">
+              <strong>Lee, S. J.</strong>, Lim, J., Kim, H., Kang, M.-C., Lee, E.-G., Kong, S.-Y.,
+              &amp; Bhin, J.
+            </p>
+            <p class="publication-venue">
+              AACR Annual Meeting 2026 · San Diego, CA, USA · Poster #3531
+            </p>
+          </div>
+        </li>
+        <li class="publication-item reveal">
+          <span class="publication-year">2025</span>
+          <div>
+            <h3>
+              Elucidating genetic profiles and evolutionary trajectories of early-onset breast
+              cancer
+            </h3>
+            <p class="publication-authors"><strong>Lee, S. J.</strong>, &amp; Bhin, J.</p>
+            <p class="publication-venue">
+              BIOINFO 2025 · Korea Genome Organization (KOGO) Annual Conference
+              <span class="publication-award">Poster Excellence Award</span>
+            </p>
+          </div>
+        </li>
+        <li class="publication-item reveal">
+          <span class="publication-year">2024</span>
+          <div>
+            <h3>
+              Characterization of structural variants and germline mutations in early-onset breast
+              cancer leveraging whole genome data
+            </h3>
+            <p class="publication-authors">
+              <strong>Lee, S. J.</strong>, Kong, S.-Y., &amp; Bhin, J.
+            </p>
+            <p class="publication-venue">
+              BIOINFO 2024 · Korea Genome Organization (KOGO) Annual Conference
+            </p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="section contact-section" aria-labelledby="home-contact-title">
+      <div>
+        <p class="eyebrow">
+          <span class="status-dot"></span>
+          Public profile
+        </p>
+        <h2 id="home-contact-title">Open to research discussion and academic networking.</h2>
+      </div>
+      <div class="contact-actions">
+        <a class="button button-dark" href="https://www.linkedin.com/in/sejung-lee-a05b61250/" target="_blank"
+          rel="noreferrer">
+          <span aria-hidden="true">Open</span>
+          LinkedIn
+        </a>
+        <a class="button button-light" href="./contact/">
+          <span aria-hidden="true">More</span>
+          Contact
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© 2026 Sejung Lee</span>
+    <span>Bioinformatics · Cancer Genomics · Tumor Evolution</span>
+  </footer>
+
+  <script src="./assets/js/script.js"></script>
+</body>
+
 </html>

@@ -25,7 +25,7 @@ body {
   position: relative;
   margin: 0;
   min-height: 100vh;
-  background: linear-gradient(180deg, #fdfdfb 0%, #fbfbf8 58%, #f7f8f4 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #fdfefe 58%, #f5faf9 100%);
   color: var(--text);
   font-family:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -47,19 +47,6 @@ a {
   contain: strict;
   pointer-events: none;
   transform: translateZ(0);
-}
-
-body::before {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  content: "";
-  pointer-events: none;
-  background-image:
-    linear-gradient(rgba(17, 18, 20, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(17, 18, 20, 0.025) 1px, transparent 1px);
-  background-size: 84px 84px;
-  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.65), transparent 78%);
 }
 
 .site-header,
@@ -175,9 +162,11 @@ p {
 h1 {
   max-width: 850px;
   margin-bottom: 24px;
-  font-size: 72px;
-  line-height: 0.98;
+  font-size: 68px;
+  line-height: 1.08;
   font-weight: 760;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
 }
 
 .hero-lede {
@@ -528,22 +517,11 @@ pre {
   line-height: 1.72;
 }
 
-.intro-band {
-  padding: 88px 0 76px;
-}
-
-.intro-band p {
-  max-width: 920px;
-  margin-bottom: 0;
-  font-size: 42px;
-  line-height: 1.12;
-  font-weight: 720;
-}
-
 .work-section,
 .craft-section,
 .about-section,
 .preview-section,
+.publications-section,
 .stack-section,
 .timeline-section,
 .tools-section,
@@ -560,7 +538,17 @@ pre {
   display: grid;
   grid-template-columns: 0.9fr 1fr;
   gap: 42px;
+  align-items: baseline;
   max-width: none;
+}
+
+.split-heading h2 {
+  margin-bottom: 0;
+}
+
+.split-heading p {
+  max-width: 520px;
+  margin-bottom: 0;
 }
 
 h2 {
@@ -568,6 +556,7 @@ h2 {
   font-size: 48px;
   line-height: 1.04;
   font-weight: 740;
+  text-wrap: balance;
 }
 
 .section-heading p,
@@ -1139,9 +1128,15 @@ h2 {
 .tool-card p,
 .contact-card p,
 .availability-section p {
+  max-width: 520px;
+  margin-bottom: 0;
   color: var(--muted);
-  font-size: 15px;
-  line-height: 1.62;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.availability-section h2 {
+  margin-bottom: 0;
 }
 
 .tool-grid,
@@ -1169,7 +1164,7 @@ h2 {
 }
 
 .contact-grid {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   padding-bottom: 84px;
 }
 
@@ -1197,9 +1192,193 @@ h2 {
   display: grid;
   grid-template-columns: 1fr 0.88fr;
   gap: 42px;
-  align-items: start;
+  align-items: end;
   padding: 54px 0 92px;
   border-top: 1px solid var(--line);
+}
+
+.publications-section,
+.records-section,
+.experience-section {
+  padding: 92px 0;
+  border-top: 1px solid var(--line);
+}
+
+.records-section:first-of-type {
+  border-top: 0;
+}
+
+.publication-list,
+.record-list {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.publication-item,
+.record-item {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 22px;
+  padding: 24px 0;
+  border-top: 1px solid var(--line);
+}
+
+.publication-year,
+.record-period {
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 760;
+}
+
+.publication-item h3,
+.record-item h3 {
+  max-width: 760px;
+  margin-bottom: 10px;
+  font-size: 22px;
+  line-height: 1.28;
+}
+
+.publication-item p,
+.record-item p {
+  max-width: 760px;
+  margin-bottom: 4px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.publication-item p:last-child,
+.record-item p:last-child {
+  margin-bottom: 0;
+}
+
+.publication-authors strong {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.publication-note {
+  font-size: 13px;
+}
+
+.record-org {
+  color: var(--text);
+  font-weight: 640;
+}
+
+.publication-award {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 9px;
+  border: 1px solid rgba(43, 98, 255, 0.28);
+  border-radius: 999px;
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.experience-list {
+  display: grid;
+  gap: 44px;
+}
+
+.experience-role {
+  display: grid;
+  gap: 18px;
+}
+
+.experience-role-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.experience-role-head h3 {
+  margin-bottom: 4px;
+  font-size: 26px;
+  line-height: 1.2;
+}
+
+.experience-role-head p {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.experience-period {
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 760;
+  white-space: nowrap;
+}
+
+.experience-items {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.experience-item {
+  padding: 22px 24px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.66);
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.experience-item:hover {
+  border-color: rgba(43, 98, 255, 0.24);
+  background: rgba(255, 255, 255, 0.86);
+  transform: translateY(-2px);
+}
+
+.experience-item h4 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  line-height: 1.32;
+  font-weight: 720;
+}
+
+.experience-item p {
+  max-width: 780px;
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.66;
+}
+
+.experience-funder {
+  display: inline-block;
+  margin-left: 8px;
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 700;
+  vertical-align: 1px;
+}
+
+.publication-item a,
+.record-item a,
+.publications-section .section-heading a {
+  color: var(--blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.publication-item a:hover,
+.record-item a:hover,
+.publications-section .section-heading a:hover {
+  text-decoration-thickness: 2px;
 }
 
 @keyframes spin {
@@ -1250,8 +1429,7 @@ h2 {
     font-size: 56px;
   }
 
-  h2,
-  .intro-band p {
+  h2 {
     font-size: 39px;
   }
 
@@ -1301,9 +1479,19 @@ h2 {
     line-height: 1.04;
   }
 
-  h2,
-  .intro-band p {
+  h2 {
     font-size: 32px;
+  }
+
+  .publication-item,
+  .record-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .publication-item h3,
+  .record-item h3 {
+    font-size: 20px;
   }
 
   .hero-lede,
