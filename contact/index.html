@@ -27,10 +27,6 @@
 
     <main>
       <section class="section page-hero contact-hero" aria-labelledby="contact-title">
-        <p class="eyebrow">
-          <span class="status-dot"></span>
-          Contact
-        </p>
         <h1 id="contact-title">Research discussion, collaboration, and networking.</h1>
         <p>
           I am interested in academic discussion around cancer evolution, tumor genomics, omics
@@ -44,11 +40,11 @@
           <strong>sjlee98@yuhs.ac</strong>
           <p>The most direct route for research questions and collaboration.</p>
         </a>
-        <a class="contact-card reveal" href="../CV_SejungLee.docx" download>
+        <div class="contact-card cv-card reveal" id="cv-card-btn" role="button" tabindex="0" aria-label="Request CV Download">
           <span>Curriculum vitae</span>
           <strong>Download CV</strong>
           <p>Full record of education, publications, presentations, funding, and experience (DOCX).</p>
-        </a>
+        </div>
         <a class="contact-card reveal" href="https://www.linkedin.com/in/sejung-lee-a05b61250/" target="_blank" rel="noreferrer">
           <span>LinkedIn</span>
           <strong>sejung-lee-a05b61250</strong>
@@ -63,10 +59,6 @@
 
       <section class="section availability-section reveal" aria-labelledby="activity-title">
         <div>
-          <p class="eyebrow">
-            <span class="status-dot"></span>
-            Activity
-          </p>
           <h2 id="activity-title">Actively building international research visibility.</h2>
         </div>
         <p>
@@ -75,6 +67,47 @@
           Bio-Youth Camp participant to mentor.
         </p>
       </section>
+
+      <!-- CV Request Security Modal -->
+      <div class="cv-modal-backdrop" id="cv-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="cv-modal-title">
+        <div class="cv-modal">
+          <div class="cv-modal-inner">
+            <div class="cv-modal-header">
+              <div>
+                <h3 id="cv-modal-title">Request Curriculum Vitae</h3>
+                <p>Please enter your email and inquiry purpose to access and download the CV.</p>
+              </div>
+              <button type="button" class="cv-modal-close" id="cv-modal-close" aria-label="Close modal">&times;</button>
+            </div>
+
+            <form class="cv-form" id="cv-request-form" novalidate>
+              <div class="cv-field">
+                <label for="cv-email">Email Address <span class="req">*</span></label>
+                <input type="email" id="cv-email" name="email" placeholder="e.g. researcher@university.edu" required autocomplete="email" />
+              </div>
+
+              <div class="cv-field">
+                <label for="cv-reason">Reason for Download <span class="req">*</span></label>
+                <textarea id="cv-reason" name="reason" placeholder="e.g. Academic collaboration, graduate inquiry, recruitment review, conference networking..." required minlength="5" rows="3"></textarea>
+              </div>
+
+              <div class="cv-notice">
+                Your email and inquiry purpose will be shared with Sejung Lee for research follow-up.
+              </div>
+
+              <div class="cv-status-box" id="cv-status-box" role="alert" aria-live="polite"></div>
+
+              <div class="cv-modal-actions">
+                <button type="button" class="cv-btn-cancel" id="cv-btn-cancel">Cancel</button>
+                <button type="submit" class="cv-btn-submit" id="cv-btn-submit">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  <span>Download CV</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </main>
 
     <footer class="site-footer">
@@ -83,5 +116,6 @@
     </footer>
 
     <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/cv-gate.js"></script>
   </body>
 </html>

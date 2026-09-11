@@ -36,8 +36,16 @@ function startFlowBackground() {
 
 function resizeFlowCanvas() {
   pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
-  width = window.innerWidth;
-  height = window.innerHeight;
+  const newWidth = window.innerWidth;
+  const newHeight = window.innerHeight;
+
+  // On mobile, avoid jerky rebuild when URL bar expands/collapses slightly
+  if (width === newWidth && Math.abs(height - newHeight) < 90 && flowPoints.length > 0) {
+    return;
+  }
+
+  width = newWidth;
+  height = newHeight;
 
   canvas.width = Math.floor(width * pixelRatio);
   canvas.height = Math.floor(height * pixelRatio);
@@ -45,8 +53,10 @@ function resizeFlowCanvas() {
   canvas.style.height = `${height}px`;
   ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
 
-  const columns = Math.max(90, Math.round(width / 8));
-  const rows = Math.max(28, Math.round(height / 24));
+  const mobile = width < 768;
+  // Dynamic column and row spacing to ensure natural particle density across all screen sizes
+  const columns = mobile ? Math.max(28, Math.round(width / 13)) : Math.max(90, Math.round(width / 8));
+  const rows = mobile ? Math.max(20, Math.round(height / 32)) : Math.max(28, Math.round(height / 24));
   flowPoints = [];
 
   for (let row = 0; row < rows; row += 1) {
@@ -56,7 +66,7 @@ function resizeFlowCanvas() {
         yRatio: row / Math.max(rows - 1, 1),
         drift: Math.random() * Math.PI * 2,
         speed: 0.055 + Math.random() * 0.085,
-        size: 0.6 + Math.random() * 1.7,
+        size: mobile ? 0.5 + Math.random() * 1.3 : 0.6 + Math.random() * 1.7,
         opacity: 0.32 + Math.random() * 0.58,
       });
     }
@@ -65,9 +75,17 @@ function resizeFlowCanvas() {
 
 function drawFlowBackground(time) {
   const seconds = time * 0.001 * FLOW_TEMPO;
-  const mobile = width < 760;
-  const bandTop = mobile ? 0.16 : 0.34;
-  const bandSpread = mobile ? 0.68 : 0.48;
+  const mobile = width < 768;
+
+  // Consistent, elegant horizontal band placement
+  const bandTop = mobile ? 0.28 : 0.34;
+  const bandSpread = mobile ? 0.42 : 0.48;
+
+  // Screen-proportional wave parameters so mobile waves are gentle and not squished
+  const waveAFreq = mobile ? 3.4 : 9.4;
+  const waveBFreq = mobile ? 1.8 : 3.6;
+  const waveAAmp = mobile ? Math.min(height * 0.045, 26) : height * 0.1;
+  const waveBAmp = mobile ? Math.min(height * 0.02, 10) : height * 0.035;
 
   ctx.clearRect(0, 0, width, height);
 
@@ -82,14 +100,14 @@ function drawFlowBackground(time) {
     const layer = index % FLOW_PALETTE.length;
     const [r, g, b] = FLOW_PALETTE[layer];
     const stream = (point.xRatio + seconds * point.speed + layer * 0.035) % 1;
-    const drift = Math.sin(seconds * 1.05 + point.drift) * (mobile ? 10 : 18);
+    const drift = Math.sin(seconds * 1.05 + point.drift) * (mobile ? 6 : 18);
     const x = stream * width + drift;
     const baseY = height * (bandTop + point.yRatio * bandSpread);
-    const waveA = Math.sin(stream * 9.4 - seconds * 1.9 + point.yRatio * 3.4);
-    const waveB = Math.cos(stream * 3.6 + seconds * 1.15 + layer);
-    const y = baseY + waveA * height * (mobile ? 0.08 : 0.1) + waveB * height * 0.035;
-    const center = mobile ? 0.46 : 0.44;
-    const fade = Math.max(0, 1 - Math.abs(point.yRatio - center) * (mobile ? 1.3 : 1.55));
+    const waveA = Math.sin(stream * waveAFreq - seconds * 1.9 + point.yRatio * (mobile ? 2.0 : 3.4));
+    const waveB = Math.cos(stream * waveBFreq + seconds * 1.15 + layer);
+    const y = baseY + waveA * waveAAmp + waveB * waveBAmp;
+    const center = 0.45;
+    const fade = Math.max(0, 1 - Math.abs(point.yRatio - center) * (mobile ? 1.4 : 1.55));
     const shimmer = 0.7 + Math.sin(seconds * 2.1 + point.drift) * 0.3;
     // Fade in from the left edge and out at the right so streams enter and leave cleanly.
     const edge = Math.min(1, stream * 7) * Math.min(1, (1 - stream) * 7);
@@ -103,6 +121,9 @@ function drawFlowBackground(time) {
     ctx.fill();
   });
 
+  const lineFreq = mobile ? 3.2 : 8;
+  const lineAmp = mobile ? Math.min(height * 0.04, 24) : height * 0.085;
+
   for (let layer = 0; layer < 3; layer += 1) {
     const [r, g, b] = FLOW_PALETTE[layer + 1];
     ctx.beginPath();
@@ -111,8 +132,8 @@ function drawFlowBackground(time) {
       const progress = step / 160;
       const x = progress * width;
       const y =
-        height * ((mobile ? 0.33 : 0.48) + layer * (mobile ? 0.09 : 0.07)) +
-        Math.sin(progress * 8 - seconds * (1.45 + layer * 0.24) + layer) * height * (mobile ? 0.075 : 0.085);
+        height * ((mobile ? 0.40 : 0.48) + layer * (mobile ? 0.055 : 0.07)) +
+        Math.sin(progress * lineFreq - seconds * (1.45 + layer * 0.24) + layer) * lineAmp;
 
       if (step === 0) {
         ctx.moveTo(x, y);
@@ -122,7 +143,7 @@ function drawFlowBackground(time) {
     }
 
     ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${0.34 - layer * 0.07})`;
-    ctx.lineWidth = 1.6;
+    ctx.lineWidth = mobile ? 1.3 : 1.6;
     ctx.stroke();
   }
 

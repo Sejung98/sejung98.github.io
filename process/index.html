@@ -26,99 +26,397 @@
     </header>
 
     <main>
-      <section class="section page-hero" aria-labelledby="methods-title">
-        <p class="eyebrow">
-          <span class="status-dot"></span>
-          Methods
-        </p>
-        <h1 id="methods-title">Computational and experimental approaches to tumor biology.</h1>
+      <section class="section page-hero compact-page-hero" aria-labelledby="methods-title">
+        <h1 id="methods-title">Methods and tools.</h1>
         <p>
-          My work combines genomic data analysis with biological research experience, supporting
-          questions around cancer evolution, drug response, and tumor mechanisms.
+          A structured overview of research interests, technical skills, computational workflows, and open-source code.
         </p>
       </section>
 
-      <section class="section process-board" aria-label="Research workflow">
-        <article class="process-step reveal">
-          <span>01</span>
-          <h2>Collect</h2>
-          <p>Work with patient-derived genomic and omics data to frame cancer evolution questions.</p>
-        </article>
-        <article class="process-step reveal">
-          <span>02</span>
-          <h2>Analyze</h2>
-          <p>Use WGS and transcriptomic analysis to identify molecular patterns and alterations.</p>
-        </article>
-        <article class="process-step reveal">
-          <span>03</span>
-          <h2>Interpret</h2>
-          <p>Connect driver events, structural variation, and expression signals to tumor biology.</p>
-        </article>
-        <article class="process-step reveal">
-          <span>04</span>
-          <h2>Validate</h2>
-          <p>Draw from immunology experience, ELISA, Western blot, and experimental assays.</p>
-        </article>
-        <article class="process-step reveal">
-          <span>05</span>
-          <h2>Share</h2>
-          <p>Communicate findings through posters, conferences, networking, and academic discussion.</p>
-        </article>
-      </section>
-
-      <section class="section tools-section" aria-labelledby="skills-title">
+      <!-- 1. Research Interests (가장 위) -->
+      <section class="section interests-section compact-section" aria-labelledby="interests-title">
         <div class="section-heading split-heading">
-          <h2 id="skills-title">Technical skills</h2>
+          <div>
+            <h2 id="interests-title">Research Interests</h2>
+          </div>
           <p>
-            Skills span computational genomics and wet-lab experience, enabling both data-driven and
-            biological interpretation.
+            Investigating tumor evolutionary dynamics, structural variations, and multi-omics
+            prognostication through rigorous computational genomics and functional biology.
           </p>
         </div>
 
-        <div class="tool-grid">
-          <div class="tool-card reveal">
-            <h3>WGS analysis</h3>
-            <p>Whole-genome sequencing data analysis for genomic alteration discovery.</p>
+        <div class="interest-grid">
+          <article class="interest-card reveal">
+            <div class="interest-header">
+              <span class="interest-index">01</span>
+              <span class="interest-badge">Evolution</span>
+            </div>
+            <h3>Tumor Evolution & Clonal Architecture</h3>
+            <p>
+              Reconstructing intra-tumor heterogeneity, subclonal phylogenies, and temporal ordering of
+              somatic events using high-depth whole-genome sequencing (WGS).
+            </p>
+            <div class="interest-tags">
+              <span>WGS</span>
+              <span>Tumor Phylogeny</span>
+              <span>Clonal Dynamics</span>
+              <span>Temporal Ordering</span>
+            </div>
+          </article>
+
+          <article class="interest-card reveal">
+            <div class="interest-header">
+              <span class="interest-index">02</span>
+              <span class="interest-badge">Genomics</span>
+            </div>
+            <h3>Structural Variation & Long-Read Genomics</h3>
+            <p>
+              Characterizing complex genomic rearrangements, whole-genome doubling (WGD), and cryptic
+              structural alterations using Oxford Nanopore and PacBio long-read platforms.
+            </p>
+            <div class="interest-tags">
+              <span>Long-Read SV</span>
+              <span>Nanopore / PacBio</span>
+              <span>WGD</span>
+              <span>Chromosomal Instability</span>
+            </div>
+          </article>
+
+          <article class="interest-card reveal">
+            <div class="interest-header">
+              <span class="interest-index">03</span>
+              <span class="interest-badge">Modeling</span>
+            </div>
+            <h3>Multi-Omics Prognostication & Survival Modeling</h3>
+            <p>
+              Building predictive clinical risk models and prioritizing therapeutic biomarkers by integrating
+              multi-omics profiles (genomics, transcriptomics, epigenomics) in breast and ovarian cancers.
+            </p>
+            <div class="interest-tags">
+              <span>Survival Analysis</span>
+              <span>Risk Modeling</span>
+              <span>Multi-Omics Integration</span>
+              <span>Biomarker Discovery</span>
+            </div>
+          </article>
+
+          <article class="interest-card reveal">
+            <div class="interest-header">
+              <span class="interest-index">04</span>
+              <span class="interest-badge">Translational</span>
+            </div>
+            <h3>Translational Cancer Systems Biology</h3>
+            <p>
+              Bridging high-throughput in silico pipelines with wet-lab experimental validation and
+              patient cohorts to identify actionable clinical vulnerabilities.
+            </p>
+            <div class="interest-tags">
+              <span>Functional Validation</span>
+              <span>Precision Oncology</span>
+              <span>Early-Onset Cancers</span>
+              <span>Systems Biology</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="workflow-strip reveal" aria-label="Analytical methodology pipeline">
+          <div class="workflow-strip-title">
+            <span class="workflow-pill">Pipeline</span>
+            <strong>Methodology Workflow:</strong>
           </div>
-          <div class="tool-card reveal">
-            <h3>Transcriptomics</h3>
-            <p>Transcriptomic data analysis for expression-level biological interpretation.</p>
-          </div>
-          <div class="tool-card reveal">
-            <h3>ELISA</h3>
-            <p>Experimental assay experience from immunology-related research contexts.</p>
-          </div>
-          <div class="tool-card reveal">
-            <h3>Western blot</h3>
-            <p>Protein-level analysis experience supporting biological mechanism studies.</p>
+          <div class="workflow-steps">
+            <div class="workflow-step">
+              <span class="step-num">01</span>
+              <div>
+                <strong>Collect</strong>
+                <span>Genomic & omics data</span>
+              </div>
+            </div>
+            <span class="workflow-arrow" aria-hidden="true">→</span>
+            <div class="workflow-step">
+              <span class="step-num">02</span>
+              <div>
+                <strong>Analyze</strong>
+                <span>WGS, SVs, transcripts</span>
+              </div>
+            </div>
+            <span class="workflow-arrow" aria-hidden="true">→</span>
+            <div class="workflow-step">
+              <span class="step-num">03</span>
+              <div>
+                <strong>Interpret</strong>
+                <span>Clonal dynamics</span>
+              </div>
+            </div>
+            <span class="workflow-arrow" aria-hidden="true">→</span>
+            <div class="workflow-step">
+              <span class="step-num">04</span>
+              <div>
+                <strong>Validate</strong>
+                <span>Assays & wet lab</span>
+              </div>
+            </div>
+            <span class="workflow-arrow" aria-hidden="true">→</span>
+            <div class="workflow-step">
+              <span class="step-num">05</span>
+              <div>
+                <strong>Share</strong>
+                <span>Publications & open code</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="section timeline-section" aria-labelledby="interests-title">
-        <h2 id="interests-title">Research interests</h2>
-        <div class="timeline-list">
-          <article class="timeline-item reveal">
-            <span>Focus</span>
-            <div>
-              <h3>Cancer evolution and tumor genomics</h3>
-              <p>Understanding tumor progression through genomic and evolutionary perspectives.</p>
+      <!-- 2. Technical Skills (그 다음) -->
+      <section class="section skills-section compact-section" aria-labelledby="skills-title">
+        <div class="section-heading split-heading">
+          <div>
+            <h2 id="skills-title">Technical Skills</h2>
+          </div>
+          <p>
+            Integrated stack spanning computational bioinformatics, statistical modeling,
+            pipeline engineering, and molecular biology experiments.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-group-card reveal">
+            <div class="skill-group-header">
+              <div class="skill-icon-wrap" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+              </div>
+              <div>
+                <h3>Genomics & Bioinformatics</h3>
+                <span class="skill-sub">Next-generation & long-read sequencing</span>
+              </div>
             </div>
-          </article>
-          <article class="timeline-item reveal">
-            <span>Mechanism</span>
-            <div>
-              <h3>Drug response determinants</h3>
-              <p>Investigating molecular features associated with therapeutic response.</p>
+            <p>
+              End-to-end processing of WGS, WES, RNA-seq, and long-read datasets (Oxford Nanopore, PacBio).
+              Somatic variant calling, SV discovery (Sniffles, CuteSV), and copy number profiling (FACETS, ASCAT).
+            </p>
+            <div class="skill-badges">
+              <span>WGS / WES</span>
+              <span>Long-Read SV</span>
+              <span>RNA-seq</span>
+              <span>CNA & WGD</span>
+              <span>GATK / Mutect2</span>
+              <span>Sniffles</span>
             </div>
-          </article>
-          <article class="timeline-item reveal">
-            <span>Direction</span>
-            <div>
-              <h3>Translational genomics</h3>
-              <p>Expanding toward computational cancer research and international collaboration.</p>
+          </div>
+
+          <div class="skill-group-card reveal">
+            <div class="skill-group-header">
+              <div class="skill-icon-wrap" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="6" y1="9" x2="6" y2="15"/><circle cx="18" cy="9" r="3"/><path d="M6 9a9 9 0 0 1 9 9"/></svg>
+              </div>
+              <div>
+                <h3>Evolution & Phylogeny</h3>
+                <span class="skill-sub">Subclonal architecture & timing</span>
+              </div>
             </div>
-          </article>
+            <p>
+              Clonal deconvolution, subclonal clustering (PyClone, SciClone), tumor phylogenetic tree reconstruction
+              (Treeomics, PhylogicNDT), and temporal ordering of driver events.
+            </p>
+            <div class="skill-badges">
+              <span>Clonal Deconvolution</span>
+              <span>PyClone</span>
+              <span>Phylogenetic Trees</span>
+              <span>Temporal Ordering</span>
+              <span>Subclonal Kinetics</span>
+            </div>
+          </div>
+
+          <div class="skill-group-card reveal">
+            <div class="skill-group-header">
+              <div class="skill-icon-wrap" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+              </div>
+              <div>
+                <h3>Statistical Modeling & ML</h3>
+                <span class="skill-sub">Multi-omics & survival prediction</span>
+              </div>
+            </div>
+            <p>
+              Cox proportional hazards, Kaplan-Meier estimation, regularized regression (Lasso/ElasticNet),
+              multi-omics integrative clustering, and robust clinical biomarker prioritization.
+            </p>
+            <div class="skill-badges">
+              <span>Survival Analysis</span>
+              <span>Cox-PH</span>
+              <span>Multi-Omics Integration</span>
+              <span>Biomarker Scoring</span>
+              <span>scikit-learn</span>
+            </div>
+          </div>
+
+          <div class="skill-group-card reveal">
+            <div class="skill-group-header">
+              <div class="skill-icon-wrap" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <div>
+                <h3>Programming & Pipelines</h3>
+                <span class="skill-sub">Reproducible code & HPC</span>
+              </div>
+            </div>
+            <p>
+              Scalable pipeline execution on Linux / HPC clusters (SLURM). Python & R data science ecosystems,
+              Git / GitHub version control, and containerized workflows with Nextflow & Docker.
+            </p>
+            <div class="skill-badges">
+              <span>Python</span>
+              <span>R / Bioconductor</span>
+              <span>Bash / Linux</span>
+              <span>SLURM / HPC</span>
+              <span>Git & GitHub</span>
+              <span>Nextflow</span>
+            </div>
+          </div>
+
+          <div class="skill-group-card reveal skill-group-full">
+            <div class="skill-group-header">
+              <div class="skill-icon-wrap" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/><path d="M8.5 2h7"/><path d="M7 16h10"/></svg>
+              </div>
+              <div>
+                <h3>Wet Lab & Experimental Assays</h3>
+                <span class="skill-sub">In vitro & in vivo molecular validation</span>
+              </div>
+            </div>
+            <p>
+              Mammalian cell culture, flow cytometry (FACS), Western blotting, ELISA, cytokine multiplex assays,
+              and murine disease models for validating in silico predictions.
+            </p>
+            <div class="skill-badges">
+              <span>Cell Culture</span>
+              <span>FACS</span>
+              <span>Western Blot</span>
+              <span>ELISA</span>
+              <span>Cytokine Assays</span>
+              <span>Murine Models</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. GitHub Profile & Cute Mascot (아래에) -->
+      <section class="section github-section compact-section" aria-labelledby="github-title">
+        <div class="github-card reveal">
+          <div class="github-left">
+            <div class="cute-octocat-wrapper" aria-label="Cute GitHub mascot">
+              <div class="cute-badge-bubble">
+                <span class="cute-bubble-text">Hi there! ✨</span>
+              </div>
+              <div class="cute-avatar-container" title="Click to open GitHub profile" onclick="window.open('https://github.com/Sejung98', '_blank')">
+                <svg class="cute-octocat-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cute GitHub Octocat">
+                  <defs>
+                    <linearGradient id="catGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#2c323b" />
+                      <stop offset="100%" stop-color="#14181f" />
+                    </linearGradient>
+                    <linearGradient id="blushGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#ffa0b5" />
+                      <stop offset="100%" stop-color="#ff6b8b" />
+                    </linearGradient>
+                    <linearGradient id="earInner" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stop-color="#ffcad4" />
+                      <stop offset="100%" stop-color="#ff94aa" />
+                    </linearGradient>
+                    <filter id="cuteShadow" x="-10%" y="-10%" width="130%" height="130%">
+                      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="rgba(0,0,0,0.18)" />
+                    </filter>
+                  </defs>
+
+                  <!-- Cute decorative sparkles -->
+                  <g class="cute-sparkles">
+                    <path d="M 20 28 Q 20 34 26 34 Q 20 34 20 40 Q 20 34 14 34 Q 20 34 20 28 Z" fill="#fbbc04" opacity="0.95" />
+                    <circle cx="102" cy="28" r="3.2" fill="#2b62ff" opacity="0.85" />
+                    <path d="M 103 54 Q 103 58 107 58 Q 103 58 103 62 Q 103 58 99 58 Q 103 58 103 54 Z" fill="#16a36b" opacity="0.85" />
+                  </g>
+
+                  <!-- Left Ear -->
+                  <polygon points="26,46 37,16 56,36" fill="url(#catGradient)" filter="url(#cuteShadow)" />
+                  <polygon points="31,43 39,24 51,37" fill="url(#earInner)" />
+                  <!-- Right Ear -->
+                  <polygon points="94,46 83,16 64,36" fill="url(#catGradient)" filter="url(#cuteShadow)" />
+                  <polygon points="89,43 81,24 69,37" fill="url(#earInner)" />
+
+                  <!-- Head Base -->
+                  <rect x="22" y="32" width="76" height="68" rx="34" fill="url(#catGradient)" filter="url(#cuteShadow)" />
+
+                  <!-- Cute Round Eyes with Twinkling Highlights -->
+                  <ellipse cx="44" cy="62" rx="7.5" ry="8.5" fill="#ffffff" />
+                  <ellipse cx="76" cy="62" rx="7.5" ry="8.5" fill="#ffffff" />
+                  <!-- Dark Pupils -->
+                  <ellipse cx="45" cy="63" rx="5.5" ry="6.5" fill="#14181f" />
+                  <ellipse cx="77" cy="63" rx="5.5" ry="6.5" fill="#14181f" />
+                  <!-- Big Sparkles in Eyes -->
+                  <circle cx="43" cy="60" r="2.6" fill="#ffffff" />
+                  <circle cx="47" cy="65" r="1.3" fill="#ffffff" />
+                  <circle cx="75" cy="60" r="2.6" fill="#ffffff" />
+                  <circle cx="79" cy="65" r="1.3" fill="#ffffff" />
+
+                  <!-- Rosy Blushing Cheeks -->
+                  <ellipse cx="34" cy="74" rx="7.5" ry="4.8" fill="url(#blushGradient)" opacity="0.88" />
+                  <ellipse cx="86" cy="74" rx="7.5" ry="4.8" fill="url(#blushGradient)" opacity="0.88" />
+
+                  <!-- Cute Nose & Cheerful Smiling Mouth -->
+                  <ellipse cx="60" cy="69" rx="2.5" ry="2" fill="#ff94aa" />
+                  <path d="M 52 73 Q 56 78 60 74 Q 64 78 68 73" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" fill="none" />
+
+                  <!-- Cute Whiskers -->
+                  <line x1="18" y1="67" x2="28" y2="69" stroke="#d9dde4" stroke-width="1.6" stroke-linecap="round" opacity="0.65" />
+                  <line x1="17" y1="74" x2="28" y2="73" stroke="#d9dde4" stroke-width="1.6" stroke-linecap="round" opacity="0.65" />
+                  <line x1="102" y1="67" x2="92" y2="69" stroke="#d9dde4" stroke-width="1.6" stroke-linecap="round" opacity="0.65" />
+                  <line x1="103" y1="74" x2="92" y2="73" stroke="#d9dde4" stroke-width="1.6" stroke-linecap="round" opacity="0.65" />
+
+                  <!-- Adorable Little White Paws Peeking at Bottom -->
+                  <ellipse cx="45" cy="98" rx="8.5" ry="6" fill="#ffffff" filter="url(#cuteShadow)" />
+                  <ellipse cx="75" cy="98" rx="8.5" ry="6" fill="#ffffff" filter="url(#cuteShadow)" />
+                  <!-- Pink Paw Pads -->
+                  <ellipse cx="45" cy="98" rx="4.5" ry="3" fill="#ff94aa" />
+                  <ellipse cx="75" cy="98" rx="4.5" ry="3" fill="#ff94aa" />
+                </svg>
+              </div>
+              <span class="cute-mascot-label">@Sejung98</span>
+            </div>
+          </div>
+
+          <div class="github-right">
+            <div class="github-header">
+              <span class="github-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                GitHub Repository
+              </span>
+              <span class="github-status">Active Code & Pipelines</span>
+            </div>
+
+            <h2 id="github-title">github.com/Sejung98</h2>
+            <p class="github-desc">
+              Computational genomics pipelines, tumor evolution analysis code, structural variation workflows,
+              and open-source research tools developed by Se Jung Lee.
+            </p>
+
+            <div class="github-actions">
+              <a class="button button-dark github-link-btn" href="https://github.com/Sejung98" target="_blank" rel="noreferrer">
+                <span>https://github.com/Sejung98</span>
+                <span class="btn-arrow" aria-hidden="true">↗</span>
+              </a>
+              <a class="button button-light" href="https://github.com/Sejung98?tab=repositories" target="_blank" rel="noreferrer">
+                <span>View Repositories</span>
+              </a>
+            </div>
+
+            <div class="github-meta-tags" aria-label="Repository topics">
+              <span>#cancer-genomics</span>
+              <span>#tumor-evolution</span>
+              <span>#long-read-sv</span>
+              <span>#multi-omics</span>
+              <span>#bioinformatics</span>
+            </div>
+          </div>
         </div>
       </section>
     </main>
