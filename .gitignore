@@ -1,0 +1,5 @@
+# Backups and private files
+assets/data/*original*
+*.bak
+.DS_Store
+Thumbs.db
