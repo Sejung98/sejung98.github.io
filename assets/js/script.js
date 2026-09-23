@@ -157,25 +157,3 @@ function drawFlowBackground(time) {
 
   flowAnimationId = requestAnimationFrame(drawFlowBackground);
 }
-
-const revealObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-      }
-    });
-  },
-  { threshold: 0.16 }
-);
-
-document
-  .querySelectorAll(
-    ".reveal, .reveal-from-right, .project-card, .craft-card, .about-section, .contact-section, .case-study, .process-step"
-  )
-  .forEach((item) => {
-    if (!item.classList.contains("reveal-from-right")) {
-      item.classList.add("reveal");
-    }
-    revealObserver.observe(item);
-  });
