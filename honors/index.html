@@ -8,7 +8,7 @@
       name="description"
       content="Grants, fellowships, awards, and outreach activity of Sejung Lee."
     />
-    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <link rel="stylesheet" href="../assets/css/styles.css?v=5" />
   </head>
   <body>
     <canvas class="ambient-field" id="ambient-field" aria-hidden="true"></canvas>
@@ -45,29 +45,41 @@
         <ol class="record-list">
           <li class="record-item">
             <span class="record-period">2025 &ndash; 2026</span>
-            <div>
-              <h3>Presidential Science Fellowship for Graduate Studies</h3>
-              <p class="record-org">
-                Ministry of Science and ICT (MSIT) &amp; Korea Student Aid Foundation (KOSAF)
-              </p>
-              <p>
-                National fellowship awarded to graduate students in science and engineering.
-                Mar. 2025 &ndash; Feb. 2026.
-              </p>
+            <div class="record-entry">
+              <div class="record-thumb">
+                <img
+                  src="../assets/images/presidential.jpg"
+                  alt="Presidential Science Fellowship certificate conferment ceremony"
+                  loading="lazy"
+                  data-caption="Presidential Science Fellowship certificate conferment ceremony at the Blue House"
+                />
+              </div>
+              <div class="record-body">
+                <h3>Presidential Science Fellowship for Graduate Studies</h3>
+                <p class="record-org">
+                  Ministry of Science and ICT (MSIT) &amp; Korea Student Aid Foundation (KOSAF)
+                </p>
+                <p>
+                  National fellowship awarded to graduate students in science and engineering.
+                  Mar. 2025 &ndash; Feb. 2026.
+                </p>
+              </div>
             </div>
           </li>
           <li class="record-item">
             <span class="record-period">2024 &ndash; 2025</span>
-            <div>
-              <h3>Graduate Student Research Fellowship</h3>
-              <p class="record-org">
-                Support for the Next Generation of Scholars, National Research Foundation of Korea
-                (NRF)
-              </p>
-              <p>
-                Research funding supporting early-stage graduate work in cancer genomics.
-                Sep. 2024 &ndash; Jun. 2025.
-              </p>
+            <div class="record-entry">
+              <div class="record-body">
+                <h3>Graduate Student Research Fellowship</h3>
+                <p class="record-org">
+                  Support for the Next Generation of Scholars, National Research Foundation of Korea
+                  (NRF)
+                </p>
+                <p>
+                  Research funding supporting early-stage graduate work in cancer genomics.
+                  Sep. 2024 &ndash; Jun. 2025.
+                </p>
+              </div>
             </div>
           </li>
         </ol>
@@ -81,16 +93,26 @@
         <ol class="record-list">
           <li class="record-item">
             <span class="record-period">2025</span>
-            <div>
-              <h3>
-                Poster Excellence Award
-                <span class="publication-award">BIOINFO 2025</span>
-              </h3>
-              <p class="record-org">Korea Genome Organization (KOGO) Annual Conference</p>
-              <p>
-                Awarded for &ldquo;Elucidating genetic profiles and evolutionary trajectories of
-                early-onset breast cancer.&rdquo;
-              </p>
+            <div class="record-entry">
+              <div class="record-thumb">
+                <img
+                  src="../assets/images/KOGO.jpg"
+                  alt="Poster Excellence Award at the 34th International KOGO Annual Conference"
+                  loading="lazy"
+                  data-caption="Poster Excellence Award (우수 포스터상) at the 34th International KOGO Annual Conference"
+                />
+              </div>
+              <div class="record-body">
+                <h3>
+                  Poster Excellence Award
+                  <span class="publication-award">BIOINFO 2025</span>
+                </h3>
+                <p class="record-org">Korea Genome Organization (KOGO) Annual Conference</p>
+                <p>
+                  Awarded for &ldquo;Elucidating genetic profiles and evolutionary trajectories of
+                  early-onset breast cancer.&rdquo;
+                </p>
+              </div>
             </div>
           </li>
         </ol>
@@ -104,17 +126,27 @@
         <ol class="record-list">
           <li class="record-item">
             <span class="record-period">2024</span>
-            <div>
-              <h3>Student Mentor, Gyeongam Bio-Youth Camp</h3>
-              <p class="record-org">
-                Korean Society for Molecular and Cell Biology (KSMCB)
-              </p>
-              <p>
-                Invited back as a mentor to the same youth science camp I attended as a high-school
-                freshman in 2014 &mdash; a decade later, on the other side of it. I talked with
-                high-school students weighing science careers about why I chose the field and what
-                the research that followed actually looked like.
-              </p>
+            <div class="record-entry">
+              <div class="record-thumb">
+                <img
+                  src="../assets/images/mentor.jpg"
+                  alt="Student Mentor at the 20th Gyeongam BIO-Youth Camp"
+                  loading="lazy"
+                  data-caption="20th Gyeongam BIO-Youth Camp mentor &amp; student cohort at Severance Hospital"
+                />
+              </div>
+              <div class="record-body">
+                <h3>Student Mentor, Gyeongam Bio-Youth Camp</h3>
+                <p class="record-org">
+                  Korean Society for Molecular and Cell Biology (KSMCB)
+                </p>
+                <p>
+                  Invited back as a mentor to the same youth science camp I attended as a high-school
+                  freshman in 2014 &mdash; a decade later, on the other side of it. I talked with
+                  high-school students weighing science careers about why I chose the field and what
+                  the research that followed actually looked like.
+                </p>
+              </div>
             </div>
           </li>
         </ol>
@@ -126,6 +158,66 @@
       <span><a href="../contact/">Contact</a></span>
     </footer>
 
-    <script src="../assets/js/script.js"></script>
+    <div class="image-lightbox" id="image-lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="image-lightbox-overlay" id="image-lightbox-overlay"></div>
+      <div class="image-lightbox-container">
+        <button type="button" class="image-lightbox-close" id="image-lightbox-close" aria-label="Close image">&times;</button>
+        <img id="image-lightbox-img" src="" alt="" />
+        <p id="image-lightbox-caption" class="image-lightbox-caption"></p>
+      </div>
+    </div>
+
+    <script>
+      (function() {
+        const lightbox = document.getElementById("image-lightbox");
+        const lightboxImg = document.getElementById("image-lightbox-img");
+        const lightboxCaption = document.getElementById("image-lightbox-caption");
+        const closeBtn = document.getElementById("image-lightbox-close");
+        const overlay = document.getElementById("image-lightbox-overlay");
+
+        function openLightbox(src, alt, caption) {
+          if (!lightbox || !lightboxImg) return;
+          lightboxImg.src = src;
+          lightboxImg.alt = alt || "";
+          if (lightboxCaption) {
+            lightboxCaption.textContent = caption || alt || "";
+            lightboxCaption.style.display = (caption || alt) ? "block" : "none";
+          }
+          lightbox.classList.add("is-open");
+          lightbox.setAttribute("aria-hidden", "false");
+          document.body.style.overflow = "hidden";
+        }
+
+        function closeLightbox() {
+          if (!lightbox) return;
+          lightbox.classList.remove("is-open");
+          lightbox.setAttribute("aria-hidden", "true");
+          document.body.style.overflow = "";
+          if (lightboxImg) lightboxImg.src = "";
+        }
+
+        document.addEventListener("click", function(e) {
+          const img = e.target.closest(".record-thumb img");
+          if (img) {
+            e.preventDefault();
+            e.stopPropagation();
+            const fullSrc = img.getAttribute("src");
+            const alt = img.getAttribute("alt");
+            const caption = img.getAttribute("data-caption") || alt;
+            openLightbox(fullSrc, alt, caption);
+          }
+        });
+
+        if (closeBtn) closeBtn.addEventListener("click", closeLightbox);
+        if (overlay) overlay.addEventListener("click", closeLightbox);
+
+        window.addEventListener("keydown", function(e) {
+          if (e.key === "Escape" && lightbox && lightbox.classList.contains("is-open")) {
+            closeLightbox();
+          }
+        });
+      })();
+    </script>
+    <script src="../assets/js/script.js?v=5"></script>
   </body>
 </html>
