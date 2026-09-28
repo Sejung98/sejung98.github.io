@@ -157,3 +157,55 @@ function drawFlowBackground(time) {
 
   flowAnimationId = requestAnimationFrame(drawFlowBackground);
 }
+
+// Image Lightbox for records and gallery
+(function initImageLightbox() {
+  const lightbox = document.getElementById("image-lightbox");
+  if (!lightbox) return;
+
+  const lightboxImg = document.getElementById("image-lightbox-img");
+  const lightboxCaption = document.getElementById("image-lightbox-caption");
+  const closeBtn = document.getElementById("image-lightbox-close");
+  const overlay = document.getElementById("image-lightbox-overlay");
+
+  function openLightbox(src, alt, caption) {
+    if (!lightboxImg) return;
+    lightboxImg.src = src;
+    lightboxImg.alt = alt || "";
+    if (lightboxCaption) {
+      lightboxCaption.textContent = caption || alt || "";
+      lightboxCaption.style.display = caption || alt ? "block" : "none";
+    }
+    lightbox.classList.add("is-open");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove("is-open");
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    if (lightboxImg) {
+      lightboxImg.src = "";
+    }
+  }
+
+  document.querySelectorAll(".record-thumb img").forEach((img) => {
+    img.addEventListener("click", () => {
+      const fullSrc = img.getAttribute("src");
+      const alt = img.getAttribute("alt");
+      const caption = img.getAttribute("data-caption") || alt;
+      openLightbox(fullSrc, alt, caption);
+    });
+  });
+
+  if (closeBtn) closeBtn.addEventListener("click", closeLightbox);
+  if (overlay) overlay.addEventListener("click", closeLightbox);
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && lightbox.classList.contains("is-open")) {
+      closeLightbox();
+    }
+  });
+})();
+
