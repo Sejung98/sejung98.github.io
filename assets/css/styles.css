@@ -173,6 +173,36 @@ h3 {
   padding: 112px 0 96px;
 }
 
+.hero-city {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  margin-bottom: 20px;
+  color: var(--accent);
+  opacity: 0.28;
+}
+
+.hero-city-label {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  padding-bottom: 2px;
+}
+
+.hero-city-label strong {
+  font-size: 22px;
+  letter-spacing: 0.08em;
+}
+
+.hero-city-label span {
+  font-size: 12px;
+}
+
+.hero-city svg {
+  width: 190px;
+  height: auto;
+}
+
 .hero-lede,
 .page-hero p {
   max-width: 36em;
