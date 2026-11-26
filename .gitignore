@@ -3,3 +3,4 @@ assets/data/*original*
 *.bak
 .DS_Store
 Thumbs.db
+/CV_SejungLee.docx
